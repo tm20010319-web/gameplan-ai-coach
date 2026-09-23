@@ -1,0 +1,8 @@
+.coach-body label { display: grid; gap: 8px; margin-bottom: 16px; }
+.coach-body label.check { display: flex; }
+.coach-body textarea { width: 100%; max-width: 100%; min-height: 64px; resize: vertical; color: inherit; background: #101b22; border: 1px solid #344b57; border-radius: 4px; padding: 10px; font: inherit; box-sizing: border-box; }
+.coach-body select { width: 100%; min-width: 0; }
+#results section { border-top: 1px solid #344b57; padding: 12px 0; overflow-wrap: anywhere; }
+#results h3 { font-size: 17px; letter-spacing: 0; }
+.preview img { max-width: 100%; max-height: 65vh; object-fit: contain; }
+.control-row { flex-wrap: wrap; }

@@ -1,0 +1,1815 @@
+{
+  "observation": {
+    "phase": "in_game",
+    "game_time_s": null,
+    "player_hero": null,
+    "player_hp_percent": null,
+    "ally_roster": [
+      "云缨",
+      "廉颇",
+      "海月",
+      "艾琳"
+    ],
+    "enemy_roster": [
+      "吕布",
+      "嬴政",
+      "孙策",
+      "敖隐",
+      "瑶"
+    ],
+    "hero_levels": [
+      {
+        "hero": "艾琳",
+        "level": 3,
+        "visible_text": "3",
+        "confidence": 0.9824693202972412,
+        "frame_index": 5
+      },
+      {
+        "hero": "艾琳",
+        "level": 3,
+        "visible_text": "3",
+        "confidence": 0.9923419952392578,
+        "frame_index": 0
+      },
+      {
+        "hero": "艾琳",
+        "level": 3,
+        "visible_text": "3",
+        "confidence": 0.9824693202972412,
+        "frame_index": 5
+      },
+      {
+        "hero": "艾琳",
+        "level": 3,
+        "visible_text": "3",
+        "confidence": 0.9859108924865723,
+        "frame_index": 3
+      },
+      {
+        "hero": "艾琳",
+        "level": 3,
+        "visible_text": "3",
+        "confidence": 0.9928410053253174,
+        "frame_index": 1
+      },
+      {
+        "hero": "艾琳",
+        "level": 3,
+        "visible_text": "3",
+        "confidence": 0.9829639196395874,
+        "frame_index": 2
+      }
+    ],
+    "summoner_skills": [],
+    "self_skills": [],
+    "enemy_skill_events": [],
+    "note": ""
+  },
+  "model": "qwen3-vl:8b-instruct",
+  "frame_id": "c92c43f30d9b4355a5bf9d239ca85d59",
+  "lane_context": null,
+  "bp_slots": null,
+  "bp_context": null,
+  "loading_context": null,
+  "input_kind": "video",
+  "video_time_s": 268.5,
+  "focus": "skills",
+  "enemy_skill_timers": [],
+  "enemy_skill_updates": [],
+  "enemy_skill_suspicions": [
+    {
+      "id": "5312ae4366f34018b40018507c597d91",
+      "hero": "孙策",
+      "skill": "长帆破浪",
+      "is_ultimate": true,
+      "status": "suspected",
+      "captured_at": 1789726462.5694566,
+      "last_seen_at": 1789726462.5694566,
+      "expires_at": 1789726470.5694566,
+      "confidence": 0.9,
+      "evidence": "在F2至F5帧中，敌方角色持续驾驶战船，船体特效、航行姿态及血条显示均符合孙策大招‘长帆破浪’的机制描述。",
+      "reason": "visual_identity_unconfirmed",
+      "display_expires_at": 1789726826.4699907,
+      "video_time_s": 267.5
+    }
+  ],
+  "enemy_skill_activity": [],
+  "enemy_ultimate_states": [
+    {
+      "hero": "吕布",
+      "level": null,
+      "level_captured_at": null,
+      "unlock_level": 4,
+      "status": "level_unknown"
+    },
+    {
+      "hero": "嬴政",
+      "level": null,
+      "level_captured_at": null,
+      "unlock_level": 4,
+      "status": "level_unknown"
+    },
+    {
+      "hero": "孙策",
+      "level": null,
+      "level_captured_at": null,
+      "unlock_level": 4,
+      "status": "level_unknown"
+    },
+    {
+      "hero": "敖隐",
+      "level": null,
+      "level_captured_at": null,
+      "unlock_level": 4,
+      "status": "level_unknown"
+    },
+    {
+      "hero": "瑶",
+      "level": null,
+      "level_captured_at": null,
+      "unlock_level": 4,
+      "status": "level_unknown"
+    }
+  ],
+  "enemy_summoner_states": [
+    {
+      "hero": "吕布",
+      "skill": null,
+      "status": "unknown"
+    },
+    {
+      "hero": "嬴政",
+      "skill": null,
+      "status": "unknown"
+    },
+    {
+      "hero": "孙策",
+      "skill": null,
+      "status": "unknown"
+    },
+    {
+      "hero": "敖隐",
+      "skill": null,
+      "status": "unknown"
+    },
+    {
+      "hero": "瑶",
+      "skill": null,
+      "status": "unknown"
+    }
+  ],
+  "skill_scan": {
+    "frames": 6,
+    "qwen_frames_submitted": null,
+    "full_frame_review": null,
+    "target_latency_s": 5,
+    "detector_status": "visual_suspected",
+    "visual_review_status": "visual_review",
+    "max_frame_gap_s": 0.2,
+    "rejected_candidates": {},
+    "latency_s": 356.9,
+    "over_target": true,
+    "processing_s": 15.01,
+    "suspected_count": 1,
+    "coverage_status": "knowledge_configured_real_match_validation_pending"
+  },
+  "captured_at": 1789726463.5694566,
+  "processed_at": 1789726819.4699907,
+  "elapsed_s": 15.01,
+  "age_s": 355.9,
+  "fresh": false,
+  "hero_knowledge": [
+    {
+      "hero": "云缨",
+      "hero_id": 538,
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/538.json",
+      "status": "official_reference",
+      "skills": [
+        {
+          "slot": 0,
+          "name": "枪意·掠火",
+          "passive": true,
+          "cooldown_s": [
+            0.0
+          ],
+          "cooldown_text": "0",
+          "description": "云缨与神兵“掠火”心念相通，释放技能会领悟一层枪意，使用普攻会消耗所有枪意，释放对应的枪意技【坚意·止戈】、【锐意·摧城】和【真意·燎原】，并减少【断月】和【追云】1.5秒冷却时间。枪意技可暴击，受15%攻速影响。",
+          "special_mechanic": true,
+          "is_ultimate": false,
+          "source_skill_id": "53800",
+          "tips": "建议关掉自动普通攻击以使用云缨，三层枪意技分别对应近/中/远的攻击距离，注意灵活选择与运用，在连招中插入枪意技",
+          "cooldown_kind": "no_fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 1,
+          "name": "断月",
+          "passive": false,
+          "cooldown_s": [
+            9.0,
+            8.8,
+            8.6,
+            8.4,
+            8.2,
+            8.0
+          ],
+          "cooldown_text": "9/8.8/8.6/8.4/8.2/8",
+          "description": "云缨举枪向前方上挑后下劈，上挑可造成0.5秒击飞，每段造成180/216/252/288/324/360(+60%额外物理攻击)物理伤害。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "53810",
+          "tips": "射程较远的瞬时控制技能，尽量命中敌人",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 2,
+          "name": "追云",
+          "passive": false,
+          "cooldown_s": [
+            10.0,
+            9.6,
+            9.2,
+            8.8,
+            8.4,
+            8.0
+          ],
+          "cooldown_text": "10/9.6/9.2/8.8/8.4/8",
+          "description": "云缨提枪蓄力冲锋，获得最高增加25/30/35/40/45/50%移速，结束时向前突进横扫，对敌人造成80/110/140/170/200/230(+50%物理攻击)~160/220/280/340/400/460(+100%物理攻击)物理伤害和15/18/21/24/27/30%减速，持续1秒。 蓄力冲锋时间越长，加速越高，结束突进越远，伤害越高。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "53820",
+          "tips": "2技能蓄力时间越久，位移和伤害越高，抓人突进时可率先使用",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 3,
+          "name": "逐星",
+          "passive": false,
+          "cooldown_s": [
+            40.0,
+            37.5,
+            35.0
+          ],
+          "cooldown_text": "40/37.5/35",
+          "description": "云缨引燃“掠火”枪尖，向前方区域来回突击，每段都对敌人造成70/140/210(+55%物理攻击)物理伤害和击飞。在突击至最远处时会连续刺击4次，每次造成35/70/105(+27%物理攻击)物理伤害。技能释放期间处于霸体状态并减少10/40/70%受到的伤害。 激活技能二段【啸日】，挥动“掠火”向前横扫并留下火径，持续3秒。横扫造成70/140/210(+55%物理攻击)物理伤害，火径每0.2秒造成30(+10%物理攻击)法术伤害。【逐星】释放期间，可以使用技能第二段横扫四周，打断后续突进造成60(+35%物理攻击)的物理伤害并留下圆形火径，持续3秒。",
+          "special_mechanic": false,
+          "is_ultimate": true,
+          "source_skill_id": "53830",
+          "tips": "大招可以将远距离敌人拉回，同时提供较长控制和较高伤害，便于后续连招衔接，尽量命中",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        }
+      ],
+      "ultimate": {
+        "slot": 3,
+        "name": "逐星",
+        "passive": false,
+        "cooldown_s": [
+          40.0,
+          37.5,
+          35.0
+        ],
+        "cooldown_text": "40/37.5/35",
+        "description": "云缨引燃“掠火”枪尖，向前方区域来回突击，每段都对敌人造成70/140/210(+55%物理攻击)物理伤害和击飞。在突击至最远处时会连续刺击4次，每次造成35/70/105(+27%物理攻击)物理伤害。技能释放期间处于霸体状态并减少10/40/70%受到的伤害。 激活技能二段【啸日】，挥动“掠火”向前横扫并留下火径，持续3秒。横扫造成70/140/210(+55%物理攻击)物理伤害，火径每0.2秒造成30(+10%物理攻击)法术伤害。【逐星】释放期间，可以使用技能第二段横扫四周，打断后续突进造成60(+35%物理攻击)的物理伤害并留下圆形火径，持续3秒。",
+        "special_mechanic": false,
+        "is_ultimate": true,
+        "source_skill_id": "53830",
+        "tips": "大招可以将远距离敌人拉回，同时提供较长控制和较高伤害，便于后续连招衔接，尽量命中",
+        "cooldown_kind": "per_level",
+        "cooldown_formula": null,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "cooldown_alternatives": []
+      },
+      "has_skill_data": true,
+      "has_ultimate_cooldown": true,
+      "catalog_note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。",
+      "fetched_at": "2026-09-16T10:20:32.277888+00:00",
+      "title": "燎原之心",
+      "roles": [
+        1,
+        4
+      ],
+      "tactical_reference": null,
+      "coaching_profile": null,
+      "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。"
+    },
+    {
+      "hero": "廉颇",
+      "hero_id": 105,
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/105.json",
+      "status": "official_reference",
+      "skills": [
+        {
+          "slot": 0,
+          "name": "勇士之魂",
+          "passive": true,
+          "cooldown_s": [
+            0.0
+          ],
+          "cooldown_text": "0",
+          "description": "廉颇释放技能时处于霸体状态。廉颇进入战斗后战意逐渐提升，普通攻击和技能命中单位时也会增加战意值，减伤效果随战意值提升而增强，最多获得20%减伤。战意充盈时，廉颇提升30%攻速。脱战后战意逐渐降低并转化为每次70-140(+1.5%额外生命值)点生命回复，最多回复10次。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "10500",
+          "tips": "在敌方交控制技能时，可释放技能利用霸体效果免疫；进入战斗前，可利用兵线和野怪保持战意",
+          "cooldown_kind": "no_fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 1,
+          "name": "爆裂冲撞",
+          "passive": false,
+          "cooldown_s": [
+            10.0,
+            9.6,
+            9.2,
+            8.8,
+            8.4,
+            8.0
+          ],
+          "cooldown_text": "10/9.6/9.2/8.8/8.4/8",
+          "description": "廉颇向前冲锋并对路径上的敌人造成55/66/77/88/99/110(+15%额外物理攻击)物理伤害，击飞(持续0.5秒)并对英雄造成目标5%敌方英雄最大生命撞击伤害，对非英雄造成自身5%最大生命撞击伤害 廉颇的第三下普攻为直拳重击，额外造成250/300/350/400/450/500(+100%额外物理攻击)物理伤害",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "10510",
+          "tips": "在技能连接中穿插平A可以有效提高输出",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 2,
+          "name": "熔岩重击",
+          "passive": false,
+          "cooldown_s": [
+            10.0,
+            9.6,
+            9.2,
+            8.8,
+            8.4,
+            8.0
+          ],
+          "cooldown_text": "10/9.6/9.2/8.8/8.4/8",
+          "description": "廉颇用臂甲向地面注入狂暴力量，获得400/480/560/640/720/800(+10%额外生命值)点护盾，1秒后地面崩裂，造成350/420/490/560/630/700(+90%额外物理攻击)物理伤害，距离中心越近伤害越高，最高提升100%。 技能范围内有敌人时会刷新【爆裂冲撞】的冷却，敌人会减少15/18/21/24/27/30%移速，非英雄单位会被拉向范围中心。 技能释放期间可以使用其他技能。",
+          "special_mechanic": true,
+          "is_ultimate": false,
+          "source_skill_id": "10520",
+          "tips": "廉颇迸发狂暴力量并通过臂甲传入地面，获得350点护盾，1秒后地面会崩裂，对区域内的敌人造成150/170/190/210/230/250（+120%物理加成）（+4%最大生命加成）物理伤害，距离中心越近伤害越高，最高提升100%。技能范围内有敌人时会重置爆裂冲撞的冷却时间，并减少范围内敌人30%移动速度，非英雄单位会被拉向范围中心。技能释放期间可以使用其他技能。",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 3,
+          "name": "天崩地裂",
+          "passive": false,
+          "cooldown_s": [
+            50.0,
+            45.0,
+            40.0
+          ],
+          "cooldown_text": "50/45/40",
+          "description": "廉颇跳向指定区域连续锤击地面三次。 第一次：造成220/330/440(+50%额外攻击力)物理伤害和15/22.5/30%减速，对锤击中心区域额外造成60%额外物理攻击物理伤害。 第二次：造成440(+10%额外生命值)物理伤害和30/45/60%减速，对锤击中心区域额外造成90%额外物理攻击物理伤害。 第三次：造成660(+150%额外物理攻击)物理伤害和1秒击飞并对英雄造成目标10%敌敌方英雄最大生命的撞击伤害(对非英雄单位造成10%自身最大生命的撞击伤害)，对锤击中心区域额外造成150%额外物理攻击物理伤害。 技能释放期间可以使用【爆裂冲撞】。",
+          "special_mechanic": false,
+          "is_ultimate": true,
+          "source_skill_id": "10530",
+          "tips": "大招期间可以使用一技能位移，提升大招第三段的命中率，达到留人效果",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        }
+      ],
+      "ultimate": {
+        "slot": 3,
+        "name": "天崩地裂",
+        "passive": false,
+        "cooldown_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "cooldown_text": "50/45/40",
+        "description": "廉颇跳向指定区域连续锤击地面三次。 第一次：造成220/330/440(+50%额外攻击力)物理伤害和15/22.5/30%减速，对锤击中心区域额外造成60%额外物理攻击物理伤害。 第二次：造成440(+10%额外生命值)物理伤害和30/45/60%减速，对锤击中心区域额外造成90%额外物理攻击物理伤害。 第三次：造成660(+150%额外物理攻击)物理伤害和1秒击飞并对英雄造成目标10%敌敌方英雄最大生命的撞击伤害(对非英雄单位造成10%自身最大生命的撞击伤害)，对锤击中心区域额外造成150%额外物理攻击物理伤害。 技能释放期间可以使用【爆裂冲撞】。",
+        "special_mechanic": false,
+        "is_ultimate": true,
+        "source_skill_id": "10530",
+        "tips": "大招期间可以使用一技能位移，提升大招第三段的命中率，达到留人效果",
+        "cooldown_kind": "per_level",
+        "cooldown_formula": null,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "cooldown_alternatives": []
+      },
+      "has_skill_data": true,
+      "has_ultimate_cooldown": true,
+      "catalog_note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。",
+      "fetched_at": "2026-09-16T10:20:18.634123+00:00",
+      "title": "正义爆轰",
+      "roles": [
+        3
+      ],
+      "tactical_reference": null,
+      "coaching_profile": null,
+      "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。"
+    },
+    {
+      "hero": "海月",
+      "hero_id": 521,
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/521.json",
+      "status": "official_reference",
+      "skills": [
+        {
+          "slot": 0,
+          "name": "别月",
+          "passive": true,
+          "cooldown_s": [
+            0.0
+          ],
+          "cooldown_text": "0",
+          "description": "海月身后有三个月盘，释放【瞬华】、【 流光】时会消耗一个月盘，全部消耗后【瞬华】、 【流光】会进入完整的技能冷却，同时获得次强化普攻， 额外产生3颗法球，每颗法球造 成25~50(+6%法术攻击)法术伤害。【瞬华】、【 流光】命中目标后会给目标叠加一层印记，再 次命中后会触发不同的效果。",
+          "special_mechanic": true,
+          "is_ultimate": false,
+          "source_skill_id": "52100",
+          "tips": "海月的月盘恢复时间受冷却影响。当月盘未消耗完毕且即将恢复满时，可以等待月盘恢复满再释放技能，可以短时间打出三次1、2技能。",
+          "cooldown_kind": "no_fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 1,
+          "name": "瞬华",
+          "passive": false,
+          "cooldown_s": [
+            7.0
+          ],
+          "cooldown_text": "7",
+          "description": "海月向前释放一道月光， 造成350/420/490/560/630/700(+75%法术攻击)法术伤害。如果触发印记，对目标额外造成70/84/98/112/126/140(+14%法术攻击)真实伤害。 海月在幻境中释放一技能命中墙体反弹，对敌方造成1/3伤害，若命中自己获得200/240/280/320/360/400(+3%额外生命)回复 海月在幻境中释放一技能超出技能距离后造成1/3伤害",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "52110",
+          "tips": "命中带印记的目标会造成额外真实伤害",
+          "cooldown_kind": "fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 2,
+          "name": "流光",
+          "passive": false,
+          "cooldown_s": [
+            7.0
+          ],
+          "cooldown_text": "7",
+          "description": "海月发出三枚琉璃法球，第一枚造成100/120/140/160/180/220(+20%法术攻击)法术伤害。随后两枚法球造成50/60/70/80/90/100(+10%法术攻击)法术伤害，并获得250/300/350/400/450/500(+40%法术攻击)的护盾，持续3秒，并获得持续2秒逐渐增加至30%的移动速度。如果触发印记，则对目标额外造成1枚法球伤害，对目标造成晕眩(1/3秒)",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "52120",
+          "tips": "命中带印记的目标会造成禁锢效果；当周围的多个英雄目标时，副子弹会随机选择目标。",
+          "cooldown_kind": "fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 3,
+          "name": "幻海映月",
+          "passive": false,
+          "cooldown_s": [
+            75.0,
+            72.5,
+            70.0
+          ],
+          "cooldown_text": "75/72.5/70",
+          "description": "海月链接一个英雄， 期间获得30%/45%/60%伤害减免，1.5秒后海月与目标一同进入水月幻境获得470/705/940(+7%额外生命)护盾。在幻境中海月获得60%冷却加快(双方超过一定距离则链接断开，并返还【幻海映月】75%冷却时间) 海月在幻境中再次释放【幻海映月】可朝指定方向位移(命中幻境边缘从另一侧穿出)",
+          "special_mechanic": true,
+          "is_ultimate": true,
+          "source_skill_id": "52130",
+          "tips": "3技能第二段可以使海月位移到离目标7米的距离，合理利用，拉开与目标的距离。",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        }
+      ],
+      "ultimate": {
+        "slot": 3,
+        "name": "幻海映月",
+        "passive": false,
+        "cooldown_s": [
+          75.0,
+          72.5,
+          70.0
+        ],
+        "cooldown_text": "75/72.5/70",
+        "description": "海月链接一个英雄， 期间获得30%/45%/60%伤害减免，1.5秒后海月与目标一同进入水月幻境获得470/705/940(+7%额外生命)护盾。在幻境中海月获得60%冷却加快(双方超过一定距离则链接断开，并返还【幻海映月】75%冷却时间) 海月在幻境中再次释放【幻海映月】可朝指定方向位移(命中幻境边缘从另一侧穿出)",
+        "special_mechanic": true,
+        "is_ultimate": true,
+        "source_skill_id": "52130",
+        "tips": "3技能第二段可以使海月位移到离目标7米的距离，合理利用，拉开与目标的距离。",
+        "cooldown_kind": "per_level",
+        "cooldown_formula": null,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "cooldown_alternatives": []
+      },
+      "has_skill_data": true,
+      "has_ultimate_cooldown": true,
+      "catalog_note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。",
+      "fetched_at": "2026-09-16T10:20:32.870251+00:00",
+      "title": "永夜之心",
+      "roles": [
+        2
+      ],
+      "tactical_reference": {
+        "hero": "海月",
+        "lane": "中路",
+        "role": "法师",
+        "threat": "隔离关键目标改变人数关系",
+        "weakness": "依赖目标选择和队友跟进",
+        "laning": "控制安全距离，关键技能空窗推线转边",
+        "teamfight": "避免核心单独前压，隔离时其余队员先稳阵型",
+        "ally_plan": "隔离前确认剩余队友能打，别随意带走敌方残血前排"
+      },
+      "coaching_profile": null,
+      "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。"
+    },
+    {
+      "hero": "艾琳",
+      "hero_id": 155,
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/155.json",
+      "status": "official_reference",
+      "skills": [
+        {
+          "slot": 0,
+          "name": "精灵舞步",
+          "passive": true,
+          "cooldown_s": [
+            0.0
+          ],
+          "cooldown_text": "0",
+          "description": "艾琳普攻造成(+100%物理攻击)(+20%法术攻击)物理伤害，并获得能量。能量充盈后艾琳消耗能量急速飞行，每100点法术攻击可以提升25~50点移速(最多675)。能量充盈后艾琳获得一层月桂印记和强化普攻，对路径上的目标造成70(+124%物理攻击)(+30%法术攻击)物理伤害。 艾琳的穿透/吸血为全能穿透/吸血，取物理穿透/吸血和法术穿透/吸血的较大者。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "15500",
+          "tips": "能量满后消耗完毕才能获取新的能量，注意攻击和移动节奏避免无法获取新的能量",
+          "cooldown_kind": "no_fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 1,
+          "name": "叶舞·致意",
+          "passive": false,
+          "cooldown_s": [
+            7.5,
+            7.2,
+            6.9,
+            6.6,
+            6.3,
+            6.0
+          ],
+          "cooldown_text": "7.5/7.2/6.9/6.6/6.3/6",
+          "description": "艾琳射出一束月桂叶，对命中的目标造成510/612/714/816/918/1020(+115%额外攻击)(+100%法术攻击)法术伤害，并叠加一层月桂印记，命中敌方英雄或飞行到最远处后展开成环，对触碰的敌人造成175/210/245/280/315/350(+40%物理攻击)(+37%法术攻击)法术伤害和15/18/21/24/27/30%减速，持续1秒。 每100点法术攻击减少0.1秒技能冷却，最多减少1.5秒。",
+          "special_mechanic": true,
+          "is_ultimate": false,
+          "source_skill_id": "15510",
+          "tips": "命中敌方英雄单位或到达最远处才能展开成圆环。大招期间无法使用。",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 2,
+          "name": "旋舞·轻语",
+          "passive": false,
+          "cooldown_s": [
+            10.0,
+            9.6,
+            9.2,
+            8.8,
+            8.4,
+            8.0
+          ],
+          "cooldown_text": "10/9.6/9.2/8.8/8.4/8",
+          "description": "艾琳受到黄金森林的祝福，立即回满能量(获得一层月桂印记并强化普攻)，同时再获得一层月桂印记。艾琳获得免疫减速并增加20/24/28/32/36/40%攻速，持续3秒。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "15520",
+          "tips": "期间免疫减速，是用来追击和撤退的手段。且释放时额外增加一层月桂印记，多多释放2技能才能快速叠起大招层数。",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 3,
+          "name": "月桂之舞·盛放",
+          "passive": false,
+          "cooldown_s": [
+            20.0,
+            17.5,
+            15.0
+          ],
+          "cooldown_text": "20/17.5/15",
+          "description": "艾琳能量满后会叠加一层月桂印记。当月桂印记达到6层时【月桂之舞·盛放】解锁，印记叠加上限为12/15/18层。 技能开启时，艾琳增加10/15/20%移速，不断消耗印记发出月桂飞叶，对范围内血量最低的目标造成72/108/114(+37.5%物理攻击)(+27%法术攻击)法术伤害，并减少【旋舞·轻语】0.2秒的冷却时间。 再次点击可以提前关闭技能，每3枚飞叶视为1次普攻行为。",
+          "special_mechanic": true,
+          "is_ultimate": true,
+          "source_skill_id": "15530",
+          "tips": "大招只能攻击最近的单位，注意走位。且期间增加移速，可以提前开启追击敌人或者撤退。",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        }
+      ],
+      "ultimate": {
+        "slot": 3,
+        "name": "月桂之舞·盛放",
+        "passive": false,
+        "cooldown_s": [
+          20.0,
+          17.5,
+          15.0
+        ],
+        "cooldown_text": "20/17.5/15",
+        "description": "艾琳能量满后会叠加一层月桂印记。当月桂印记达到6层时【月桂之舞·盛放】解锁，印记叠加上限为12/15/18层。 技能开启时，艾琳增加10/15/20%移速，不断消耗印记发出月桂飞叶，对范围内血量最低的目标造成72/108/114(+37.5%物理攻击)(+27%法术攻击)法术伤害，并减少【旋舞·轻语】0.2秒的冷却时间。 再次点击可以提前关闭技能，每3枚飞叶视为1次普攻行为。",
+        "special_mechanic": true,
+        "is_ultimate": true,
+        "source_skill_id": "15530",
+        "tips": "大招只能攻击最近的单位，注意走位。且期间增加移速，可以提前开启追击敌人或者撤退。",
+        "cooldown_kind": "per_level",
+        "cooldown_formula": null,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "cooldown_alternatives": []
+      },
+      "has_skill_data": true,
+      "has_ultimate_cooldown": true,
+      "catalog_note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。",
+      "fetched_at": "2026-09-16T10:20:32.106097+00:00",
+      "title": "精灵之舞",
+      "roles": [
+        5
+      ],
+      "tactical_reference": null,
+      "coaching_profile": {
+        "hero": "艾琳",
+        "practice_lane": "发育路",
+        "source_url": "https://pvp.qq.com/web201605/herodetail/155.shtml",
+        "status": "mixed_source_conditional",
+        "introduction": "普攻积累能量并触发移动与强化普攻，月桂印记影响大招解锁；二技能免疫减速不等于免疫全部控制。",
+        "rules": [
+          {
+            "when": "牛魔在场且可以提供控制和保护",
+            "action": "借助牛魔控制创造的输出空间进行输出。",
+            "source_quote": "牛魔可以提供控制和坦度，为艾琳创造输出空间。",
+            "basis_slots": [],
+            "source_url": "https://pvp.qq.com/web201605/herodetail/155.shtml",
+            "basis_type": "official_tip_with_application_conditions",
+            "id": "艾琳-543b5d8a89",
+            "category": "general",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "己方瑶能提供保护，准备参与战斗",
+            "action": "配合瑶的保护提高生存能力，再判断输出位置。",
+            "source_quote": "瑶可以提高艾琳的生存能力",
+            "basis_slots": [],
+            "source_url": "https://pvp.qq.com/web201605/herodetail/155.shtml",
+            "basis_type": "official_tip_with_application_conditions",
+            "id": "艾琳-deab08e72b",
+            "category": "general",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "对线受到压制，普攻补刀需要进入危险位置，一技能可用且小兵在射程内",
+            "action": "考虑用一技能远程补刀，避免为补刀走进敌方威胁范围；不保证所有兵都能安全补到。",
+            "source_quote": "一技能射程远可以补刀",
+            "basis_slots": [
+              1
+            ],
+            "source_url": "https://baijiahao.baidu.com/s?id=1875007698075294192&wfr=spider&for=pc",
+            "source_author": "指尖上的王者",
+            "published_at": "2026-08-31 11:24",
+            "game_version": "作者称S44，未独立核验",
+            "basis_type": "third_party_guide_with_application_conditions",
+            "verification_status": "not_playtested",
+            "id": "艾琳-401325232d",
+            "category": "laning",
+            "priority": 80,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "画面确认能量或滑步状态，附近有安全移动空间",
+            "action": "利用可用滑步调整输出位置；结合实际状态走位，不把每次强化普攻都当作必然触发新滑步。",
+            "source_quote": "每次强普后需要调整走位，艾琳同样如此",
+            "basis_slots": [
+              0
+            ],
+            "source_url": "https://baijiahao.baidu.com/s?id=1875007698075294192&wfr=spider&for=pc",
+            "source_author": "指尖上的王者",
+            "published_at": "2026-08-31 11:24",
+            "game_version": "作者称S44，未独立核验",
+            "basis_type": "third_party_guide_with_application_conditions",
+            "verification_status": "not_playtested",
+            "id": "艾琳-a50f82b68f",
+            "category": "general",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "近战敌人正在接近，退路可见且可以保持距离输出",
+            "action": "利用机动性边调整位置边输出；没有安全空间时优先撤退，不保证能风筝所有近战英雄。",
+            "source_quote": "利用灵活的特性，可以将一些近战英雄玩弄于鼓掌",
+            "basis_slots": [
+              0
+            ],
+            "source_url": "https://baijiahao.baidu.com/s?id=1875007698075294192&wfr=spider&for=pc",
+            "source_author": "指尖上的王者",
+            "published_at": "2026-08-31 11:24",
+            "game_version": "作者称S44，未独立核验",
+            "basis_type": "third_party_guide_with_application_conditions",
+            "verification_status": "not_playtested",
+            "id": "艾琳-b97088ec6d",
+            "category": "general",
+            "priority": 80,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          }
+        ],
+        "missing": [
+          "当前正式服伤害类型、属性转换及滑步机制核验",
+          "更多连招、具体对位与支援团战时机攻略"
+        ],
+        "default_build": {
+          "lane": "发育路",
+          "items_in_order": [
+            "影刃",
+            "急速战靴",
+            "泣血之刃",
+            "末世",
+            "无尽战刃",
+            "破晓"
+          ],
+          "selection_status": "user_confirmed_default",
+          "source": "用户文字指定的装备名称及顺序，优先于之前的截图图标识别候选",
+          "game_version": null,
+          "usage_note": "用户默认成装顺序，小件及升级时机未指定。不表示本局已购买，不声称当前版本最优。",
+          "source_file": "data\\knowledge_sources\\ailin-user-loadout\\screenshot.jpg"
+        },
+        "default_runes": {
+          "lane": "发育路",
+          "level": 5,
+          "items": [
+            {
+              "name": "红月",
+              "count": 10
+            },
+            {
+              "name": "夺萃",
+              "count": 10
+            },
+            {
+              "name": "心眼",
+              "count": 10
+            }
+          ],
+          "selection_status": "user_provided_screenshot",
+          "source": "截图中可读铭文名称、数量及五级标记",
+          "usage_note": "备战预设，不代表当前对局已携带；不推算未经核验的当前版本属性。",
+          "source_file": "data\\knowledge_sources\\ailin-user-loadout\\screenshot.jpg"
+        },
+        "default_summoner_spell": {
+          "name": "闪现",
+          "source": "用户备战截图",
+          "usage_note": "备战预设，不代表当前对局已携带或技能就绪。"
+        },
+        "source_review": {
+          "source_url": "https://pvp.qq.com/web201605/herodetail/155.shtml",
+          "game_version": null,
+          "policy": "官方机制参考与第三方打法按每条来源区分；官网快照和本文存在伤害类型、属性转换描述差异，两者均不能仅凭来源或日期认定为当前版本。仅采用不依赖争议数值的条件性操作建议。",
+          "excluded": [
+            "技能加点区混入其他英雄名称，不采纳",
+            "未核验的版本属性、绝对克制、保证击杀或保证技能就绪的结论不采纳"
+          ],
+          "snapshot_path": "data/knowledge_sources/official-155/page.html",
+          "version_conflicts": [
+            "文章称普攻物伤、技能法伤与双属性穿透；当前官网快照描述普攻法伤及法强转暴击。当前正式服机制待公告或游戏内资料核验。",
+            "文章滑步时序描述不够精确；实时建议以画面能量和移动状态为准。"
+          ],
+          "current_patch_verified": false
+        },
+        "cooldown_policy": {
+          "base_only": true,
+          "remaining_requires_observation": true,
+          "estimate_label": "推测",
+          "note": "技能等级、冷却缩减、释放时间或特殊刷新条件不明时，不用基础冷却直接倒计时。零读数不保证满足法力、印记或形态条件。"
+        },
+        "scope_exclusions": [
+          "小件购买顺序",
+          "逆风或针对阵容换装"
+        ],
+        "review_note": "用户指定练习分路及默认配置，不代表画面确认的本局状态。各英雄打法以自身status、来源和审核说明区分：官方提示附适用条件，机制推导仍为未实测草案。官网未标明版本，不视为当前版本核验。仅手动更新。"
+      },
+      "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。"
+    },
+    {
+      "hero": "吕布",
+      "hero_id": 123,
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/123.json",
+      "status": "official_reference",
+      "skills": [
+        {
+          "slot": 0,
+          "name": "饕餮血统",
+          "passive": true,
+          "cooldown_s": [
+            0.0
+          ],
+          "cooldown_text": "0",
+          "description": "吕布挥斩方天画戟的技能命中敌方英雄后会给武器附魔，持续8秒。方天画戟在附魔状态下普攻和技能都会造成等额的真实伤害，未附魔状态下的普攻和技能附带35%物理穿透。 附魔状态下，吕布每次普攻命中敌人，回复65~130(+1.25%额外生命值)生命。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "12300",
+          "tips": "吕布拥有比普通战士更远的普攻距离，附魔状态下，有更高的伤害和血量回复，保证了吕布的续航能力，也能更好的进行发育",
+          "cooldown_kind": "no_fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 1,
+          "name": "方天画斩",
+          "passive": false,
+          "cooldown_s": [
+            5.0
+          ],
+          "cooldown_text": "5",
+          "description": "吕布向前挥斩方天画戟，造成600/720/840/960/1080/1200(+200%额外物理攻击)物理伤害。附魔状态下，【方天画戟】每命中一名敌方英雄，回复130/156/182/208/234/260(+2.5%额外生命值)点生命 如果挥斩没有命中敌方英雄，则方天画戟会立即失去附魔。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "12310",
+          "tips": "在命中敌方英雄后，普攻能造成真实伤害和血量回复，是吕布在团战中持续输出的重要保证",
+          "cooldown_kind": "fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 2,
+          "name": "贪狼之握",
+          "passive": false,
+          "cooldown_s": [
+            8.5,
+            8.2,
+            7.9,
+            7.6,
+            7.3,
+            7.0
+          ],
+          "cooldown_text": "8.5/8.2/7.9/7.6/7.3/7",
+          "description": "吕布夺取范围内敌人的魂灵，造成100/120/140/160/180/200(+35%额外物理攻击)物理伤害和15/18/21/24/27/30%减速，持续3秒。 每夺取一个魂灵，吕布获得350/420/490/560/630/700(+7%额外生命值)护盾，护盾最多叠加3层。吕布每秒将当前25％的护盾转化为生命，每2点护盾转化为1点生命。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "12320",
+          "tips": "在命中更多敌方单位后护盾效果更强，也能进行轻微的减速留人",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 3,
+          "name": "魔神降世",
+          "passive": false,
+          "cooldown_s": [
+            50.0
+          ],
+          "cooldown_text": "50",
+          "description": "吕布从天而降，圈定杀戮场展开杀戮，对范围内的敌人造成1秒击飞。落地后吕布奋力挥斩方天画戟，造成650/975/1300(+240%额外物理攻击)物理伤害。附魔状态下，【魔神降世】每命中一个敌方英雄回复130/195/260(+2.5%额外生命值)生命。 吕布在杀戮场内获得150/225/300点物理和法术防御。触碰场地边缘的敌人会受到150/225/300(+75％额外物理攻击)物理伤害和30/45/60%减速，持续2秒，若为英雄则还会为吕布额外回复130/195/260(+2.5%额外生命值)生命。",
+          "special_mechanic": false,
+          "is_ultimate": true,
+          "source_skill_id": "12330",
+          "tips": "非常强大的控制技能，范围非常大，能够击飞范围内所有敌人，非常适合开团使用.当然，在面对敌方gank时，也可以用来当作位移技能逃跑",
+          "cooldown_kind": "fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        }
+      ],
+      "ultimate": {
+        "slot": 3,
+        "name": "魔神降世",
+        "passive": false,
+        "cooldown_s": [
+          50.0
+        ],
+        "cooldown_text": "50",
+        "description": "吕布从天而降，圈定杀戮场展开杀戮，对范围内的敌人造成1秒击飞。落地后吕布奋力挥斩方天画戟，造成650/975/1300(+240%额外物理攻击)物理伤害。附魔状态下，【魔神降世】每命中一个敌方英雄回复130/195/260(+2.5%额外生命值)生命。 吕布在杀戮场内获得150/225/300点物理和法术防御。触碰场地边缘的敌人会受到150/225/300(+75％额外物理攻击)物理伤害和30/45/60%减速，持续2秒，若为英雄则还会为吕布额外回复130/195/260(+2.5%额外生命值)生命。",
+        "special_mechanic": false,
+        "is_ultimate": true,
+        "source_skill_id": "12330",
+        "tips": "非常强大的控制技能，范围非常大，能够击飞范围内所有敌人，非常适合开团使用.当然，在面对敌方gank时，也可以用来当作位移技能逃跑",
+        "cooldown_kind": "fixed",
+        "cooldown_formula": null,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "cooldown_alternatives": []
+      },
+      "has_skill_data": true,
+      "has_ultimate_cooldown": true,
+      "catalog_note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。",
+      "fetched_at": "2026-09-16T10:20:20.993037+00:00",
+      "title": "无双之魔",
+      "roles": [
+        1,
+        3
+      ],
+      "tactical_reference": {
+        "hero": "吕布",
+        "lane": "对抗路",
+        "role": "战士/坦克",
+        "threat": "附魔真伤与范围落地开团",
+        "weakness": "进场预警明显，依赖命中和持续输出",
+        "laning": "躲开一技能边缘，附魔后不长时间近身",
+        "teamfight": "分散躲落点，等关键技能落空再集火",
+        "ally_plan": "先确保附魔，再用大招封退路而非孤身远跳"
+      },
+      "coaching_profile": {
+        "hero": "吕布",
+        "practice_lane": "对抗路",
+        "source_url": "https://pvp.qq.com/web201605/herodetail/123.shtml",
+        "status": "mixed_source_conditional",
+        "introduction": "挥斩命中英雄触发附魔，二技能提供护盾与减速，大招用于区域控制；附魔状态影响伤害类型。",
+        "rules": [
+          {
+            "when": "己方武则天能跟进，大招可用且落点可确认",
+            "action": "可用大招控制敌方后排，配合武则天后续控制输出。",
+            "source_quote": "团战中吕布先手开大控制敌方后排，武则天在再开大造成控制和成吨输出。",
+            "basis_slots": [
+              3
+            ],
+            "source_url": "https://pvp.qq.com/web201605/herodetail/123.shtml",
+            "basis_type": "official_tip_with_application_conditions",
+            "id": "吕布-2f886aee00",
+            "category": "teamfight",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "己方白起已经控制住敌人，自己能够安全跟进",
+            "action": "配合白起的控制留人进行输出。",
+            "source_quote": "吕布这样一个偏进攻型的战士则是非常需要一个控制留人的英雄打配合。",
+            "basis_slots": [],
+            "source_url": "https://pvp.qq.com/web201605/herodetail/123.shtml",
+            "basis_type": "official_tip_with_application_conditions",
+            "id": "吕布-f14065631d",
+            "category": "general",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "草丛已确认安全，敌方英雄在一技能范围内，换血后有退路",
+            "action": "可利用草丛隐蔽起手提高一技能命中机会；命中英雄并确认附魔后再评估普攻追打，不保证换血获利。",
+            "source_quote": "把自己藏在草丛里放一技能",
+            "basis_slots": [
+              1
+            ],
+            "source_url": "https://www.9game.cn/wzry/11977919.html",
+            "source_author": "九游转载（页面作者：互联网；标注来源：IT168）",
+            "published_at": "2026-07-22 23:14:19",
+            "game_version": null,
+            "basis_type": "third_party_guide_with_application_conditions",
+            "verification_status": "not_playtested",
+            "id": "吕布-f11e370288",
+            "category": "laning",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "二技能可用，范围内有多个可吸取目标，接近它们不会暴露危险位置",
+            "action": "争取二技能命中多个目标获取护盾，再判断是否换血；不为叠护盾追进危险区域，也不假定护盾无限叠加。",
+            "source_quote": "二技能尽量命中多个目标",
+            "basis_slots": [
+              2
+            ],
+            "source_url": "https://www.9game.cn/wzry/11977919.html",
+            "source_author": "九游转载（页面作者：互联网；标注来源：IT168）",
+            "published_at": "2026-07-22 23:14:19",
+            "game_version": null,
+            "basis_type": "third_party_guide_with_application_conditions",
+            "verification_status": "not_playtested",
+            "id": "吕布-ca562cafed",
+            "category": "laning",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "对线射手，能在一技能边缘命中且有安全退路",
+            "action": "保持距离，用一技能尝试消耗，避免直接追进敌方持续普攻范围。",
+            "source_quote": "用一技能的边缘去消耗敌人",
+            "basis_slots": [
+              1
+            ],
+            "source_url": "https://www.9game.cn/wzry/11977919.html",
+            "source_author": "九游转载（页面作者：互联网；标注来源：IT168）",
+            "published_at": "2026-07-22 23:14:19",
+            "game_version": null,
+            "basis_type": "third_party_guide_with_application_conditions",
+            "verification_status": "not_playtested",
+            "id": "吕布-937a6134a6",
+            "category": "laning",
+            "priority": 80,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "敌方边路血量较低，己方打野能够跟进，落点与援军风险可判断且大招可用",
+            "action": "考虑用大招封锁退路配合打野；不因对方残血就断言能击杀。",
+            "source_quote": "用大招封锁他们的退路，然后配合打野完成击杀",
+            "basis_slots": [
+              3
+            ],
+            "source_url": "https://www.9game.cn/wzry/11977919.html",
+            "source_author": "九游转载（页面作者：互联网；标注来源：IT168）",
+            "published_at": "2026-07-22 23:14:19",
+            "game_version": null,
+            "basis_type": "third_party_guide_with_application_conditions",
+            "verification_status": "not_playtested",
+            "id": "吕布-f09768da95",
+            "category": "general",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "团战敌方关键控制仍有威胁，己方没有明确先手配合窗口",
+            "action": "可等待可见的关键控制交出后再评估进场；冷却未知时不假定已用完，有可靠队友控制链时仍可按官方配合思路先手。",
+            "source_quote": "等敌方的关键控制技能交了之后再进场",
+            "basis_slots": [
+              3
+            ],
+            "source_url": "https://www.9game.cn/wzry/11977919.html",
+            "source_author": "九游转载（页面作者：互联网；标注来源：IT168）",
+            "published_at": "2026-07-22 23:14:19",
+            "game_version": null,
+            "basis_type": "third_party_guide_with_application_conditions",
+            "verification_status": "not_playtested",
+            "id": "吕布-af0f5302db",
+            "category": "teamfight",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          },
+          {
+            "when": "大招可用，后排位置与落点可见，队友能跟进且自己有撤退或承伤空间",
+            "action": "根据阵型用大招分割后排；落地后观察附魔状态，安全时衔接普攻，未附魔时争取一技能命中英雄。不无条件跳入多人中央。",
+            "source_quote": "要是敌方阵型比较分散，那就优先切割后排脆皮，限制他们的输出",
+            "basis_slots": [
+              0,
+              1,
+              3
+            ],
+            "source_url": "https://www.9game.cn/wzry/11977919.html",
+            "source_author": "九游转载（页面作者：互联网；标注来源：IT168）",
+            "published_at": "2026-07-22 23:14:19",
+            "game_version": null,
+            "basis_type": "third_party_guide_with_application_conditions",
+            "verification_status": "not_playtested",
+            "id": "吕布-3eca8b4f71",
+            "category": "teamfight",
+            "priority": 50,
+            "phases": [
+              "loading",
+              "in_game"
+            ],
+            "lane_required": null,
+            "application_mode": "conditional_reference"
+          }
+        ],
+        "missing": [
+          "当前版本具体对位与控线攻略",
+          "当前版本技能及打法适用性核验"
+        ],
+        "default_build": {
+          "lane": "对抗路",
+          "items_in_order": [
+            "抵抗之靴",
+            "纯净苍穹",
+            "破军",
+            "宗师之力",
+            "影刃",
+            "无尽战刃"
+          ],
+          "selection_status": "user_confirmed_default",
+          "source": "用户文字修正并指定装备名称及顺序，优先于截图图标识别候选",
+          "game_version": null,
+          "usage_note": "用户默认成装顺序，小件及升级时机未指定；不代表本局已购买，不声称当前版本最优。"
+        },
+        "default_runes": {
+          "lane": "对抗路",
+          "name": "输出流",
+          "level": 5,
+          "items": [
+            {
+              "name": "隐匿",
+              "count": 9
+            },
+            {
+              "name": "狩猎",
+              "count": 1
+            },
+            {
+              "name": "虚空",
+              "count": 10
+            },
+            {
+              "name": "红月",
+              "count": 1
+            },
+            {
+              "name": "传承",
+              "count": 9
+            }
+          ],
+          "selection_status": "user_provided_screenshot",
+          "source": "用户对话附图可读铭文名称、数量与五级标记",
+          "usage_note": "备战预设，不代表当前对局已携带；当前版本属性未核验。"
+        },
+        "default_summoner_spell": {
+          "name": "闪现",
+          "source": "用户对话备战截图",
+          "usage_note": "备战预设，不代表当前对局已携带或技能就绪。"
+        },
+        "source_review": {
+          "source_url": "https://pvp.qq.com/web201605/herodetail/123.shtml",
+          "game_version": null,
+          "policy": "官方机制优先；九游转载打法逐条保留来源与日期，版本及实测效果未核验。先手或后手进场依据可见控制、队友跟进及落点安全决定，不采纳永不先手等绝对指令。",
+          "excluded": [
+            "技能加点区混入其他英雄名称，不采纳",
+            "未核验的版本属性、绝对克制、保证击杀或保证技能就绪的结论不采纳"
+          ],
+          "snapshot_path": "data/knowledge_sources/official-123/page.html",
+          "current_patch_verified": false
+        },
+        "cooldown_policy": {
+          "base_only": true,
+          "remaining_requires_observation": true,
+          "estimate_label": "推测",
+          "note": "技能等级、冷却缩减、释放时间或特殊刷新条件不明时，不用基础冷却直接倒计时。零读数不保证满足法力、印记或形态条件。"
+        },
+        "scope_exclusions": [
+          "小件购买顺序",
+          "逆风或针对阵容换装"
+        ],
+        "review_note": "用户指定练习分路及默认配置，不代表画面确认的本局状态。各英雄打法以自身status、来源和审核说明区分：官方提示附适用条件，机制推导仍为未实测草案。官网未标明版本，不视为当前版本核验。仅手动更新。"
+      },
+      "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。"
+    },
+    {
+      "hero": "嬴政",
+      "hero_id": 110,
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/110.json",
+      "status": "official_reference",
+      "skills": [
+        {
+          "slot": 0,
+          "name": "王者审判",
+          "passive": true,
+          "cooldown_s": [
+            0.0
+          ],
+          "cooldown_text": "0",
+          "description": "嬴政的普通攻击可以击穿目标，造成120~240(+100%物理攻击)(+35%法术攻击)法术伤害，攻击机关时只造成50%伤害。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "11000",
+          "tips": "前期在清理兵线时有较大作用而且能神不知鬼不觉的消耗对手",
+          "cooldown_kind": "no_fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 1,
+          "name": "王者惩戒",
+          "passive": false,
+          "cooldown_s": [
+            8.5,
+            8.2,
+            7.9,
+            7.6,
+            7.3,
+            7.0
+          ],
+          "cooldown_text": "8.5/8.2/7.9/7.6/7.3/7",
+          "description": "嬴政召唤持续2.5秒的黄金剑阵，每0.5秒对范围内的敌人造成140/168/196/224/252/280(+27%法术攻击)法术伤害和15/18/21/24/27/30%减速，持续1秒。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "11010",
+          "tips": "嬴政主要输出和伤害技能，但有一定的延迟效果，所以需要准确的预判敌人走位",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 2,
+          "name": "王者守御",
+          "passive": false,
+          "cooldown_s": [
+            10.0,
+            9.6,
+            9.2,
+            8.8,
+            8.4,
+            8.0
+          ],
+          "cooldown_text": "10/9.6/9.2/8.8/8.4/8",
+          "description": "嬴政开启王之护盾，获得300/330/360/390/420/450（+55%法术加成）点护盾和3秒内随时间衰减的100/140/180/220/260/300点移速。 技能开启时对周围敌人造成200/240/280/320/360/400（+40%法术加成）点法术伤害并清空装备为他们提供的物理攻击力，持续2秒。 被动：增加嬴政15/20/25/30/35/40点移动速度。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "11020",
+          "tips": "在使用其他输出技能前开启，能增强其它技能输出能力，并且护盾效果也能提升一定的自保能力",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 3,
+          "name": "至尊王权",
+          "passive": false,
+          "cooldown_s": [
+            35.0,
+            31.5,
+            28.0
+          ],
+          "cooldown_text": "35/31.5/28",
+          "description": "嬴政展示王者权力，号令90只飞剑持续向前冲击，持续5秒。每只飞剑能造成54/81/108(+10%法术攻击)法术伤害。 号令过程中嬴政增加20%移速，期间可以使用其他技能。再次点击可以提前关闭施法。",
+          "special_mechanic": false,
+          "is_ultimate": true,
+          "source_skill_id": "11030",
+          "tips": "霸气无比的伤害技能，伤害极高，使用过程中嬴政可以移动，不断调整位置扫射敌人",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        }
+      ],
+      "ultimate": {
+        "slot": 3,
+        "name": "至尊王权",
+        "passive": false,
+        "cooldown_s": [
+          35.0,
+          31.5,
+          28.0
+        ],
+        "cooldown_text": "35/31.5/28",
+        "description": "嬴政展示王者权力，号令90只飞剑持续向前冲击，持续5秒。每只飞剑能造成54/81/108(+10%法术攻击)法术伤害。 号令过程中嬴政增加20%移速，期间可以使用其他技能。再次点击可以提前关闭施法。",
+        "special_mechanic": false,
+        "is_ultimate": true,
+        "source_skill_id": "11030",
+        "tips": "霸气无比的伤害技能，伤害极高，使用过程中嬴政可以移动，不断调整位置扫射敌人",
+        "cooldown_kind": "per_level",
+        "cooldown_formula": null,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "cooldown_alternatives": []
+      },
+      "has_skill_data": true,
+      "has_ultimate_cooldown": true,
+      "catalog_note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。",
+      "fetched_at": "2026-09-16T10:20:19.165452+00:00",
+      "title": "王者独尊",
+      "roles": [
+        2
+      ],
+      "tactical_reference": {
+        "hero": "嬴政",
+        "lane": "中路",
+        "role": "法师",
+        "threat": "远程持续消耗和快速清线",
+        "weakness": "缺位移，正面火力容易被侧绕",
+        "laning": "不沿技能直线移动，清线后找侧向支援",
+        "teamfight": "避免入口被反复磨血，绕侧迫使调整输出方向",
+        "ally_plan": "先推中线再支援，保持队友与自己之间有保护层"
+      },
+      "coaching_profile": null,
+      "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。"
+    },
+    {
+      "hero": "孙策",
+      "hero_id": 510,
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/510.json",
+      "status": "official_reference",
+      "skills": [
+        {
+          "slot": 0,
+          "name": "怒潮",
+          "passive": true,
+          "cooldown_s": [
+            0.0
+          ],
+          "cooldown_text": "0",
+          "description": "每过6秒，下次普攻附带额外110(+60%物理攻击)物理伤害，并回复55(+30%物理攻击)(+3%已损生命)点生命值。 每次受到物理/真实伤害或技能命中目标时，孙策获得1层不屈效果(护甲值提升16~32点，持续6秒，可叠加10层)。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "51000",
+          "tips": "通过被动，孙策能在对抗中取得消耗上的优势",
+          "cooldown_kind": "no_fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 1,
+          "name": "劈风斩浪",
+          "passive": false,
+          "cooldown_s": [
+            8.0,
+            7.8,
+            7.6,
+            7.4,
+            7.2,
+            7.0
+          ],
+          "cooldown_text": "8/7.8/7.6/7.4/7.2/7",
+          "description": "向前冲锋，对路径上敌人造成110/132/154/176/198/220(+45%物理攻击)物理伤害，到终点后造成一次范围220/264/308/352/396/440(+90%物理攻击)物理伤害，短暂延迟后该范围再次造成相同伤害和1秒击飞效果。 技能命中敌人获得1层不屈效果。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "51010",
+          "tips": "孙策会冲锋固定距离，需要玩家预判才能打出控制和二段伤害",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 2,
+          "name": "惊涛骇浪",
+          "passive": false,
+          "cooldown_s": [
+            9.0,
+            8.4,
+            7.8,
+            7.2,
+            6.6,
+            6.0
+          ],
+          "cooldown_text": "9/8.4/7.8/7.2/6.6/6",
+          "description": "连续三次向前踏步并劈砍，每次造成的物理伤害逐渐提高25%，基础造成180/242/304/366/428/490(+70%物理攻击)物理伤害。每次命中敌人造成15/18/21/24/27/30%减速，减速效果可叠加。 使用技能会重置普攻冷却。技能命中敌人获得1层不屈效果。",
+          "special_mechanic": true,
+          "is_ultimate": false,
+          "source_skill_id": "51020",
+          "tips": "通过重置普通攻击冷却效果，在技能间穿插普通攻击，能让孙策能在极短时间内打出大量伤害",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 3,
+          "name": "长帆破浪",
+          "passive": false,
+          "cooldown_s": [
+            40.0,
+            35.0,
+            30.0
+          ],
+          "cooldown_text": "40/35/30",
+          "description": "孙策掌舵行船，在12秒内驾船冲锋，航行速度逐渐提升，行船期间持续霸体。当船撞到墙体、建筑物、远古生物、敌方英雄和航行时间结束时船都会停止前进并爆炸，造成300/450/600(+120%物理攻击)物理伤害和击飞，击飞时间1~1.5秒(与已航行时间成正比)。 航行过程中可弃船朝选定方向跳跃，释放后船继续航行固定距离。驾船期间附近一个队友可以通过点击按键上船，队友在上船期间受到控制和使用位移技能以及孙策下船时队友也会一起下船。 船爆炸瞬间若命中敌人会获得5层不屈效果。",
+          "special_mechanic": false,
+          "is_ultimate": true,
+          "source_skill_id": "51030",
+          "tips": "当孙策跳船后，即使船体发生了撞击，也不会增加不屈效果",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        }
+      ],
+      "ultimate": {
+        "slot": 3,
+        "name": "长帆破浪",
+        "passive": false,
+        "cooldown_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "cooldown_text": "40/35/30",
+        "description": "孙策掌舵行船，在12秒内驾船冲锋，航行速度逐渐提升，行船期间持续霸体。当船撞到墙体、建筑物、远古生物、敌方英雄和航行时间结束时船都会停止前进并爆炸，造成300/450/600(+120%物理攻击)物理伤害和击飞，击飞时间1~1.5秒(与已航行时间成正比)。 航行过程中可弃船朝选定方向跳跃，释放后船继续航行固定距离。驾船期间附近一个队友可以通过点击按键上船，队友在上船期间受到控制和使用位移技能以及孙策下船时队友也会一起下船。 船爆炸瞬间若命中敌人会获得5层不屈效果。",
+        "special_mechanic": false,
+        "is_ultimate": true,
+        "source_skill_id": "51030",
+        "tips": "当孙策跳船后，即使船体发生了撞击，也不会增加不屈效果",
+        "cooldown_kind": "per_level",
+        "cooldown_formula": null,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "cooldown_alternatives": []
+      },
+      "has_skill_data": true,
+      "has_ultimate_cooldown": true,
+      "catalog_note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。",
+      "fetched_at": "2026-09-16T10:20:28.458549+00:00",
+      "title": "光明之海",
+      "roles": [
+        1,
+        3
+      ],
+      "tactical_reference": null,
+      "coaching_profile": null,
+      "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。"
+    },
+    {
+      "hero": "敖隐",
+      "hero_id": 519,
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/519.json",
+      "status": "official_reference",
+      "skills": [
+        {
+          "slot": 0,
+          "name": "隐介藏形",
+          "passive": true,
+          "cooldown_s": [
+            0.0
+          ],
+          "cooldown_text": "0",
+          "description": "敖隐最后两次技能的元素龙魂会附于主副剑指上，主剑指造成(100%物理攻击)物理伤害，若附近有其他敌人，则用副剑指攻击目标，造成(35%物理攻击)~(70%物理攻击)的物理伤害(可暴击)。 敖隐使用技能会叠加一层龙魂印记，最多3层，敖隐的下一次普攻会消耗所有印记，驱使龙魂冲击目标，每消耗一层印记则多攻击一次。强化普攻会根据主剑指的龙魂属性的区别附带不同的效果。 被多条龙魂攻击时，后续的龙魂只造成50%。切换元素时，优先保留相同元素龙魂。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "51900",
+          "tips": "敖隐普攻可攻击两个目标，前期尽量形成2v2对线，有利于敖隐发挥",
+          "cooldown_kind": "no_fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 1,
+          "name": "薄日掌火",
+          "passive": false,
+          "cooldown_s": [
+            12.5,
+            11.67,
+            10.83,
+            10.0
+          ],
+          "cooldown_text": "12.5/11.67/10.83/10",
+          "description": "敖隐挥出剑气，对范围内至多3个目标造成270/360/450/540(+70%额外物理攻击)物理伤害和70/93.33/116.67/140(+16%额外物理攻击)真实伤害(对目标身后造成50%溅射伤害)，并叠加一层龙魂印记。 使用【薄日掌火】后会将一层火龙魂附于剑指上，普攻附带15/20/25/30物理伤害，若双剑指均附加着火龙魂，则额外增加50%伤害。若火龙魂附于主剑指上，强普首段造成48/64/80/96(+30%额外物理攻击)真实伤害，后两段造成48/64/80/96(+30%额外物理攻击)物理伤害。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "51910",
+          "tips": "火的特点是伤害，并且是构筑三层强普的必要元素",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 2,
+          "name": "擎天司雨",
+          "passive": false,
+          "cooldown_s": [
+            12.5,
+            11.67,
+            10.83,
+            10.0
+          ],
+          "cooldown_text": "12.5/11.67/10.83/10",
+          "description": "敖隐挥出剑气，对范围内至多3个目标造成165/220/275/330(+50%额外物理攻击)物理伤害(对目标身后造成50%溅射伤害)，命中后获得150/200/250/300(+2.5%额外生命值)生命回复。 使用【擎天司雨】后会将一层水龙魂附于剑指上，普攻回复18/24/30/36生命和0.5%最大法力，若双剑指均附着水龙魂，则额外增加50%回复。若水龙魂附于主剑指上，强普每段造成48/64/80/96(+30%额外物理攻击)物理伤害，共3段，命中后获得150/200/250/300(+2.5%额外生命值)生命回复。 对非英雄单位只获得50%的回复。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "51920",
+          "tips": "水的特点是回复续航，对线劣势时至少保留1点水元素，有助于抗压",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 3,
+          "name": "踏罡驾风",
+          "passive": false,
+          "cooldown_s": [
+            12.5,
+            11.67,
+            10.83,
+            10.0
+          ],
+          "cooldown_text": "12.5/11.67/10.83/10",
+          "description": "敖隐挥出剑气，自身立即增加90/120/150/180移速(持续1秒，随时间衰减)，并对范围内至多3个目标造成165/220/275/330(+50%额外物理攻击)物理伤害(对目标身后造成50%溅射效果)和击退。 使用【踏罡驾风】后会将一层风龙魂附于剑指上，自身获得16/21.33/26.67/32点移速，若双剑指均附着风龙魂，则额外增加50%获得的移速。若风龙魂附于主剑指上，强化普攻每段造成48/64/80/96(+30%额外物理攻击)物理伤害和击退，共3段。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "51940",
+          "tips": "风的特点是控制和机动性，转线可以切成风，团战中尽量保证手上留着风，可以自保",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 4,
+          "name": "穷乎玄间",
+          "passive": false,
+          "cooldown_s": [
+            80.0,
+            75.0,
+            70.0
+          ],
+          "cooldown_text": "80/75/70",
+          "description": "敖隐显露白龙真身冲上云霄，期间无法攻击、无视地形且不可选中，最多持续4.5秒(可提前结束)，随后向前俯冲(过程中不可选中)，对路径上的敌人造成400/600/800(+80%额外物理攻击)物理伤害和15/22.5/30%减速，并在落点处对敌人再次造成同等伤害和惧龙效果，持续1秒。 随后敖隐显露真龙雪剑，提升20/30/40%攻速和25点射程，持续10秒。期间敖隐使用真龙雪剑攻击，此时双剑指会对附近至多两个额外目标攻击。 受到惧龙效果的目标会不由自主的远离敖隐。敖隐飞行期间可以任意调整剑指的元素龙魂。",
+          "special_mechanic": false,
+          "is_ultimate": true,
+          "source_skill_id": "51930",
+          "tips": "大招尽可能在胜算高的时候入场，其他时候用作调整站位会更好",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        }
+      ],
+      "ultimate": {
+        "slot": 4,
+        "name": "穷乎玄间",
+        "passive": false,
+        "cooldown_s": [
+          80.0,
+          75.0,
+          70.0
+        ],
+        "cooldown_text": "80/75/70",
+        "description": "敖隐显露白龙真身冲上云霄，期间无法攻击、无视地形且不可选中，最多持续4.5秒(可提前结束)，随后向前俯冲(过程中不可选中)，对路径上的敌人造成400/600/800(+80%额外物理攻击)物理伤害和15/22.5/30%减速，并在落点处对敌人再次造成同等伤害和惧龙效果，持续1秒。 随后敖隐显露真龙雪剑，提升20/30/40%攻速和25点射程，持续10秒。期间敖隐使用真龙雪剑攻击，此时双剑指会对附近至多两个额外目标攻击。 受到惧龙效果的目标会不由自主的远离敖隐。敖隐飞行期间可以任意调整剑指的元素龙魂。",
+        "special_mechanic": false,
+        "is_ultimate": true,
+        "source_skill_id": "51930",
+        "tips": "大招尽可能在胜算高的时候入场，其他时候用作调整站位会更好",
+        "cooldown_kind": "per_level",
+        "cooldown_formula": null,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "cooldown_alternatives": []
+      },
+      "has_skill_data": true,
+      "has_ultimate_cooldown": true,
+      "catalog_note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。",
+      "fetched_at": "2026-09-16T10:20:33.827504+00:00",
+      "title": "凌霄真龙",
+      "roles": [
+        5
+      ],
+      "tactical_reference": null,
+      "coaching_profile": null,
+      "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。"
+    },
+    {
+      "hero": "瑶",
+      "hero_id": 505,
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/505.json",
+      "status": "official_reference",
+      "skills": [
+        {
+          "slot": 0,
+          "name": "山鬼·白鹿",
+          "passive": true,
+          "cooldown_s": [
+            60.0
+          ],
+          "cooldown_text": "60",
+          "description": "瑶被除压制以外的硬控技能命中后会立即解除控制并变为鹿灵，持续4秒，鹿灵状态将会刷新技能冷却，免疫所有效果但也失去攻击能力，灵鹿静怡的灵光会将敌人减速15~30%。 每60~48秒(随英雄等级成长)最多触发一次。",
+          "special_mechanic": true,
+          "is_ultimate": false,
+          "source_skill_id": "50500",
+          "tips": "利用被动的保命特性，可以主动的承担部分前排作用。",
+          "cooldown_kind": "fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 1,
+          "name": "若有人兮",
+          "passive": false,
+          "cooldown_s": [
+            10.0,
+            9.6,
+            9.2,
+            8.8,
+            8.4,
+            8.0
+          ],
+          "cooldown_text": "10/9.6/9.2/8.8/8.4/8",
+          "description": "瑶举杖引魄击退敌人，造成250/300/350/400/450/500(+30%法术攻击)法术伤害，在飞行过程中会检测前方范围的英雄并跟踪打击造成250/300/350/400/450/500(+30%法术攻击)法术伤害和0.5秒击飞和5秒显形效果。 附身状态：提升20%检测范围。 鹿灵状态：提前结束鹿灵状态，清除所有技能冷却进入战斗。",
+          "special_mechanic": true,
+          "is_ultimate": false,
+          "source_skill_id": "50510",
+          "tips": "附身在队友身边时，能量波的检测距离会更远。",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 2,
+          "name": "风飒木萧",
+          "passive": false,
+          "cooldown_s": [
+            12.0,
+            11.6,
+            11.2,
+            10.8,
+            10.4,
+            10.0
+          ],
+          "cooldown_text": "12/11.6/11.2/10.8/10.4/10",
+          "description": "瑶持续5秒自动打击身边敌人，最多3个目标，每次攻击都会造成200/240/280/320/360/400(+30%法术攻击)法术伤害，技能开启期间内无法普攻。 附身状态：提升20%打击距离。 鹿灵状态：白鹿·动跳跃一段距离。",
+          "special_mechanic": false,
+          "is_ultimate": false,
+          "source_skill_id": "50520",
+          "tips": "开启期间无法普攻，可以更加专注于走位和躲避技能。",
+          "cooldown_kind": "per_level",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        },
+        {
+          "slot": 3,
+          "name": "独立兮山之上",
+          "passive": false,
+          "cooldown_s": [
+            15.0
+          ],
+          "cooldown_text": "15",
+          "description": "瑶附身到友方英雄，赋予附身目标1000/1500/2000(+60%法术攻击)(+8%目标额外生命值)点真实护盾，附身状态会使得技能增强并且立即减少30%的冷却。 附身状态：盾破会被击落下来进入冷却，主动脱离附灵目标会返还50%冷却。 鹿灵状态：白鹿·静扩大减速范围。",
+          "special_mechanic": true,
+          "is_ultimate": true,
+          "source_skill_id": "50530",
+          "tips": "主动解除附灵效果会减掉大量的大招冷却，所以对瑶来说是首要提升的就是要避免吸收过多伤害被强制解除附灵效果。",
+          "cooldown_kind": "fixed",
+          "cooldown_formula": null,
+          "cooldown_review_required": false,
+          "cooldown_note": "",
+          "cooldown_alternatives": []
+        }
+      ],
+      "ultimate": {
+        "slot": 3,
+        "name": "独立兮山之上",
+        "passive": false,
+        "cooldown_s": [
+          15.0
+        ],
+        "cooldown_text": "15",
+        "description": "瑶附身到友方英雄，赋予附身目标1000/1500/2000(+60%法术攻击)(+8%目标额外生命值)点真实护盾，附身状态会使得技能增强并且立即减少30%的冷却。 附身状态：盾破会被击落下来进入冷却，主动脱离附灵目标会返还50%冷却。 鹿灵状态：白鹿·静扩大减速范围。",
+        "special_mechanic": true,
+        "is_ultimate": true,
+        "source_skill_id": "50530",
+        "tips": "主动解除附灵效果会减掉大量的大招冷却，所以对瑶来说是首要提升的就是要避免吸收过多伤害被强制解除附灵效果。",
+        "cooldown_kind": "fixed",
+        "cooldown_formula": null,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "cooldown_alternatives": []
+      },
+      "has_skill_data": true,
+      "has_ultimate_cooldown": true,
+      "catalog_note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。",
+      "fetched_at": "2026-09-16T10:20:30.266807+00:00",
+      "title": "鹿灵守心",
+      "roles": [
+        6
+      ],
+      "tactical_reference": {
+        "hero": "瑶",
+        "lane": "辅助",
+        "role": "辅助",
+        "threat": "附身护盾与单点保护",
+        "weakness": "下身阶段较脆，依赖队友站位",
+        "laning": "用消耗压护盾，不为追下身目标越塔",
+        "teamfight": "先限制被保护核心，留后手处理脱离附身窗口",
+        "ally_plan": "护盾耗尽前规划下身位置，配合队友轮换保护"
+      },
+      "coaching_profile": null,
+      "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。"
+    }
+  ],
+  "note": "连续画面辅助确认释放；冷却为基础值估算。图片与本局释放记录不落盘。"
+}

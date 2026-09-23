@@ -1,0 +1,36 @@
+/* The native host supplies always-on-top; the browser continues to use the
+   existing roster, timers, skill alerts, capture loop and pause semantics. */
+.overlay-mode { min-width: 0; background: #101820; font-size: 13px; }
+.overlay-mode > .masthead { display: block; padding: 9px 12px; margin: 0; }
+.overlay-mode > .masthead { position: sticky; top: 0; z-index: 2; background: #101820; }
+.overlay-mode .masthead .identity { display: none; }
+.overlay-tools { display: flex; align-items: center; gap: 8px; }
+.overlay-tools b { margin-right: auto; font-size: 15px; }
+.overlay-tools button { min-height: 30px; padding: 5px 9px; font-size: 12px; }
+.overlay-mode .header-actions { margin-top: 6px; display: block; }
+.overlay-mode #monitor-status { display: block; max-width: none; white-space: normal; line-height: 1.5; font-size: 11px; }
+.overlay-mode > main { padding: 0 9px 10px; max-width: none; }
+.overlay-mode .workspace { display: none; }
+.overlay-content { display: grid; gap: 9px; }
+.overlay-mode .panel { margin: 0; border-radius: 9px; }
+.overlay-mode .panel-title { padding: 9px 10px; }
+.overlay-mode .panel-title h2 { font-size: 13px; }
+.overlay-mode .enemy-selection-body { padding: 8px 10px; }
+.overlay-mode #enemy-slots, .overlay-mode .enemy-selection-body > p:not(#enemy-roster-status) { display: none; }
+.overlay-mode #enemy-roster-status { font-size: 11px; margin: 0 0 7px; }
+.overlay-mode .enemy-cooldown-head, .overlay-mode .enemy-cooldown-row { grid-template-columns: 62px minmax(0,1fr) minmax(0,1fr); gap: 8px; }
+.overlay-mode .enemy-cooldown-row { padding: 9px 0; min-height: 54px; font-size: 12px; }
+.overlay-mode .enemy-cooldown-row > b { font-size: 13px; }
+.overlay-mode .enemy-subtitle-panel { margin: 0; padding: 10px; border-radius: 9px; background: #16232e; border: 1px solid #2d404e; }
+.overlay-mode .enemy-subtitle-panel > .muted, .overlay-mode #skill-hardware-status { display: none; }
+.overlay-mode .enemy-subtitle-heading { display: block; }
+.overlay-mode .enemy-subtitle-heading small { display: block; margin-top: 5px; font-size: 11px; }
+.overlay-mode #enemy-skill-subtitles { font-size: 12px; }
+.overlay-mode .enemy-selection-body > details { font-size: 11px; color: #a4b6c1; }
+.overlay-mode .controls { padding: 10px; margin-bottom: 9px; }
+.overlay-mode .control-row, .overlay-mode .control-footer { flex-wrap: wrap; gap: 8px; }
+.overlay-mode .control-row .file-button { display: none; }
+.overlay-mode .screen-select { min-width: 0; width: 100%; }
+.overlay-mode .screen-select select { width: 100%; }
+.overlay-mode .settings { min-width: 0; max-width: 100%; }
+.overlay-mode [hidden] { display: none !important; }

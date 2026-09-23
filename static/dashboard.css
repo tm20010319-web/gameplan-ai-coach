@@ -1,0 +1,83 @@
+/* The workspace uses available viewport tracks, rather than clipping a long page. */
+html:has(body.one-screen),body.one-screen{height:100%;overflow:hidden}
+.one-screen main{margin:0;padding:0 12px 10px;max-width:none;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+.one-screen>.rail,.one-screen .heading,.one-screen main>footer{display:none}
+.one-screen .topbar{height:48px;flex:0 0 48px;gap:12px}
+.one-screen .topbar nav{display:flex;gap:4px;min-width:0}
+.one-screen .nav{width:auto;padding:6px 10px;margin:0;white-space:nowrap;font-size:12px}
+.one-screen .nav span,.one-screen .nav i,.one-screen .breadcrumb{display:none}
+.one-screen .top-actions{width:auto;margin-left:auto;gap:6px}
+.one-screen .workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,28%);height:auto;flex:1;min-height:0;gap:12px;overflow:hidden;padding-top:10px;align-items:stretch}
+.one-screen .center{display:grid;grid-template-rows:minmax(0,1fr) 290px;gap:10px;height:auto;min-height:0;overflow:hidden}
+.one-screen .center>.panel{margin:0;min-height:0}
+.one-screen .stage{display:flex;flex-direction:column}
+.one-screen .stage>.panel-head{padding:8px 12px;flex:0 0 auto}
+.one-screen .stage-view{flex:1;min-height:0;height:auto}
+.one-screen .stage-toolbar{flex:0 0 auto;padding:8px;gap:6px}
+.one-screen .stage-toolbar select{display:block}
+.one-screen .stage-toolbar .subtle:not(.accent){display:inline-flex}
+.one-screen .stage-placeholder .map-art,.one-screen .stage-placeholder>.eyebrow,.one-screen .stage-placeholder>small{display:none}
+.one-screen .stage-placeholder h3{font-size:17px}
+.one-screen .stage-placeholder button{margin:8px 0}
+.one-screen .hud{position:static;display:block;width:auto;top:auto;right:auto;height:auto;max-height:none;min-height:0;overflow:hidden}
+.one-screen .hud>.panel{margin:0;height:100%;display:flex;flex-direction:column}
+.one-screen .hud>.process-panel,.one-screen .hud>.privacy-note{display:none}
+.one-screen .coach-summary>.panel-head{flex-wrap:wrap;padding:10px 12px}
+.one-screen .coach-summary-body{padding:12px;min-height:0;overflow:auto;flex:1}
+.one-screen .hud p{font-size:13px}
+.one-screen .dashboard-deck{display:flex;flex-direction:column;min-height:0}
+.dashboard-tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);padding:7px 12px;flex:0 0 auto}
+.dashboard-tabs [aria-selected=true]{background:#253c2d;color:var(--mint);border-color:#6a8b70}
+.dashboard-view{min-height:0;flex:1}
+.dashboard-roster .roster-panel{border:0;margin:0;background:transparent}
+.dashboard-roster .panel-head{padding:6px 12px;border:0}
+.dashboard-roster .panel-head h2{display:none}
+.dashboard-roster .panel-head .micro{margin-right:auto}
+.dashboard-roster .roster-label{padding:3px 12px;font-size:10px}
+.dashboard-roster .roster{padding:0 12px;gap:6px}
+.dashboard-roster .hero-slot{height:46px;gap:0;min-width:0}
+.dashboard-roster .hero-slot .hero-initial,.dashboard-roster .slot-plus{font-size:15px}
+.dashboard-roster .hero-slot b{font-size:11px}
+.dashboard-roster .hero-slot small{display:none}
+.dashboard-roster .panel-footer{margin:6px 0 0;padding:5px 12px}
+.dashboard-roster .panel-footer .primary{padding:5px 12px}
+.dashboard-roster #roster-auto-status{padding:0 12px;font-size:10px}
+.one-screen .dashboard-brief{display:block;height:auto;border:0;margin:0}
+.one-screen .dashboard-brief[hidden]{display:none}
+.one-screen .dashboard-brief .panel-head{padding:8px 12px}
+.one-screen .loading-brief-body{padding:10px 12px}
+.one-screen .loading-brief-body h3{font-size:17px;margin:5px 0}
+.one-screen .loading-brief-body p{font-size:12px;line-height:1.6}
+.one-screen .loading-brief-body button{margin-top:8px}
+.dashboard-plan-empty{padding:24px;color:var(--muted)}
+.dashboard-brief:not([hidden])+.dashboard-plan-empty{display:none}
+.one-screen .dashboard-view .vision-monitor{display:block;max-height:none;margin:0;border:0;height:100%;overflow:auto}
+.dashboard-skill-actions{display:flex;gap:8px;padding:6px 16px}
+.dashboard-dialog{width:min(860px,94vw);max-height:90dvh;padding:16px}
+.dashboard-dialog .screen-controls{display:block}
+.dashboard-dialog #loading-result{padding-top:12px}
+.dashboard-dialog .loading-steps,.dashboard-dialog .loading-cautions{display:grid}
+.dashboard-dialog .merged-cooldown{display:block}
+.dashboard-dialog .page{display:block}
+.dashboard-dialog .hud-panel .coach-symbol{display:none}
+@media(max-width:760px){
+ .one-screen main{padding:0 8px 8px}
+ .one-screen .workspace{grid-template-columns:minmax(0,1fr) minmax(170px,32%);gap:8px}
+ .one-screen .top-actions #standalone-monitor,.one-screen #display-mode,.one-screen .connection{display:none}
+ .one-screen .nav{font-size:11px;padding:6px}
+ .one-screen .stage-toolbar{gap:4px;padding:6px}
+ .one-screen .stage-toolbar .primary{padding:7px;font-size:10px}
+ .one-screen .stage-toolbar .subtle{padding:5px;font-size:10px}
+ .one-screen .hero-slot b{font-size:10px}
+}
+@media(max-height:650px){
+ .one-screen .center{grid-template-rows:minmax(0,1fr) 260px}
+ .dashboard-roster .hero-slot{height:36px}
+ .dashboard-roster .roster-label small{display:none}
+ .dashboard-roster .panel-head{padding:3px 10px}
+ .one-screen .stage-toolbar{padding:4px}
+}
+/* Give the main video workspace more horizontal room. */
+.one-screen .workspace{grid-template-columns:minmax(0,1fr) minmax(190px,20%)}
+/* 视频预览略微放大，减少宽屏容器两侧的空白。 */
+.one-screen .stage-view>video{transform:scale(1.12);transform-origin:center center}

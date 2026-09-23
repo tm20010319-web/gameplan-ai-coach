@@ -1,0 +1,28 @@
+{
+  "source": "User live monitor diagnostics and supplied screenshot, 2026-09-21",
+  "panel.png": {
+    "diagnostic_archive": "cast-1789955697052115800-bb8b169b.zip",
+    "capture_file": "F3.png",
+    "wall_time": "2026-09-21 09:54:57 Asia/Shanghai",
+    "game_clock": "00:45"
+  },
+  "later-panel.png": {
+    "source_file": "codex-clipboard-fe072428-6781-43b4-9ed5-d20efc61ff5b.png",
+    "crop": [
+      485,
+      30,
+      1710,
+      600
+    ],
+    "game_clock": "04:47"
+  },
+  "ocr": "ocr.json contains actual archived OCR; *-fresh-ocr.json contain new OCR runs on saved pixels. No injected OCR or model answer in the fresh comparison.",
+  "scope": "Roster identity only. Scoreboard frames cannot validate enemy casts.",
+  "sha256": {
+    "later-panel-fresh-ocr.json": "6ab45757af4374dd54461f0b6e7834a03d1773550300372fb918df88b3f016a8",
+    "later-panel.png": "a89226ccb3955e2444bd8726d30e9c828e2442414700061bea30d37aedd2dd8a",
+    "ocr.json": "1f1e089cef177f422c956e6d0f5b962ce5f342fa06b03da494a306538ca746cc",
+    "panel-fresh-ocr.json": "1f1e089cef177f422c956e6d0f5b962ce5f342fa06b03da494a306538ca746cc",
+    "panel.png": "7ef59369f48d991705d3fa3fb8ff261d26c8b726442f86b3a7fc8a0c17cc8160"
+  }
+}

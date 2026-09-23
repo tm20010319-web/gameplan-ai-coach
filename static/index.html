@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GAMEPLAN · 电竞室 AI 助教</title>
+  <link rel="stylesheet" href="/static/style.css?v=ai-advice-input-20260916-2">
+  <script src="/static/app.js" defer></script>
+  <script src="/static/vision.js?v=video-observe-resume-20260916-1" defer></script>
+  <script src="/static/screen.js" defer></script>
+  <script src="/static/timers.js" defer></script>
+  <script src="/static/roster-sync.js" defer></script>
+  <script src="/static/loading.js" defer></script>
+  <script src="/static/advisor.js" defer></script>
+  <link rel="stylesheet" href="/static/loading.css">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <script src="/static/dashboard.js?v=three-panel-1" defer></script>
+  <link rel="stylesheet" href="/static/three-panel.css?v=1">
+</head>
+<body class="three-panel">
+  <aside class="rail">
+    <a class="brand" href="/" aria-label="GAMEPLAN 首页"><span class="brand-mark">G<span>↗</span></span><b>GAMEPLAN<span>电竞室 · AI 助教</span></b></a>
+    <div class="rail-caption">训练工作台</div>
+    <nav aria-label="功能导航">
+      <button class="nav active" data-page="bp"><span>01</span>赛前战术 <i>↗</i></button>
+      <button class="nav" data-page="game"><span>02</span>局中观察 <i>↗</i></button>
+      <button class="nav" data-page="review"><span>03</span>赛后复盘 <i>↗</i></button>
+      <button class="nav" data-page="knowledge"><span>04</span>英雄知识库 <i>↗</i></button>
+    </nav>
+    <div class="rail-note"><span class="status-dot"></span> 无摄像头模式<b>先把决策练扎实。</b><p>手动录入 / 截图 / 本地视频<br>只做建议，不自动操作游戏。</p></div>
+    <div class="rail-bottom"><span>机制知识 · 60 HEROES</span><small>稳定机制版 / 待教练复核</small></div>
+  </aside>
+  <main>
+    <header class="topbar">
+      <div class="breadcrumb">电竞室 <span>/</span> 教练工作台 <span>/</span> <b id="page-label">赛前战术</b></div>
+      <div class="top-actions"><span id="connection" class="connection">连接中</span><a id="standalone-monitor" class="subtle" href="/monitor" target="_blank" rel="noopener">独立桌面监控 ↗</a><button id="display-mode" class="subtle">大屏模式 ⛶</button><button id="new-match" class="subtle">新建对局 ＋</button></div>
+    </header>
+    <section class="heading">
+      <div><div class="eyebrow">YOUR NEXT MOVE, MADE CLEAR.</div><h1 id="page-title">先读懂阵容，再进入战场<span>。</span></h1><p id="page-description">把英雄机制变成下一步行动。无需摄像头，也能走完训练闭环。</p></div>
+      <div class="match-chip"><span>当前对局</span><strong id="match-code">准备中</strong><a id="screen-link" target="_blank" rel="noopener">打开同步大屏 ↗</a></div>
+    </section>
+    <div class="workspace">
+      <div class="center">
+        <section id="display-report" class="panel display-report" hidden aria-label="大屏赛后战报"></section>
+        <section class="panel stage">
+          <div class="panel-head"><h2><span class="status-dot"></span> 画面工作区</h2><span class="micro" id="frame-status">不接摄像头也能开始</span></div>
+          <div class="screen-controls">
+            <label class="auto-monitor-option"><input type="checkbox" id="auto-monitor" checked>进入工作台后自动监控所选屏幕</label>
+            <div class="form-row"><label>监控整块屏幕<select id="screen-source" aria-label="选择本机屏幕"><option value="">正在读取屏幕列表…</option></select></label><button class="subtle" id="screen-refresh">刷新屏幕</button><button class="primary" id="screen-start">开始屏幕监控</button></div>
+            <div class="form-row"><label>观察内容<select id="observe-focus"><option value="heroes" selected>英雄优先 · 跟随选人变化</option><option value="full">完整状态 · 含血量与自身技能</option></select></label><label>每次识别完成后等待<select id="observe-interval"><option value="0" selected>立即读下一帧</option><option value="1">1 秒</option><option value="2">2 秒</option><option value="3">3 秒</option><option value="5">5 秒</option></select></label><button class="subtle" id="check-model">检测本地模型</button><span id="screen-status" class="micro" role="status">选择屏幕后点击开始，将自动连续识别。</span></div>
+            <p id="hero-follow-status" class="micro" role="status">等待识别英雄 · 换英雄后随新画面更新，无需再次点击分析。</p>
+            <p class="micro">Qwen3-VL 在本机识别画面，DeepSeek 只接收整理后的游戏信息并总结建议。自动采集图片不保存到磁盘，可随时暂停或停止。示例模式只分析样本图片。</p>
+          </div>
+          <div class="stage-view" id="stage-view">
+            <div class="stage-placeholder" id="stage-placeholder">
+              <div class="map-art"><div class="map-lane"></div><span class="map-node blue node-one"></span><span class="map-node blue node-two"></span><span class="map-node red node-three"></span><span class="map-node red node-four"></span><span class="map-cross">＋</span></div>
+              <span class="eyebrow">READY WHEN YOU ARE</span><h3>你的下一步，从这里开始</h3><p>上传游戏截图，或直接用下方阵容开始分析</p><button class="primary" id="demo-bp">载入示例阵容 <span>↗</span></button><small>示例数据，仅用于功能演示，不代表实际对局</small>
+            </div>
+            <img id="frame-image" hidden alt="当前游戏截图">
+            <video id="frame-video" hidden controls playsinline muted></video>
+          </div>
+          <div class="stage-toolbar"><label class="subtle file-button">＋ 截图 / 视频<input id="media-file" type="file" accept="image/*,video/*,.mp4,.webm,.mov,.m4v,.ogg,.ogv" hidden></label><button class="subtle" id="share-screen">浏览器共享窗口 / 屏幕</button><button class="subtle" id="stop-media" hidden>停止采集</button><div class="toolbar-spacer"></div><select id="vision-kind" aria-label="识别阶段"><option value="observe">自动阶段与技能</option><option value="bp">识别选人</option><option value="analyze">识别局面</option><option value="result">识别结算</option></select><button class="subtle accent" id="vision-run">分析当前画面 ↗</button><button class="primary" id="live-run" aria-pressed="false">开始连续观察</button></div>
+          <details class="roi"><summary>截图裁切与模型设置 <span>可选 · 不影响手动模式</span></summary><p>识别仅发送至配置的本地 Ollama；结果必须确认。归一化 ROI：x / y / 宽 / 高（0~1）。</p><div class="form-row"><label>横坐标<input id="roi-x" type="number" value="0" min="0" max="0.99" step="0.01"></label><label>纵坐标<input id="roi-y" type="number" value="0" min="0" max="0.99" step="0.01"></label><label>宽度<input id="roi-width" type="number" value="1" min="0.01" max="1" step="0.01"></label><label>高度<input id="roi-height" type="number" value="1" min="0.01" max="1" step="0.01"></label></div><div class="form-row"><label>本地视觉模型<input id="vision-model" value="qwen3-vl:8b"></label><button class="subtle" id="crop-preview">预览裁切</button></div><img id="crop-image" hidden alt="ROI 裁切预览"></details>
+        </section>
+
+        <section class="panel loading-plan" aria-label="加载阶段打法方案">
+          <div class="panel-head"><h2>这局怎么打</h2><span class="micro" id="loading-source">赛前阵容方案</span></div>
+          <div class="loading-setup">
+            <p id="loading-intro">加载画面出现后，根据双方阵容给出开局、团战和转资源方案。也可以先看这张网上样本。</p>
+            <div class="loading-actions"><button id="loading-sample" class="subtle accent">载入网上样本，看双方打法</button><span id="loading-status" role="status">等待阵容</span></div>
+            <details id="loading-editor"><summary>核对或修改双方阵容</summary><div class="form-row"><label><span id="loading-group-a-label">第一组英雄</span><input id="loading-group-a" placeholder="用顿号分隔，最多 5 位" autocomplete="off"></label><label><span id="loading-group-b-label">第二组英雄</span><input id="loading-group-b" placeholder="用顿号分隔，最多 5 位" autocomplete="off"></label></div><button id="loading-update" class="subtle">按修改后的阵容更新方案</button></details>
+            <label class="auto-monitor-option"><input type="checkbox" id="loading-follow" checked>自动跟随画面中确认的操控英雄</label><button id="loading-resume" class="subtle" hidden>恢复自动识别阵容</button>
+            <div class="loading-perspective" id="loading-perspective" hidden><div class="loading-tabs"><button id="loading-side-a" class="subtle" aria-pressed="true">看第一组打法</button><button id="loading-side-b" class="subtle" aria-pressed="false">看第二组打法</button></div><label>我想看这个英雄的任务<select id="loading-player"><option value="">先看全队配合</option></select></label></div>
+          </div>
+          <div id="loading-result" hidden></div>
+        </section>
+
+        <section class="panel vision-monitor" aria-label="连续视觉识别与技能冷却">
+          <div class="panel-head"><h2>视觉状态与技能冷却</h2><span class="micro" id="live-status" role="status">检查本地模型中</span></div>
+          <div class="vision-summary" id="live-summary">先选择游戏窗口，或上传截图测试识别。</div>
+          <div class="live-metrics" id="live-metrics" role="status">已识别 0 帧 · 尚未开始</div>
+          <p class="live-note" id="live-note">选择本机屏幕并开始监控后，这里会显示最新画面说明。</p>
+          <div class="vision-skills" id="self-skill-timers" aria-label="自身技能画面读数"><span class="micro">尚无技能画面读数</span></div>
+          <div class="hero-knowledge" id="hero-knowledge" aria-live="polite"><span class="micro">识别到英雄后自动读取技能资料</span></div>
+          <details class="vision-detail"><summary>查看最新识别结果</summary><pre id="live-json">尚未识别</pre></details>
+          <details class="vision-reference"><summary>技能资料与人工冷却登记</summary>
+            <h3>英雄技能基础资料 <small id="skill-count"></small></h3>
+            <p class="micro">官网参考值按技能等级排列。实际冷却受本局版本、冷却缩减、充能和刷新机制影响。</p>
+            <div class="form-row"><label>查询英雄<select id="skill-hero" aria-label="查询英雄技能"></select></label><label>技能<select id="skill-slot" aria-label="选择英雄技能"></select></label></div>
+            <div id="skill-reference"></div>
+            <details class="manual-timing" open>
+              <summary>记录敌方技能释放 · 冷却结束提醒</summary>
+              <p class="micro">在上方选英雄和技能，确认施放后登记。本局实际冷却需结合技能等级、冷却缩减及刷新机制核对；到点显示「预计可用」。</p>
+              <div class="form-row">
+                <label>阵营<select id="timer-side"><option value="enemy">敌方</option><option value="ally">己方</option></select></label>
+                <label>记录方式<select id="timer-mode"><option value="cast">已确认释放</option><option value="remaining">只知道剩余时间</option></select></label>
+                <label><span id="timer-seconds-label">本局实际冷却 / 秒</span><input id="timer-seconds" type="number" min="0.1" max="3600" step="0.1" placeholder="例如 12"></label>
+              </div>
+              <div class="form-row" id="timer-cast-fields">
+                <label>距释放已过 / 秒<input id="timer-elapsed" type="number" min="0" max="3600" step="0.1" value="0"></label>
+                <label>释放时局内秒数（选填）<input id="timer-game-time" type="number" min="0" max="14400" step="0.1" placeholder="例如 285；未知留空"></label>
+              </div>
+              <button id="timer-add" class="primary" type="button">记录释放并倒计时</button>
+              <p class="micro">按现实时间计时并保存到本对局，刷新 / 暂停视觉识别不丢失；录像暂停或游戏暂停时需自行校正。再次登记同一技能会替换倒计时并保留历史。</p>
+              <details class="timer-history-detail"><summary>本局最近 100 条技能记录</summary><div id="timer-history"><p class="micro">暂无记录</p></div></details>
+            </details>
+          </details>
+          <section class="merged-cooldown" aria-label="技能倒计时与冷却结束提醒">
+            <div class="panel-head"><h3>技能倒计时与冷却提醒</h3><span class="micro" id="timer-count">0 个记录</span></div>
+            <p id="skill-ready-alert" class="skill-ready-alert" role="status" aria-live="polite" hidden></p>
+            <div id="manual-timers" aria-label="本局手动技能计时"><p class="empty">确认敌方释放技能后，在「英雄技能基础资料」中登记。</p></div>
+            <div class="timer-footer"><small>人工记录 · 到点预计可用</small><button id="timer-clear" class="subtle" type="button">清空计时</button></div>
+          </section>
+        </section>
+
+        <section id="page-bp" class="page">
+          <div class="panel roster-panel"><div class="panel-head"><h2>双方阵容</h2><span class="micro">识别后自动填入 · 点击位置可核对</span></div><div class="roster-label"><span class="team-blue">● 己方阵容</span><small>围绕获胜条件协作</small></div><div class="roster" id="ally-roster"></div><div class="roster-label"><span class="team-red">● 敌方阵容</span><small>先判断威胁，再找应对</small></div><div class="roster" id="enemy-roster"></div><div class="panel-footer"><p id="roster-count">0 / 10 位英雄已选择</p><button class="primary" id="bp-run">生成战术方案 <span>→</span></button></div></div>
+          <p id="roster-auto-status" class="micro" role="status">等待画面识别，双方有英雄后自动生成战术方案</p><div id="bp-results"></div>
+        </section>
+
+        <section id="page-game" class="page" hidden>
+          <div class="panel"><div class="panel-head"><h2>结构化局面观察</h2><span class="micro" id="state-source">人工确认输入</span></div><p class="panel-copy">仅在高价值事件提醒。未确认字段保留「未知」，不会当作 0 人或技能可用。</p>
+          <div class="scenario-row"><button data-scenario="objective" class="subtle">目标将刷新</button><button data-scenario="retreat" class="subtle">人数劣势</button><button data-scenario="missing" class="subtle">关键英雄消失</button><button data-scenario="trade" class="subtle">安全换资源</button><button data-scenario="quiet" class="subtle">平稳局面</button></div>
+          <form id="state-form" class="form-grid">
+            <label>局内时间 / 秒<input id="game-time" type="number" min="0" max="14400" value="285" required></label>
+            <label>信息置信度<input id="confidence" type="number" min="0" max="1" value="1" step="0.01" required></label>
+            <label>附近己方人数<input id="ally-count" type="number" min="0" max="5" placeholder="未知"></label>
+            <label>附近敌方人数<input id="enemy-count" type="number" min="0" max="5" placeholder="未知"></label>
+            <label>己方低血量人数<input id="low-hp" type="number" min="0" max="5" placeholder="未知"></label>
+            <label>下一目标<select id="objective"><option value="">未知 / 无</option><option>暴君</option><option>主宰</option><option>风暴龙王</option></select></label>
+            <label>刷新倒计时 / 秒<input id="objective-eta" type="number" min="0" max="3600" placeholder="未知"></label>
+            <label>中路线权<select id="lane-state"><option value="unknown">未知</option><option value="mid_pushed_ally">己方已推中线</option><option value="even">均衡</option><option value="mid_pushed_enemy">敌方已推中线</option></select></label>
+            <label>关键技能<select id="skills-ready"><option value="">未知</option><option value="true">确认可用</option><option value="false">不可用</option></select></label>
+            <label>核心到场<select id="core-present"><option value="">未知</option><option value="true">已到场</option><option value="false">缺席</option></select></label>
+            <label>入口 / 地形安全<select id="position-safe"><option value="">未知</option><option value="true">已确认安全</option><option value="false">不安全</option></select></label>
+            <label>消失的敌方英雄<input id="missing-heroes" placeholder="例如：关羽、镜"></label>
+            <label>确认可见的己方英雄<input id="visible-allies" placeholder="未知留空，不由阵容推断"></label>
+            <label>确认可见的敌方英雄<input id="visible-enemies" placeholder="例如：吕布、后羿"></label>
+            <div class="check-row wide"><label><input type="checkbox" id="overextended">我方压线过深</label><label><input type="checkbox" id="safe-trade">有安全可换资源</label><label><input type="checkbox" id="closing">多人接近</label><label><input type="checkbox" id="combat">已发生伤害交换</label></div>
+            <div class="wide panel-footer"><small>仅记录可见事实，不代操作，不推断玩家意图。</small><button class="primary" type="submit">确认并评估局面 →</button></div>
+          </form></div>
+          <div class="panel"><div class="panel-head"><h2>建议执行记录</h2><button id="refresh-records" class="subtle">刷新</button></div><div id="records-list" class="record-list"><p class="empty">暂无建议，先评估一次局面。</p></div><form id="observation-form" class="form-grid"><label class="wide">选择建议<select id="record-select" required><option value="">暂无记录</option></select></label><label>可观察动作<select id="observed-action"><option value="retreat">撤退</option><option value="engage">接团</option><option value="kite">拉扯</option><option value="trade">换资源</option><option value="push_lane">推线</option><option value="convert_resource">击杀后转资源</option><option value="unknown">未确认</option></select></label><label>观察时局内秒数<input id="observed-time" type="number" min="0" max="14400" value="290" required></label><label>观察置信度<input id="action-confidence" type="number" min="0" max="1" step="0.01" value="1" required></label><label>可见结果<input id="outcome" maxlength="160" placeholder="例如：退回塔前，无新增阵亡"></label><div class="wide panel-footer"><small>超过建议有效期的观察不判定「已执行」。</small><button class="primary" type="submit">登记动作与结果</button></div></form></div>
+        </section>
+
+        <section id="page-review" class="page" hidden>
+          <div class="panel"><div class="panel-head"><h2>本局结算</h2><span class="micro">手动填写，或识别截图后确认</span></div><p class="panel-copy">不只看 KDA，不编造胜负手。空白数据按「未提供」处理。</p><form id="review-form" class="form-grid">
+          <label>比赛结果<select id="result"><option>胜利</option><option>失败</option><option>未知</option></select></label><label>使用英雄<input id="result-hero" list="hero-names" placeholder="可不填"></label><label>K / D / A<input id="kda" placeholder="例如：6/2/8" pattern="[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}"></label><label>推塔数<input id="towers" type="number" min="0" max="30" placeholder="未提供"></label><label>中立目标数<input id="objectives" type="number" min="0" max="50" placeholder="未提供"></label><label>总伤害<input id="damage" type="number" min="0" max="10000000" placeholder="未提供"></label><label>总承伤<input id="damage-taken" type="number" min="0" max="10000000" placeholder="未提供"></label><label>经济<input id="gold" type="number" min="0" max="1000000" placeholder="未提供"></label><label>参团率 / %<input id="participation" type="number" min="0" max="100" step="0.1" placeholder="未提供"></label><div class="wide panel-footer"><small>战报会存储在本机，持有链接的人可查看。</small><button type="submit" class="primary">生成复盘海报 →</button></div></form></div>
+          <div id="report-result"></div>
+        </section>
+
+        <section id="page-knowledge" class="page" hidden>
+          <div class="panel"><div class="panel-head"><h2>英雄机制档案 <span class="count-badge">60</span></h2><span class="micro">无绝对胜率 · 非赛季强度榜</span></div><div class="knowledge-controls"><input id="knowledge-query" placeholder="搜索英雄、分路、控制或资源…"><select id="knowledge-lane" aria-label="知识库分路"><option value="">全部分路</option><option>对抗路</option><option>中路</option><option>发育路</option><option>打野</option><option>辅助</option></select></div><p class="panel-copy">60 位英雄 + 10 条通用决策。稳定机制整理版；英雄重做、数值和装备需按当前赛季人工复核。</p><div id="knowledge-list" class="knowledge-list"></div></div>
+        </section>
+      </div>
+      <aside class="hud">
+        <section class="panel coach-summary" aria-label="外部模型对局分析"><div class="panel-head"><h2>AI 对局建议</h2><span id="coach-source" class="live-pill">等待画面</span></div><div class="coach-summary-body"><div class="coach-pipeline" id="coach-pipeline" role="status">Qwen3-VL 观察 → DeepSeek 分析 → 一段行动建议</div><p id="coach-summary">看到有效的游戏阵容后，这里会告诉你需要注意什么，以及怎样争取优势。</p><small id="coach-meta"></small><p id="coach-provider" class="micro"></p><div class="loading-actions"><button id="coach-retry" class="subtle accent">重新检查接口并分析</button></div><details id="coach-detail" hidden><summary>查看分析依据</summary><div id="coach-reasoning"></div></details></div></section>
+        <div class="panel loading-brief" id="loading-brief" hidden><div class="panel-head"><h2>这局先记住</h2><span class="live-pill">赛前方案</span></div><div class="loading-brief-body"><small id="loading-brief-source"></small><h3 id="loading-brief-title"></h3><p id="loading-brief-text"></p><button id="loading-jump" class="subtle accent">看完整打法 ↓</button></div></div>
+        <div class="panel hud-panel"><div class="panel-head"><h2>AI 战术助手</h2><span class="live-pill">HUD</span></div><div class="hud-body"><div class="eyebrow" id="hud-tag">STANDBY / 随时就绪</div><div class="coach-symbol">↗</div><h3 id="hud-title">让每一步，都有依据。</h3><p id="hud-message">确认双方英雄后，教练会在这里给出本局的第一条行动建议。</p><div class="hud-backup" id="hud-backup">先看信息，再做决策。</div><div id="hud-timer" class="hud-timer" hidden><span></span></div><small id="hud-meta">局中只保留一条主建议和一个备用动作。</small></div></div>
+        <div class="panel process-panel"><div class="eyebrow">完整训练闭环</div><ol><li><span>1</span><div>读阵容<small>英雄机制 · 对线策略</small></div><b>↗</b></li><li><span>2</span><div>看节点<small>目标 · 人数 · 兵线</small></div><b>↗</b></li><li><span>3</span><div>练下一局<small>行为复盘 · 海报分享</small></div><b>↗</b></li></ol></div>
+        <div class="privacy-note"><b>安静，但不缺席。</b><p>不逐帧解说，不播报语音。模型不可用时，仍可使用本地规则与知识库。</p><span id="model-status">本地规则已就绪</span></div>
+      </aside>
+    </div>
+    <footer>GAMEPLAN / 让经验成为下一局的优势<span>本地存储 · 可信局域网使用 · 无自动操作</span></footer>
+  </main>
+  <dialog id="hero-dialog"><div class="dialog-head"><div><span class="eyebrow">HERO SELECT</span><h2 id="picker-title">选择英雄</h2></div><button id="close-picker" class="subtle" aria-label="关闭英雄选择">✕</button></div><input id="hero-query" placeholder="输入英雄名或分路"><div id="hero-pool" class="hero-pool"></div><button id="clear-slot" class="subtle">清空此位置</button></dialog>
+  <dialog id="vision-dialog"><div class="dialog-head"><h2>请确认识别结果</h2><button id="close-vision" class="subtle">✕</button></div><p>识别可能出错；只把已确认的信息带入表单，再由你提交分析。</p><pre id="vision-output"></pre><button id="apply-vision" class="primary">填入表单，继续核对 →</button></dialog>
+  <datalist id="hero-names"></datalist><div id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

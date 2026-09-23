@@ -1,0 +1,214 @@
+[
+  {
+    "id": "macro_objective",
+    "type": "macro_tactic",
+    "title": "目标准备",
+    "tags": [
+      "目标",
+      "暴君",
+      "主宰",
+      "线权"
+    ],
+    "content": "目标前先清中线，确认人数、血线、关键技能和入口视野；条件不齐时换资源，不因双方靠近就强开。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  },
+  {
+    "id": "macro_trade",
+    "type": "macro_tactic",
+    "title": "资源交换",
+    "tags": [
+      "换资源",
+      "落后",
+      "推塔"
+    ],
+    "content": "无法安全到场时换另一侧可兑现的塔、兵线或野区资源，始终保留撤退路线。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  },
+  {
+    "id": "macro_convert",
+    "type": "macro_tactic",
+    "title": "击杀转化",
+    "tags": [
+      "击杀",
+      "推塔",
+      "经济"
+    ],
+    "content": "击杀后先看兵线和防御塔，其次主目标，避免深追让对手复活后反打。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  },
+  {
+    "id": "macro_side",
+    "type": "macro_tactic",
+    "title": "边线运营",
+    "tags": [
+      "单带",
+      "边线",
+      "牵制"
+    ],
+    "content": "边线与主目标同步施压；提前约定守边人，避免五人追一个单带者。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  },
+  {
+    "id": "macro_vision",
+    "type": "macro_tactic",
+    "title": "视野安全",
+    "tags": [
+      "消失",
+      "侧翼",
+      "视野",
+      "探草"
+    ],
+    "content": "关键英雄消失时收危险边线，辅助与队友一起确认入口，不让脆皮单独探草。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  },
+  {
+    "id": "macro_poke",
+    "type": "macro_tactic",
+    "title": "消耗阵容",
+    "tags": [
+      "远程",
+      "消耗",
+      "阵容"
+    ],
+    "content": "面对远程消耗先快速清线，绕有视野的侧翼逼近，不在狭窄入口反复磨血。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  },
+  {
+    "id": "macro_dive",
+    "type": "macro_tactic",
+    "title": "突进保护",
+    "tags": [
+      "突进",
+      "高机动",
+      "控制"
+    ],
+    "content": "关键控制留给有效进场者，后排错位，保护技能不要全部先手交给前排。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  },
+  {
+    "id": "macro_late",
+    "type": "macro_tactic",
+    "title": "后期核心",
+    "tags": [
+      "后期",
+      "射手",
+      "发育"
+    ],
+    "content": "核心装备未齐时以安全清线换时间，团战跟随保护位，不无条件争小资源。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  },
+  {
+    "id": "macro_review",
+    "type": "macro_tactic",
+    "title": "复盘原则",
+    "tags": [
+      "赛后",
+      "复盘",
+      "KDA"
+    ],
+    "content": "不只看KDA；结合资源转化、目标控制、兵线视野与角色完成度。缺少过程证据不能断言胜负手。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  },
+  {
+    "id": "macro_execution",
+    "type": "macro_tactic",
+    "title": "建议执行",
+    "tags": [
+      "执行",
+      "观察",
+      "结果"
+    ],
+    "content": "只记录可观察动作和发生时间，低置信度或过期观察标为不确定；不能推断玩家主观意图或由单次结果证明建议正确。",
+    "phase": [
+      "BP",
+      "loading",
+      "mid_game",
+      "team_fight",
+      "post_game"
+    ],
+    "source_version": "用户教练知识库v1 / 稳定决策原则",
+    "reviewed_at": null,
+    "reviewer": "待人工教练复核"
+  }
+]

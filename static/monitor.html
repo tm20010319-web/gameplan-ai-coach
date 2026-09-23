@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>实时桌面监控 · GAMEPLAN</title>
+  <link rel="icon" href="/static/monitor.ico">
+  <link rel="stylesheet" href="/static/monitor.css?v=multi-cast-20260921">
+  <link rel="stylesheet" href="/static/overlay.css?v=20260920">
+  <script src="/static/video-candidates.js?v=cooldown-chain-20260918" defer></script>
+  <script src="/static/monitor.js?v=scoreboard-refresh-20260921" defer></script>
+  <script src="/static/enemies.js?v=ultimate-recall-fix-20260922" defer></script>
+  <script src="/static/advisor.js?v=knowledge-suspected-20260918-2" defer></script>
+  <script src="/static/overlay.js?v=20260920" defer></script>
+</head>
+<body>
+  <header class="masthead"><div class="identity"><span class="logo">G↗</span><div><small>GAMEPLAN / DESKTOP</small><h1>实时桌面监控</h1></div></div><div class="header-actions"><span id="monitor-status" role="status" class="badge">准备就绪</span></div></header>
+  <main>
+    <section class="controls panel" aria-label="监控控制">
+      <p id="video-status" role="status" hidden></p>
+      <div class="control-row"><label class="screen-select">监控屏幕<select id="screen-source"><option value="">读取屏幕列表…</option></select></label><label class="capture-region">采集区域<select id="capture-region"><option value="full">整块屏幕</option><option value="left">左半屏（游戏在左）</option><option value="right">右半屏（游戏在右）</option></select></label><button id="screen-refresh">刷新</button><label class="file-button">选择视频<input id="video-file" type="file" accept="video/*,.mp4,.webm,.mov,.m4v,.ogg,.ogv" hidden></label><div class="buttons"><button class="primary" id="monitor-start">开始监控</button><button id="monitor-pause" disabled>暂停</button><button id="monitor-stop" disabled>停止</button><button id="monitor-new">新对局</button></div></div>
+      <div class="control-footer"><label class="check"><input id="monitor-auto" type="checkbox" checked>打开此窗口时自动开始</label><details><summary>观察设置</summary><div class="settings"><label>视频分析方式<select id="video-mode"><option value="stride10" selected>每隔 10 帧取 1 帧（约 1 秒组成一批）</option><option value="smart60">智能筛选（目标采集 60 帧/秒，优先当前片段）</option><option value="all60">60 帧/秒完整识别（允许滞后）</option><option value="latest">跟随播放位置（优先当前画面，可能漏过片段）</option><option value="complete">连续片段分析（处理慢时补查）</option></select></label><label>观察内容<select id="observe-focus"><option value="skills" selected>敌方大招与召唤师技能</option><option value="full">完整状态与自身技能</option><option value="heroes">英雄优先</option></select></label><label>每次识别后等待<select id="observe-interval"><option value="0" selected>连续识别（不等待）</option><option value="0.5">0.5 秒</option><option value="1">1 秒</option><option value="2">2 秒</option><option value="3">3 秒</option><option value="5">5 秒</option></select></label><label>本地视觉模型<input id="vision-model" value="qwen3-vl:8b-instruct" maxlength="100"></label><button id="monitor-check">检查模型</button><p id="model-status" class="muted">Qwen3-VL 在本机识别，DeepSeek 分析游戏信息。</p></div></details></div>
+    </section>
+    <div class="workspace">
+      <div class="visual-column">
+        <section class="panel preview-panel"><div class="panel-title"><h2>屏幕预览</h2><span id="capture-status" class="muted">尚未采集</span></div><div class="preview"><div id="preview-placeholder"><span class="screen-icon">▣</span><h3>让画面告诉你下一步</h3><p>将手机通过无线或 USB 投屏到电脑，首次选择投屏窗口，之后自动监控。</p></div><img id="frame-image" alt="所选屏幕的最近一次采样" hidden><span id="preview-paused" hidden>已暂停 · 保留最后一次预览</span></div><div class="enemy-subtitle-panel"><div class="enemy-subtitle-heading"><b>敌方技能提醒</b><small id="enemy-scan-status">等待画面 · 单帧特效触发计时</small></div><p class="muted">识别到敌方大招或召唤师技能的专属特效，一帧即可开始基础 CD 估算。时间取首次识别画面；模糊、无法归属的特效保留待确认。</p><p id="skill-hardware-status" class="muted" hidden></p><div id="enemy-skill-subtitles" role="status" aria-live="polite" aria-atomic="true"><p class="muted">等待敌方技能特效，首次识别后开始计时。</p></div></div><div class="metrics"><span id="frame-count">0 帧</span><span id="frame-time">等待识别</span><span id="match-label"></span></div></section>
+        <section class="panel identity-panel"><div id="bp-context" class="bp-context" hidden></div><div class="panel-title"><h2>当前识别</h2><span id="phase" class="badge">等待画面</span></div><div class="hero-current"><span class="muted">画面中的操控英雄</span><strong id="current-hero">待确认</strong><p class="muted">我的分路：<b id="current-lane">待确认</b></p><p id="lane-evidence" class="muted">等待读取个人分路提示，不根据英雄定位猜测。</p><p id="observation-note" class="muted">只读取画面中可见的信息。</p></div><div class="rosters"><div><small>第一组 · 视觉候选</small><p id="roster-a">尚未识别</p></div><div><small>第二组 · 视觉候选</small><p id="roster-b">尚未识别</p></div></div><section class="enemy-timers" aria-label="敌方技能与冷却">
+          <div class="panel-title"><h2>敌方技能介绍与冷却</h2><span class="badge">大招优先</span></div>
+          <div class="enemy-skills-body">
+            <p class="muted">大招和召唤师技能采用单帧特效识别：首次看见对应敌方特效即开始基础 CD 估算，无需起手或第二帧确认；同一冷却窗口内不重复计时。</p>
+            <div id="enemy-skill-reference"></div>
+            <div class="flash-reference"><b>大招与召唤师技能 · 基础冷却估算</b><p>识别到可归属敌方的释放特效后，在右侧对应列持续倒计时；仅识别到携带技能不会计时。未计装备减冷却、刷新或条件返还；充能技能不代表剩余次数为零。朵莉亚大招不计时。</p></div>
+            <h3 class="enemy-timer-title">本局技能特效与冷却记录</h3>
+            <div id="enemy-skill-timers" class="muted">识别到敌方英雄后显示技能资料；确认施放后才开始计时。</div>
+            <p class="muted">倒计时从首次识别特效的画面时间起算，可能晚于实际释放；采用知识库基础值，大招技能等级未知时显示范围，未计装备减冷却或刷新。计时结束仅代表预计已冷却；特殊机制无固定 CD 时显示未知。新对局清空，暂停保留读数。</p>
+          </div>
+        </section><details class="readings"><summary>自身技能读数与识别详情</summary><p id="skill-readings" class="muted">英雄优先模式不读取技能倒计时。</p><pre id="observation-json">尚未识别</pre></details></section>
+      </div>
+      <aside class="advice-column">
+        <section class="panel enemy-selection" aria-label="敌方选人">
+          <div class="panel-title"><h2>敌方选人</h2><span id="enemy-count" class="badge">0 / 5</span></div>
+          <div class="enemy-selection-body"><p id="enemy-roster-status" class="muted" role="status">敌方尚未显示或未能识别，等待选人画面。</p>
+            <div id="enemy-slots" class="enemy-slots" aria-label="敌方五个选人位置"></div><div id="enemy-burst-summary" class="enemy-burst-summary" role="status" aria-live="polite" hidden></div><div class="enemy-cooldown-head"><b>本局技能状态</b><span>大招</span><span>召唤师技能</span></div><div id="enemy-cooldown-board" aria-label="敌方大招和召唤师技能状态"></div><p class="muted">召唤师技能按实际图标确认；未识别时可打开战绩面板，让系统读取。</p>
+            <p class="muted">点击已识别的敌方英雄，查看威胁与 BP 克制参考；技能介绍和大招冷却见“敌方技能介绍与冷却”。</p>
+            <div id="enemy-reference" class="enemy-reference" hidden><h3 id="enemy-reference-title"></h3><p id="enemy-threat"></p><p id="enemy-response"></p><div id="enemy-counters"></div><small class="muted">本地机制参考，结合当前版本与熟练度选择。</small>
+              <details><summary>纠正此英雄的召唤师技能</summary><p class="muted">只填写你已从游戏中核对的技能；更正仅用于本局，不代表自动识别成功。</p><label>实际携带 <select id="enemy-summoner-correction"><option value="">请选择</option><option>闪现</option><option>惩击</option><option>终结</option><option>狂暴</option><option>疾跑</option><option>治疗术</option><option>眩晕</option><option>净化</option><option>弱化</option><option>干扰</option><option>传送</option></select></label><button id="enemy-summoner-save" type="button">保存本局更正</button><button id="enemy-summoner-clear" type="button">恢复待识别</button><p id="enemy-correction-status" role="status"></p></details>
+            </div>
+          </div>
+        </section>
+        <section class="panel coach-summary"><div class="panel-title"><h2>本地对局建议</h2><span id="coach-source" class="badge">等待画面</span></div><div class="coach-body"><div id="coach-pipeline" class="muted">等待 Ollama 识别游戏画面</div><p id="coach-summary">识别到游戏后，会在这里告诉你需要注意什么、如何争取优势。</p><small id="coach-meta" class="muted"></small><div class="perspective"><label>查看我方<select id="monitor-side"><option value="auto" selected>我的一方</option></select></label><label>建议针对的英雄（可核对）<select id="monitor-hero"><option value="">自动跟随 / 全队配合</option></select></label></div><section id="lane-plan" class="quick" hidden><h2 id="lane-plan-title">分路打法</h2><p id="lane-plan-text"></p><small>按分路提供通用建议，英雄未确认时不指定个人英雄打法。</small></section><div id="quick-plan" class="quick" hidden><small>先记住这点 · 本地机制参考</small><p id="quick-text"></p></div><button id="coach-retry">重新识别当前画面</button><p id="coach-provider" class="muted"></p><details id="coach-detail" hidden><summary>查看本地分析依据</summary><div id="coach-reasoning"></div></details></div></section>
+        <p class="footnote">截图在本机处理。开启漏检诊断时，最近送检画面与判断结果按容量轮换保存在本机。看不清的英雄保留待确认。关闭此窗口会停止本页监控。</p>
+      </aside>
+    </div>
+  </main><div id="toast" role="alert" hidden></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

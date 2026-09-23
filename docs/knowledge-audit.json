@@ -1,0 +1,112 @@
+{
+  "storage": "sqlite",
+  "heroes": 132,
+  "with_skill_data": 132,
+  "skills": 537,
+  "with_ultimate": 132,
+  "missing_ultimate": [],
+  "with_ultimate_cooldown": 132,
+  "missing_ultimate_cooldown": [],
+  "dynamic_ultimate_cooldowns": [
+    "朵莉亚"
+  ],
+  "ultimate_cooldown_review_required": [
+    "鲁班大师"
+  ],
+  "coaching_profiles": [
+    {
+      "hero": "伽罗",
+      "practice_lane": "发育路",
+      "rules": 7,
+      "issues": [],
+      "reference_ready": true,
+      "current_patch_verified": false,
+      "pending": [
+        "经核验的具体对位与支援路线攻略",
+        "当前版本技能数值及文章冲突项核验"
+      ],
+      "version_conflicts": [],
+      "excluded_scope": [
+        "小件购买顺序",
+        "逆风或针对阵容换装"
+      ]
+    },
+    {
+      "hero": "艾琳",
+      "practice_lane": "发育路",
+      "rules": 5,
+      "issues": [],
+      "reference_ready": true,
+      "current_patch_verified": false,
+      "pending": [
+        "当前正式服伤害类型、属性转换及滑步机制核验",
+        "更多连招、具体对位与支援团战时机攻略"
+      ],
+      "version_conflicts": [
+        "文章称普攻物伤、技能法伤与双属性穿透；当前官网快照描述普攻法伤及法强转暴击。当前正式服机制待公告或游戏内资料核验。",
+        "文章滑步时序描述不够精确；实时建议以画面能量和移动状态为准。"
+      ],
+      "excluded_scope": [
+        "小件购买顺序",
+        "逆风或针对阵容换装"
+      ]
+    },
+    {
+      "hero": "小乔",
+      "practice_lane": "中路",
+      "rules": 8,
+      "issues": [],
+      "reference_ready": true,
+      "current_patch_verified": false,
+      "pending": [
+        "当前版本具体对位及游走路线攻略",
+        "当前版本技能与打法适用性核验"
+      ],
+      "version_conflicts": [],
+      "excluded_scope": [
+        "小件购买顺序",
+        "逆风或针对阵容换装"
+      ]
+    },
+    {
+      "hero": "吕布",
+      "practice_lane": "对抗路",
+      "rules": 8,
+      "issues": [],
+      "reference_ready": true,
+      "current_patch_verified": false,
+      "pending": [
+        "当前版本具体对位与控线攻略",
+        "当前版本技能及打法适用性核验"
+      ],
+      "version_conflicts": [],
+      "excluded_scope": [
+        "小件购买顺序",
+        "逆风或针对阵容换装"
+      ]
+    },
+    {
+      "hero": "李元芳",
+      "practice_lane": "打野",
+      "rules": 10,
+      "issues": [],
+      "reference_ready": true,
+      "current_patch_verified": false,
+      "pending": [
+        "当前版本河道资源种类及刷新时间核验",
+        "经核验的具体对位攻略"
+      ],
+      "version_conflicts": [],
+      "excluded_scope": [
+        "小件购买顺序",
+        "逆风或针对阵容换装"
+      ]
+    }
+  ],
+  "coaching_heroes": 5,
+  "coaching_rules": 38,
+  "missing_heroes": [],
+  "missing_skill_data": 0,
+  "fetched_at": "2026-09-16T10:51:13.286117+00:00",
+  "note": "王者荣耀官网制胜宝典公开技能资料。官网未标注当前游戏版本；保留来源、采集时间和冷却原式，按技能等级列出基础冷却。动态公式、特殊刷新、充能、形态与装备效果不能直接套用普通倒计时。"
+}

@@ -1,0 +1,91 @@
+{
+  "source_directory": "C:\\Users\\Administrator\\Desktop\\闪现",
+  "coordinate_space": "AirDroid window including title bar; OCR resized to height 576",
+  "samples": [
+    {
+      "image": "吕布-210.png",
+      "ocr": "吕布-210-ocr.json",
+      "source_file": "使用吕布对局.mp4",
+      "controlled_hero": "吕布",
+      "video_time_s": 210.0,
+      "desktop_crop": [
+        557,
+        116,
+        1801,
+        686
+      ],
+      "image_sha256": "210d835ca15bbcb1ce0e93635c348e56e294ee35e3f01c1ca7e23f8320d1f508"
+    },
+    {
+      "image": "吕布-390.png",
+      "ocr": "吕布-390-ocr.json",
+      "source_file": "使用吕布对局.mp4",
+      "controlled_hero": "吕布",
+      "video_time_s": 390.0,
+      "desktop_crop": [
+        557,
+        116,
+        1801,
+        686
+      ],
+      "image_sha256": "f357abd59c6bd8cefa26a3d55af93782739584615c04cc1e02e5010d39269619"
+    },
+    {
+      "image": "艾琳-152.png",
+      "ocr": "艾琳-152-ocr.json",
+      "source_file": "使用艾琳对局.mp4",
+      "controlled_hero": "艾琳",
+      "video_time_s": 152.0,
+      "desktop_crop": [
+        662,
+        186,
+        1906,
+        756
+      ],
+      "image_sha256": "28807413a918b985b71b40a01e7df8cb65014cbd4dbd9aeafe55208319133425"
+    },
+    {
+      "image": "艾琳-354.png",
+      "ocr": "艾琳-354-ocr.json",
+      "source_file": "使用艾琳对局.mp4",
+      "controlled_hero": "艾琳",
+      "video_time_s": 354.0,
+      "desktop_crop": [
+        662,
+        186,
+        1906,
+        756
+      ],
+      "image_sha256": "0a5717ee80937f4986dde708f8a5ba8e9da10bd2308659f347111cec50c97a9a"
+    },
+    {
+      "image": "艾琳-357.png",
+      "ocr": "艾琳-357-ocr.json",
+      "source_file": "使用艾琳对局.mp4",
+      "controlled_hero": "艾琳",
+      "video_time_s": 357.0,
+      "desktop_crop": [
+        662,
+        186,
+        1906,
+        756
+      ],
+      "image_sha256": "0564a53067c317371a4e49b5a78a0785bb238c76fe0100917a4e2e8459029fb3"
+    },
+    {
+      "image": "艾琳-361.png",
+      "ocr": "艾琳-361-ocr.json",
+      "source_file": "使用艾琳对局.mp4",
+      "controlled_hero": "艾琳",
+      "video_time_s": 361.0,
+      "desktop_crop": [
+        662,
+        186,
+        1906,
+        756
+      ],
+      "image_sha256": "7c544bf227910a8839eb737211130d1621f28bca20ca310104bf6a07ee6c51bf"
+    }
+  ],
+  "purpose": "Real HUD, enemy candidate and scoreboard regressions; no cast accuracy claim"
+}

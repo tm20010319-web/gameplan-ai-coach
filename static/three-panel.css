@@ -1,0 +1,35 @@
+/* Three stable regions; result updates scroll within their own panels. */
+html:has(body.three-panel), body.three-panel { height:100%; overflow:hidden; }
+.three-panel main { margin:0; padding:0 16px 14px; max-width:none; height:100dvh; display:flex; flex-direction:column; overflow:hidden; }
+.three-panel > .rail, .three-panel .heading, .three-panel main > footer,
+.three-panel .breadcrumb, .three-panel #display-mode { display:none; }
+.three-panel .topbar { height:52px; flex:0 0 52px; }
+.three-panel .top-actions { margin-left:auto; }
+.three-panel .workspace { display:grid; grid-template-columns:minmax(0, 1fr) minmax(300px, 32%); gap:14px; flex:1; min-height:0; height:auto; overflow:hidden; padding-top:12px; align-items:stretch; }
+.three-panel .center { display:grid; grid-template-rows:minmax(280px, 55fr) minmax(180px, 45fr); gap:14px; height:auto; min-height:0; overflow:hidden; }
+.three-panel .center > :not(.stage):not(.vision-monitor),
+.three-panel .hud > :not(.coach-summary) { display:none!important; }
+.three-panel .center > .stage, .three-panel .center > .vision-monitor { display:flex; flex-direction:column; position:static; height:auto; min-height:0; max-height:none; margin:0; overflow:hidden; }
+.three-panel .panel-head { padding:12px 16px; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+.three-panel .stage-view { flex:1; height:auto; min-height:0; }
+.three-panel .stage-view > video { transform:none; object-fit:contain; }
+.three-panel .stage-toolbar { flex:0 0 auto; padding:10px; }
+.three-panel .stage-toolbar .subtle:not(.accent) { display:inline-flex; }
+.three-panel .stage-toolbar select { display:block; }
+.three-panel .stage-placeholder .map-art, .three-panel .stage-placeholder > small, .three-panel #demo-bp { display:none; }
+.three-panel .skill-panel-body { min-height:0; flex:1; overflow:auto; }
+.three-panel .skill-panel-body .merged-cooldown { display:block; }
+.three-panel .hud { display:block; position:static; width:auto; height:auto; min-height:0; max-height:none; overflow:hidden; order:initial; }
+.three-panel .hud > .coach-summary { display:flex; flex-direction:column; height:100%; min-height:0; margin:0; }
+.three-panel .coach-summary-body { flex:1; min-height:0; overflow:auto; padding:16px; }
+.three-panel .dashboard-dialog .screen-controls { display:block; }
+.three-panel .file-button { cursor:pointer; }
+@media(max-width:760px), (max-height:580px) {
+ html:has(body.three-panel), body.three-panel { height:auto; overflow:auto; }
+ .three-panel main { height:auto; min-height:100dvh; overflow:visible; }
+ .three-panel .workspace { display:flex; flex-direction:column; overflow:visible; }
+ .three-panel .center { display:flex; flex-direction:column; overflow:visible; }
+ .three-panel .center > .stage { height:380px; flex:none; }
+ .three-panel .center > .vision-monitor { height:320px; flex:none; }
+ .three-panel .hud > .coach-summary { height:400px; }
+}

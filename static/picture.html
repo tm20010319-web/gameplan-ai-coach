@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>英雄识别与个人打法 · GAMEPLAN</title>
+  <link rel="icon" href="/static/monitor.ico"><link rel="stylesheet" href="/static/monitor.css">
+  <link rel="stylesheet" href="/static/picture.css?v=personal-plan-1"><script src="/static/picture.js?v=personal-plan-1" defer></script>
+</head>
+<body>
+  <header class="masthead"><div class="identity"><span class="logo">G↗</span><div><small>GAMEPLAN / VISION COACH</small><h1>英雄识别与个人打法</h1></div></div><div class="header-actions"><span id="status" role="status" class="badge">准备就绪</span><a href="/bp">选人助手</a><a href="/monitor?mode=screen&monitor=off">整屏 Qwen 监控 ↗</a></div></header>
+  <main>
+    <section class="controls panel" aria-label="画面来源">
+      <div class="control-row"><label class="screen-select">图片所在屏幕<select id="screen-source"><option value="">读取屏幕列表…</option></select></label><button id="refresh">刷新</button><button id="select-region">框选固定画面</button><div class="buttons"><button id="start" class="primary">开始监控</button><button id="pause" disabled>暂停</button><button id="stop" disabled>停止</button></div></div>
+      <div class="control-footer"><div><p id="region-label" class="muted">首次框选图片所在位置，之后在这个位置换图即可。</p><label class="check"><input id="auto" type="checkbox" checked>记住区域后，打开窗口自动监控</label></div><div class="image-actions"><label class="file-button" tabindex="0">选择图片识别<input id="image-file" type="file" accept="image/png,image/jpeg,image/webp" hidden></label><button id="reference">重新识别当前图片</button></div></div>
+      <p id="provider" class="muted">本地 OCR 与 Qwen 逐个读取英雄名字，先核对身份。</p>
+    </section>
+    <div class="workspace">
+      <div class="visual-column">
+        <section class="panel preview-panel"><div class="panel-title"><h2 id="preview-title">正在分析的图片</h2><span id="capture-status" class="muted">等待选择</span></div><div class="preview"><div id="placeholder"><span class="screen-icon">▣</span><h3>逐个读取英雄名字</h3><p>框选桌面上的游戏截图，或直接选择图片。无需重新填写阵容。</p></div><img id="frame-image" alt="当前选中区域或图片" hidden><span id="preview-paused" hidden>已暂停 · 冻结预览</span></div><div class="metrics"><span id="detection-status">约每秒检查画面变化</span><span id="elapsed">等待分析</span></div></section>
+        <section class="panel identity-panel"><div class="panel-title"><h2 id="lineup-title">当前阵容 · 请核对</h2><span id="phase" class="badge">等待画面</span></div><div class="rosters"><div><small>第一组 · 上排 / 左侧</small><p id="roster-a">尚未识别</p></div><div><small>第二组 · 下排 / 右侧</small><p id="roster-b">尚未识别</p></div></div><p id="uncertainty" class="uncertainty muted">只分析当前图片，不沿用上一张的英雄。</p>
+          <details class="readings"><summary>查看每个位置的识别依据</summary><p class="muted">位置按上排、下排从左至右编号。未读清的位置保留待确认，不根据阵容补猜。</p><div hidden><label>第一组<input id="correct-a"></label><label>第二组<input id="correct-b"></label><button id="correct" disabled>核对</button></div><pre id="local-result">尚无本地识别</pre></details>
+        </section>
+      </div>
+      <aside class="advice-column">
+        <section class="panel coach-summary"><div class="panel-title"><h2 id="coach-title">先识别每个英雄</h2><span id="coach-source" class="badge">等待画面</span></div><div class="coach-body"><div id="pipeline" class="muted">框选后自动识别换图，稳定后只分析最新图片</div><p id="coach-summary">选择一张完整加载图片，先逐个读取两排英雄名字。</p><small id="coach-meta" class="muted"></small><div class="perspective"><label>从哪一方看<select id="side"><option value="neutral">请选择所在阵营</option><option value="a">第一组</option><option value="b">第二组</option></select></label><label>你的英雄<select id="hero"><option value="">请选择英雄</option></select></label><label>你的分路<select id="lane"><option value="unknown">待确认</option><option value="打野">打野</option><option value="对抗路">对抗路</option><option value="中路">中路</option><option value="发育路">发育路</option><option value="辅助">辅助</option></select></label></div><button id="plan-generate" class="primary" disabled>生成个人对战思路</button><div id="personal-plan"></div><div id="advice-detail" hidden><h3>需要注意</h3><ul id="watch-for"></ul><h3>如何争取优势</h3><ul id="opportunities"></ul></div><button id="retry" disabled>重新识别当前图</button></div></section>
+        <p class="footnote">图片仅在本机识别，自动采样不落盘。请保留卡片底部的英雄名字和加载百分比。皮肤外观不作为英雄身份依据，名字不清晰时保留待确认。</p>
+      </aside>
+    </div>
+  </main>
+  <dialog id="region-dialog"><div class="dialog-heading"><h2>框住游戏图片，再开始监控</h2><button id="region-cancel">取消</button></div><p class="muted">只选择游戏图片本身，保留双方英雄名字。移动图片窗口后需重新框选。</p><div id="region-stage"><img id="region-image" alt="用于本机框选的整屏预览" draggable="false"><div id="region-box" hidden></div></div><div class="dialog-footer"><span id="region-size" class="muted">在预览中拖动鼠标框选</span><button id="region-save" class="primary" disabled>使用此区域并开始</button></div></dialog>
+  <div id="toast" role="alert" hidden></div>
+</body></html>
