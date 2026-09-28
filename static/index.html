@@ -8,7 +8,7 @@
   <script src="/static/app.js" defer></script>
   <script src="/static/vision.js?v=video-observe-resume-20260916-1" defer></script>
   <script src="/static/screen.js" defer></script>
-  <script src="/static/timers.js" defer></script>
+  <script src="/static/timers.js?v=ready-label-20260923" defer></script>
   <script src="/static/roster-sync.js" defer></script>
   <script src="/static/loading.js" defer></script>
   <script src="/static/advisor.js" defer></script>
@@ -113,6 +113,16 @@
           </section>
         </section>
 
+        <section class="panel voice-command-panel" aria-label="小象助手文字指令">
+          <div class="panel-head"><h2>小象助手</h2><span class="micro">文字指令测试</span></div>
+          <form id="voice-command-form" class="form-row">
+            <label>报告敌方技能释放<input id="voice-command-input" maxlength="160" autocomplete="off" placeholder="例如：妲己放大了 / 孙悟空闪现了" required></label>
+            <button id="voice-command-submit" class="primary" type="submit">发送指令</button>
+          </form>
+          <div id="voice-command-choices" aria-label="确认英雄" hidden></div>
+          <p id="voice-command-result" class="micro" role="status" aria-live="polite">输入英雄和技能事件，测试后端指令解析与冷却登记。</p>
+        </section>
+
         <section id="page-bp" class="page">
           <div class="panel roster-panel"><div class="panel-head"><h2>双方阵容</h2><span class="micro">识别后自动填入 · 点击位置可核对</span></div><div class="roster-label"><span class="team-blue">● 己方阵容</span><small>围绕获胜条件协作</small></div><div class="roster" id="ally-roster"></div><div class="roster-label"><span class="team-red">● 敌方阵容</span><small>先判断威胁，再找应对</small></div><div class="roster" id="enemy-roster"></div><div class="panel-footer"><p id="roster-count">0 / 10 位英雄已选择</p><button class="primary" id="bp-run">生成战术方案 <span>→</span></button></div></div>
           <p id="roster-auto-status" class="micro" role="status">等待画面识别，双方有英雄后自动生成战术方案</p><div id="bp-results"></div>
@@ -149,6 +159,7 @@
         </section>
 
         <section id="page-knowledge" class="page" hidden>
+          <p><a href="/knowledge/lol" target="_blank" rel="noopener">打开英雄联盟端游全英雄知识库 →</a></p>
           <div class="panel"><div class="panel-head"><h2>英雄机制档案 <span class="count-badge">60</span></h2><span class="micro">无绝对胜率 · 非赛季强度榜</span></div><div class="knowledge-controls"><input id="knowledge-query" placeholder="搜索英雄、分路、控制或资源…"><select id="knowledge-lane" aria-label="知识库分路"><option value="">全部分路</option><option>对抗路</option><option>中路</option><option>发育路</option><option>打野</option><option>辅助</option></select></div><p class="panel-copy">60 位英雄 + 10 条通用决策。稳定机制整理版；英雄重做、数值和装备需按当前赛季人工复核。</p><div id="knowledge-list" class="knowledge-list"></div></div>
         </section>
       </div>

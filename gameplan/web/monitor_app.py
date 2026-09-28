@@ -22,6 +22,8 @@ import gameplan.monitoring.screen_capture as screen_capture
 
 app = FastAPI(title="GAMEPLAN 独立桌面监控", version="1.0.0")
 app.mount("/static", StaticFiles(directory=ROOT / "static"), name="static")
+from gameplan.web.lol_routes import router as lol_router
+app.include_router(lol_router)
 
 
 def monitor_status():
@@ -241,3 +243,7 @@ app.include_router(bp_routes(require_local))
 @app.get('/bp')
 def bp_page(embedded: bool = False):
     return FileResponse(ROOT / 'static' / ('bp.html' if embedded else 'workspace.html'))
+
+
+from gameplan.web.timer_routes import routes as timer_routes
+app.include_router(timer_routes())

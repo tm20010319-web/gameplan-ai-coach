@@ -1,5 +1,7 @@
 # GAMEPLAN · 电竞室 AI 助教
 
+2026-09-28：新增[英雄联盟端游知识库](http://127.0.0.1:8767/knowledge/lol)，收录官方 `16.19.1` 目录全部 173 位英雄，支持英雄、技能、冷却、参考装备和打法搜索及职业筛选。工作台与原知识库均有入口；出装为项目整理的可选装备池，数值、技巧的版本边界与更新方法见[维护说明](docs/maintenance/lol-knowledge.md)。
+
 项目文件按用途查找，请先看 [项目分类导航](docs/README.md)。需求与方案集中在 `docs/requirements/`，历史交接和修复记录集中在 `docs/archive/`。
 
 实现代码按功能放在 `gameplan/`，知识库 JSON 放在 `resources/knowledge/`。根目录的 `app.py`、`monitor_app.py` 保留原启动入口，两个 PowerShell 启动脚本和浏览器地址不变。

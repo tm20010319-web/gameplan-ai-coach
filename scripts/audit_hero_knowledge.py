@@ -14,7 +14,7 @@ def main():
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     lines = ['# 知识库完整性报告', '',
              f"基础英雄 {report['heroes']} 位，已收录技能 {report['skills']} 条，技能覆盖 {report['with_skill_data']} 位，大招及冷却资料覆盖 {report['with_ultimate_cooldown']} 位；详细打法 {report['coaching_heroes']} 位，共 {report['coaching_rules']} 条。",
-             '', '动态大招冷却：' + ('、'.join(report['dynamic_ultimate_cooldowns']) or '无') + '。',
+             '', f"官网打法参考覆盖 {report['strategy_heroes']} 位（版本待核验）；与已人工整理的详细打法独立保存。", '', '动态大招冷却：' + ('、'.join(report['dynamic_ultimate_cooldowns']) or '无') + '。',
              '官网冷却字段待核对：' + ('、'.join(report['ultimate_cooldown_review_required']) or '无') + '。',
              '', '“可用”表示资料结构与默认配置齐全，不表示当前版本或实战效果已核验。', '',
              '| 英雄 | 练习分路 | 打法条数 | 资料结构 | 当前版本 |', '|---|---|---:|---|---|']
@@ -27,9 +27,9 @@ def main():
               '- 默认出装、铭文、分路是用户预设，不是本局画面确认结果。',
               '- 来源分为官网、用户文字和第三方攻略；条件未知时只展示条件参考。',
               '- 基础冷却不是剩余冷却；估算必须标注“推测”。',
-              '- 小件购买顺序、逆风或针对阵容换装不在本次范围。',
+              '- 官网出装思路按原文保存；对局内针对性换装须结合实际阵容判断。',
               '- 抖音视频与未读取的贴吧帖子继续待整理；未审核原文不进入建议。',
-              '- 详细打法仅覆盖上述五位，其他英雄不冒充已有完整攻略。']
+              '- 人工整理的详细打法仅覆盖上述英雄；全英雄新增官网攻略参考保持版本待核验，不冒充已人工验证的完整攻略。']
     (ROOT / 'docs' / 'knowledge-audit.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
     index = ['# 全英雄技能与大招冷却索引', '',
              f"来源：腾讯官网制胜宝典；目录包含 {report['heroes']} 个英雄条目（含分支/命格），共 {report['skills']} 条被动、主动和附加技能。",

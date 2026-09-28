@@ -17,7 +17,7 @@
     const header = document.querySelector('.masthead');
     const tools = document.createElement('div');
     tools.className = 'overlay-tools';
-    tools.innerHTML = '<b>敌方技能</b><button id="panel-settings" type="button" aria-expanded="false">采集设置</button><button id="panel-pause" type="button">暂停</button>';
+    tools.innerHTML = '<b>小象助手 · 技能面板</b><button id="panel-settings" type="button" aria-expanded="false">采集设置</button><button id="panel-pause" type="button">暂停</button>';
     header.prepend(tools);
     const settings = document.querySelector('.controls');
     settings.hidden = true;

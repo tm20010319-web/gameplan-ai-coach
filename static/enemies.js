@@ -21,6 +21,14 @@
   function skillMarkup(hero,skill){
     return `<section class="enemy-skill ${isUltimate(skill)?"ultimate-skill":""}"><div class="enemy-skill-heading"><h4>${escapeHtml(slotLabel(skill))} · ${escapeHtml(skill.name)}</h4><span class="skill-base-cooldown">${escapeHtml(baseCooldown(skill))}</span></div><p>${escapeHtml(skill.description||"技能介绍待补充。")}</p>${skill.cooldown_note?`<p class="muted">${escapeHtml(skill.cooldown_note)}</p>`:""}${skill.special_mechanic?'<small class="muted">含特殊机制，计时条件需结合技能描述核对。</small>':""}${skill.passive||skill.slot===0?"":`<div class="skill-live-state" data-skill-hero="${escapeHtml(hero)}" data-skill-slot="${escapeHtml(skill.slot)}" data-skill-name="${escapeHtml(skill.name)}"></div>`}</section>`;
   }
+  function strategyMarkup(record) {
+    const strategy = record?.strategy_reference;
+    if (!strategy) return "";
+    const fields = [["使用技巧",strategy.usage],["对线反制",strategy.counterplay],["团战",strategy.teamfight],
+      ["分路参考",strategy.suggested_lane],["加点",strategy.skill_order],["铭文",strategy.runes_note]];
+    const builds = (strategy.builds || []).map((build, index) => `<p><b>出装参考 ${index+1}</b> · ${(build.items || []).map(item => escapeHtml(item.name || `装备 ${item.id}（待核对）`)).join(" → ")}<br>${escapeHtml(build.note)}</p>`).join("");
+    return `<details class="enemy-other-skills"><summary>对线、团战与出装参考 · 版本待核验</summary><section class="enemy-skill"><p class="muted">${escapeHtml(strategy.review_note)}</p>${fields.map(([label,text])=>`<p><b>${label}</b>：${escapeHtml(text || "官网未提供，待补充")}</p>`).join("")}${builds}</section></details>`;
+  }
   function knowledge(){
     const box=byId("enemy-skill-reference");
     const key=JSON.stringify(state.names.map(hero=>[hero,state.knowledge.get(hero)]));
@@ -30,7 +38,7 @@
     box.innerHTML=state.names.map(hero=>{
       const record=state.knowledge.get(hero),skills=record?.skills||[],ultimate=skills.find(isUltimate),others=skills.filter(skill=>!isUltimate(skill));
       const source=record?.source_url&&/^https:\/\/pvp\.qq\.com\//.test(record.source_url)?`<a href="${escapeHtml(record.source_url)}" target="_blank" rel="noopener noreferrer">官网技能资料</a>`:"本地技能资料";
-      return `<article class="enemy-hero-skills"><header><h3>${escapeHtml(hero)}</h3><small>${source} · 视觉候选，请核对</small></header>${ultimate?skillMarkup(hero,ultimate):'<p class="muted">大招资料待补充，基础冷却未知。</p>'}${others.length?`<details class="enemy-other-skills"><summary>查看其余 ${others.length} 个技能与被动介绍</summary>${others.map(skill=>skillMarkup(hero,skill)).join("")}</details>`:""}${!record?'<p class="muted">技能资料暂不可用，等待下次识别重试。</p>':""}</article>`;
+      return `<article class="enemy-hero-skills"><header><h3>${escapeHtml(hero)}</h3><small>${source} · 视觉候选，请核对</small></header>${ultimate?skillMarkup(hero,ultimate):'<p class="muted">大招资料待补充，基础冷却未知。</p>'}${others.length?`<details class="enemy-other-skills"><summary>查看其余 ${others.length} 个技能与被动介绍</summary>${others.map(skill=>skillMarkup(hero,skill)).join("")}</details>`:""}${strategyMarkup(record)}${!record?'<p class="muted">技能资料暂不可用，等待下次识别重试。</p>':""}</article>`;
     }).join("");
   }
   function timerSkill(timer){
@@ -162,7 +170,7 @@
       const text=remaining>0?`充能恢复估算剩余 ${seconds} 秒 · 可能仍有存储次数`:'本次充能恢复估算结束 · 剩余次数待确认';
       return (state.ended?"结束时：":state.heldAt?"暂停时：":"")+text;
     }
-    const text=high!==null&&low!==high?`预计剩余 ${low}–${high} 秒（${timer.cast_window_start!==null&&Number.isFinite(timer.cast_window_start)?"知识库与起手范围估算":"知识库档位"}）`:remaining>0?`预计剩余 ${Math.ceil(remaining)} 秒`:"冷却估算结束 · 能否释放待确认";
+    const text=high!==null&&low!==high?`预计剩余 ${low}–${high} 秒（${timer.cast_window_start!==null&&Number.isFinite(timer.cast_window_start)?"知识库与起手范围估算":"知识库档位"}）`:remaining>0?`预计剩余 ${Math.ceil(remaining)} 秒`:`冷却估算结束 · ${timer.hero}${isUltimate(skill||timer)?"大招":timer.skill}预计可用`;
     return (state.ended?"结束时：":state.heldAt?"暂停时：":"")+text+(baseEstimate?(timer.hero==="瑶"?" · 基础估算（未计附身/脱离调整）":" · 基础估算（未计刷新/返还等特殊调整）"):"")+(timer.reference_estimate?" · 官网参考值，版本待核对":"")+(isSummoner(timer)?" · 基础估算（未计冷却调整）":"");
   }
   function tick(){

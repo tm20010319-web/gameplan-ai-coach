@@ -611,7 +611,7 @@ test('expired keyframe ultimate is historical and a fresh cast starts a new coun
    hero:'铠',skill:'不灭魔躯',slot:3,is_ultimate:true,captured_at:now/1000-50,
    remaining_s:remaining,timing_basis:'first_visible_effect'}]}),processed_at:now/1000});
   await h.w.gameplanEnemies.observe(frame(0),{side:'a'});
-  assert.match(h.get('enemy-cooldown-board').textContent,/上次大招.*冷却估算结束.*待确认/);
+  assert.match(h.get('enemy-cooldown-board').textContent,/上次大招.*冷却估算结束 · 铠大招预计可用/);
   assert.doesNotMatch(h.get('enemy-cooldown-board').textContent,/大招特效已识别/);
   await h.w.gameplanEnemies.observe(frame(40),{side:'a'});
   assert.match(h.get('enemy-cooldown-board').textContent,/大招特效已识别.*40 秒/);
@@ -754,7 +754,7 @@ for(const [spell,seconds] of [['惩击',30],['终结',60],['狂暴',75],['疾跑
    await h.w.gameplanEnemies.observe({...frame,enemy_skill_updates:[]},{side:'a'});
    assert.match(columns()[1].textContent,new RegExp(`预计剩余 ${seconds-5} 秒`));
    h.w.gameplanEnemies.setPlaybackTime(20+seconds);
-   assert.match(columns()[1].textContent,/冷却估算结束/);
+   assert.match(columns()[1].textContent,new RegExp(`冷却估算结束 · 铠${spell}预计可用`));
    h.w.gameplanEnemies.reset();assert.equal(h.get('enemy-cooldown-board').textContent,'');
   }finally{h.close();}
  });
@@ -795,7 +795,7 @@ test('Xishi confirmed cooldown renders even when the optional special-mechanic f
   await h.w.gameplanEnemies.observe({...frame,enemy_skill_updates:[]},{side:'a'});
   assert.match(board(),/预计剩余 4–14 秒/);
   h.w.gameplanEnemies.setPlaybackTime(55);
-  assert.match(board(),/冷却估算结束/);
+  assert.match(board(),/冷却估算结束 · 西施大招预计可用/);
  }finally{h.close();}
 });
 
@@ -831,7 +831,7 @@ print(json.dumps(rows,ensure_ascii=False))
    h.w.gameplanEnemies.setPlaybackTime(22);
    const nextLow=Math.max(0,Math.ceil(low-2)),nextHigh=Math.max(0,Math.ceil(high-2));
    const later=nextLow===nextHigh?`${nextHigh}`:`${nextLow}–${nextHigh}`;
-   assert.match(cell(),nextHigh===0?/冷却估算结束|充能恢复估算结束/:new RegExp(`剩余 ${later} 秒`),hero);
+   assert.match(cell(),nextHigh===0?/冷却估算结束 · .*大招预计可用|充能恢复估算结束/:new RegExp(`剩余 ${later} 秒`),hero);
    verified++;
   }
   assert.equal(verified,catalog.heroes.length-1);
@@ -854,7 +854,7 @@ test('Yao base estimate persists in the right ultimate column until replay count
   await h.w.gameplanEnemies.observe({...frame,enemy_skill_updates:[]},{side:'a'});
   assert.match(board(),/预计剩余 10 秒/);
   h.w.gameplanEnemies.setPlaybackTime(35);
-  assert.match(board(),/冷却估算结束 · 能否释放待确认/);
+  assert.match(board(),/冷却估算结束 · 瑶大招预计可用/);
   assert.doesNotMatch(board(),/剩余冷却未知|NaN/);
   h.w.gameplanEnemies.reset();assert.equal(board(),'');
  }finally{h.close();}
@@ -937,7 +937,7 @@ test('expired estimates are tentative and missing timer numbers never render NaN
  const h=harness();try{
   await flush();h.options.infer=p=>skillsFrame(h,p,{timers:[{hero:'铠',skill:'不灭魔躯',slot:3,captured_at:Date.now()/1000-70,remaining_s:0},{hero:'铠',skill:'闪现',slot:5,captured_at:Date.now()/1000}]});
   await h.w.gameplanMonitor.start();await flush();
-  assert.match(h.get('enemy-skill-timers').textContent,/冷却估算结束 · 能否释放待确认/);assert.match(h.get('enemy-skill-timers').textContent,/剩余冷却未知/);
+  assert.match(h.get('enemy-skill-timers').textContent,/冷却估算结束 · 铠大招预计可用/);assert.match(h.get('enemy-skill-timers').textContent,/剩余冷却未知/);
   assert.doesNotMatch(h.get('enemy-skill-timers').textContent,/NaN|已确认可用/);
  }finally{h.close();}
 });

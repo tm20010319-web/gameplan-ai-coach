@@ -8,6 +8,8 @@ from gameplan.tactics.coach import ROOT
 
 CATALOG_PATH = ROOT / "resources" / "knowledge" / "skill_catalog.json"
 DATABASE_PATH = ROOT / "data" / "hero_knowledge.sqlite3"
+ITEMS_PATH = ROOT / "resources" / "knowledge" / "equipment_catalog.json"
+ALIASES_PATH = ROOT / "resources" / "knowledge" / "hero_voice_aliases.json"
 PROFILES_PATH = ROOT / "data" / "hero_coaching_profiles.json"
 _lock = threading.RLock()
 
@@ -16,6 +18,7 @@ def sync_database():
     """Publish a source snapshot to an independently queryable SQLite database."""
     from gameplan.tactics.coach import HEROES
     stamp = str(CATALOG_PATH.stat().st_mtime_ns) + ':' + str(PROFILES_PATH.stat().st_mtime_ns if PROFILES_PATH.exists() else 0)
+    stamp += ":" + ":".join(str(path.stat().st_mtime_ns) if path.exists() else "0" for path in (ITEMS_PATH, ALIASES_PATH))
     DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
     with _lock, sqlite3.connect(DATABASE_PATH) as db:
         db.execute("CREATE TABLE IF NOT EXISTS metadata (key TEXT PRIMARY KEY, value TEXT)")
@@ -25,6 +28,9 @@ def sync_database():
         catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
         profiles = json.loads(PROFILES_PATH.read_text(encoding="utf-8")) if PROFILES_PATH.exists() else {}
         profile_index = {p['hero']: {**p, 'review_note': profiles.get('note', '')} for p in profiles.get('heroes', [])}
+        equipment = json.loads(ITEMS_PATH.read_text(encoding="utf-8")) if ITEMS_PATH.exists() else {}
+        item_index = {int(row['item_id']): row['item_name'] for row in equipment.get('items', [])}
+        aliases = json.loads(ALIASES_PATH.read_text(encoding="utf-8")).get('heroes', {}) if ALIASES_PATH.exists() else {}
         _read_catalog.cache_clear()
         rows = []
         for hero in catalog["heroes"]:
@@ -32,6 +38,14 @@ def sync_database():
                     "tactical_reference": HEROES.get(hero["hero"]),
                     "catalog_note": catalog.get("note", ""),
                     "coaching_profile": profile_index.get(hero['hero'])}
+            strategy = item.get('strategy_reference')
+            if strategy:
+                for build in strategy.get('builds', []):
+                    build['items'] = [{'id': item_id, 'name': item_index.get(item_id),
+                                       'status': 'official_reference' if item_id in item_index else 'unresolved'}
+                                      for item_id in build['item_ids']]
+                strategy['fetched_at'] = item['fetched_at']
+            item['voice_aliases'] = aliases.get(hero['hero'], {'aliases': [], 'asr_variants': []})
             rows.append((hero["hero"], json.dumps(item, ensure_ascii=False)))
         db.execute("DELETE FROM heroes")
         db.executemany("INSERT INTO heroes VALUES (?, ?)", rows)
@@ -97,6 +111,8 @@ def get_hero(hero):
         "title": item.get("title", ""), "roles": item.get("roles", []),
         "tactical_reference": item.get("tactical_reference"),
         "coaching_profile": item.get("coaching_profile"),
+        "strategy_reference": item.get("strategy_reference"),
+        "voice_aliases": item.get("voice_aliases", {}),
         "cooldown_semantics": "基础冷却，不代表当前剩余冷却；估算须标注推测。",
     }
 
@@ -145,7 +161,9 @@ def coverage():
             'pending': profile.get('missing', []),
             'version_conflicts': profile.get('source_review', {}).get('version_conflicts', []),
             'excluded_scope': profile.get('scope_exclusions', [])})
-    return {"storage": "sqlite", "heroes": len(records), "with_skill_data": with_skills,
+    return {"strategy_heroes": sum(bool(r.get('strategy_reference')) for r in records),
+            "strategy_missing": {r['hero']: r.get('strategy_reference', {}).get('missing', ['攻略待补']) for r in records if not r.get('strategy_reference') or r['strategy_reference'].get('missing')},
+            "storage": "sqlite", "heroes": len(records), "with_skill_data": with_skills,
             "skills": sum(len(item.get('skills', [])) for item in records),
             "with_ultimate": len(records) - len(missing_ultimate), "missing_ultimate": missing_ultimate,
             "with_ultimate_cooldown": len(records) - len(missing_cooldown), "missing_ultimate_cooldown": missing_cooldown,

@@ -107,6 +107,17 @@ class SkillTimerRequest(Model):
         return self
 
 
+class CommandTimerRequest(SkillTimerRequest):
+    """Internal command registration also permits the summoner slot."""
+    slot: int = Field(ge=1, le=5)
+
+
+class VoiceCommandRequest(MatchRequest):
+    """Recognised text from the wake-word/ASR adapter."""
+
+    text: str = Field(min_length=1, max_length=200)
+
+
 class ResultData(Model):
     result: Literal["胜利", "失败", "未知"] = "未知"
     hero: str = Field(default="", max_length=20)

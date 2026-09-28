@@ -17,7 +17,7 @@ from pydantic import ValidationError
 
 from gameplan.tactics.coach import CATALOG, HEROES, ROOT, bp_plan, evaluate, fingerprint, hero_entry, search
 from gameplan.ai.integrations import image_bytes, polish, vision, vision_status
-from gameplan.core.models import BPRequest, GameState, ObservationRequest, ResultData, ReviewRequest, StateRequest, VisionRequest, ScreenObservation, SkillTimerRequest, ScreenCaptureRequest
+from gameplan.core.models import BPRequest, GameState, ObservationRequest, ResultData, ReviewRequest, StateRequest, VisionRequest, ScreenObservation, SkillTimerRequest, VoiceCommandRequest, ScreenCaptureRequest
 from gameplan.core.reporting import LABELS, render, review
 import gameplan.core.storage as storage
 import gameplan.skills.cooldowns as cooldowns
@@ -30,9 +30,12 @@ from gameplan.monitoring.monitor_runtime import observe as monitor_observe, visi
 from gameplan.web.monitor_app import monitor_status, require_local as monitor_require_local
 from gameplan.web.picture_analysis import routes as picture_routes
 from gameplan.knowledge.skill_knowledge import coverage as skill_coverage, get_hero as get_skill_hero, lookup_many as lookup_skill_heroes
+from gameplan.voice import parse_command
 
 app = FastAPI(title="王者荣耀 AI 助教", version="2.0.0")
 app.mount("/static", StaticFiles(directory=ROOT / "static"), name="static")
+from gameplan.web.lol_routes import router as lol_router
+app.include_router(lol_router)
 app.include_router(picture_routes(monitor_require_local))
 connections = defaultdict(set)
 locks = defaultdict(asyncio.Lock)
@@ -214,62 +217,11 @@ def get_match(match_id: str):
     advice = memory.get("advice")
     if advice and advice["expires_epoch"] <= time.time():
         advice = None
-    return {"match_id": match_id, "phase": memory.get("phase", "bp"), "bp": memory.get("bp"), "advice": advice, "records": storage.records(match_id), "last_report": memory.get("last_report"), "skill_timers": cooldowns.snapshot(match_id, memory)}
+    return {"match_id": match_id, "phase": memory.get("phase", "bp"), "bp": memory.get("bp"), "advice": advice, "records": storage.records(match_id), "last_report": memory.get("last_report"), "skill_timers": cooldowns.snapshot(match_id, memory), "voice_events": list(reversed(memory.get("voice_events", [])))}
 
 
-def validate_timer_match(match_id):
-    if not re.fullmatch(r"[a-zA-Z0-9_-]{1,64}", match_id):
-        raise HTTPException(400, "对局编号无效")
-
-
-@app.get("/api/matches/{match_id}/skill-timers")
-def get_skill_timers(match_id: str):
-    validate_timer_match(match_id)
-    return cooldowns.snapshot(match_id, storage.memory(match_id))
-
-
-@app.post("/api/matches/{match_id}/skill-timers")
-async def register_skill_timer(match_id: str, req: SkillTimerRequest):
-    validate_timer_match(match_id)
-    async with locks[match_id]:
-        memory = storage.memory(match_id)
-        try:
-            item = cooldowns.register(memory, req, get_skills())
-        except ValueError as exc:
-            raise HTTPException(422, str(exc)) from exc
-        storage.save_memory(match_id, memory)
-        storage.audit(match_id, {"kind": "skill_cast" if req.mode == "cast" else "skill_remaining", "timer": item})
-        result = cooldowns.snapshot(match_id, memory)
-        await publish(match_id, "skill_timers", result)
-    return result
-
-
-@app.post("/api/matches/{match_id}/skill-timers/clear")
-async def clear_skill_timers(match_id: str):
-    validate_timer_match(match_id)
-    async with locks[match_id]:
-        memory = storage.memory(match_id)
-        cooldowns.retire(memory, {item["id"] for item in memory.get("skill_timers", [])}, "cleared")
-        storage.save_memory(match_id, memory)
-        storage.audit(match_id, {"kind": "skill_timers_cleared"})
-        result = cooldowns.snapshot(match_id, memory)
-        await publish(match_id, "skill_timers", result)
-    return result
-
-
-@app.post("/api/matches/{match_id}/skill-timers/{timer_id}/cancel")
-async def cancel_skill_timer(match_id: str, timer_id: str):
-    validate_timer_match(match_id)
-    async with locks[match_id]:
-        memory = storage.memory(match_id)
-        if not any(item["id"] == timer_id for item in memory.get("skill_timers", [])):
-            raise HTTPException(404, "该技能计时已被替换或移除")
-        cooldowns.retire(memory, {timer_id}, "cancelled")
-        storage.save_memory(match_id, memory)
-        storage.audit(match_id, {"kind": "skill_timer_cancelled", "timer_id": timer_id})
-        result = cooldowns.snapshot(match_id, memory)
-        await publish(match_id, "skill_timers", result)
-    return result
+from gameplan.web.timer_routes import routes as timer_routes
+app.include_router(timer_routes(publish, lambda: get_skills(), locks))
 
 
 @app.websocket("/ws/{match_id}")

@@ -1,0 +1,1486 @@
+{
+  "schema_version": 1,
+  "note": "人工整理的称呼和有限同音错字，另含有来源的官方称号；所有共享称呼均需确认。不使用任意近似匹配，不能保证真实ASR识别率。",
+  "heroes": {
+    "廉颇": {
+      "aliases": [
+        "廉颇老哥",
+        "正义爆轰"
+      ],
+      "asr_variants": [
+        "连破"
+      ],
+      "official_title": "正义爆轰",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/105.json"
+    },
+    "小乔": {
+      "aliases": [
+        "乔妹",
+        "恋之微风"
+      ],
+      "asr_variants": [],
+      "official_title": "恋之微风",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/106.json"
+    },
+    "赵云": {
+      "aliases": [
+        "赵子龙",
+        "子龙",
+        "苍天翔龙"
+      ],
+      "asr_variants": [
+        "赵芸"
+      ],
+      "official_title": "苍天翔龙",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/107.json"
+    },
+    "墨子": {
+      "aliases": [
+        "墨三炮",
+        "和平守望"
+      ],
+      "asr_variants": [
+        "莫子"
+      ],
+      "official_title": "和平守望",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/108.json"
+    },
+    "妲己": {
+      "aliases": [
+        "小妲己",
+        "魅力之狐"
+      ],
+      "asr_variants": [
+        "妲已",
+        "打己",
+        "答己",
+        "达己"
+      ],
+      "official_title": "魅力之狐",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/109.json"
+    },
+    "嬴政": {
+      "aliases": [
+        "秦始皇",
+        "王者独尊"
+      ],
+      "asr_variants": [
+        "赢政",
+        "赢正",
+        "赢证"
+      ],
+      "official_title": "王者独尊",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/110.json"
+    },
+    "孙尚香": {
+      "aliases": [
+        "大小姐",
+        "香香",
+        "千金重弩"
+      ],
+      "asr_variants": [
+        "孙上香"
+      ],
+      "official_title": "千金重弩",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/111.json"
+    },
+    "鲁班七号": {
+      "aliases": [
+        "小鲁班",
+        "小卤蛋",
+        "卤蛋",
+        "鲁班",
+        "机关造物"
+      ],
+      "asr_variants": [],
+      "official_title": "机关造物",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/112.json"
+    },
+    "庄周": {
+      "aliases": [
+        "鱼",
+        "鱼人",
+        "庄子",
+        "逍遥幻梦"
+      ],
+      "asr_variants": [
+        "庄舟"
+      ],
+      "official_title": "逍遥幻梦",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/113.json"
+    },
+    "刘禅": {
+      "aliases": [
+        "阿斗",
+        "小刘禅",
+        "暴走机关"
+      ],
+      "asr_variants": [
+        "刘婵"
+      ],
+      "official_title": "暴走机关",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/114.json"
+    },
+    "高渐离": {
+      "aliases": [
+        "高哥",
+        "叛逆吟游"
+      ],
+      "asr_variants": [
+        "高见离",
+        "高建离"
+      ],
+      "official_title": "叛逆吟游",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/115.json"
+    },
+    "阿轲": {
+      "aliases": [
+        "荆轲",
+        "阿珂",
+        "信念之刃"
+      ],
+      "asr_variants": [],
+      "official_title": "信念之刃",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/116.json"
+    },
+    "钟无艳": {
+      "aliases": [
+        "钟大锤",
+        "野蛮之锤"
+      ],
+      "asr_variants": [
+        "钟无燕"
+      ],
+      "official_title": "野蛮之锤",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/117.json"
+    },
+    "孙膑": {
+      "aliases": [
+        "小孙膑",
+        "逆流之时"
+      ],
+      "asr_variants": [
+        "孙宾",
+        "孙彬",
+        "孙斌"
+      ],
+      "official_title": "逆流之时",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/118.json"
+    },
+    "扁鹊": {
+      "aliases": [
+        "毒奶",
+        "善恶怪医"
+      ],
+      "asr_variants": [
+        "扁雀"
+      ],
+      "official_title": "善恶怪医",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/119.json"
+    },
+    "孙悟空": {
+      "aliases": [
+        "猴子",
+        "猴哥",
+        "大圣",
+        "悟空",
+        "齐天大圣"
+      ],
+      "asr_variants": [
+        "孙务空"
+      ],
+      "official_title": "齐天大圣",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/167.json"
+    },
+    "心魔六耳": {
+      "aliases": [
+        "六耳",
+        "六耳猕猴",
+        "孙悟空命格"
+      ],
+      "asr_variants": [],
+      "official_title": "孙悟空命格",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/549.json"
+    },
+    "白起": {
+      "aliases": [
+        "杀神",
+        "最终兵器"
+      ],
+      "asr_variants": [],
+      "official_title": "最终兵器",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/120.json"
+    },
+    "芈月": {
+      "aliases": [
+        "芈八",
+        "吸血鬼",
+        "永恒之月"
+      ],
+      "asr_variants": [
+        "米悦",
+        "米月"
+      ],
+      "official_title": "永恒之月",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/121.json"
+    },
+    "吕布": {
+      "aliases": [
+        "奉先",
+        "吕奉先",
+        "无双之魔"
+      ],
+      "asr_variants": [
+        "吕步"
+      ],
+      "official_title": "无双之魔",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/123.json"
+    },
+    "周瑜": {
+      "aliases": [
+        "都督",
+        "周公瑾",
+        "铁血都督"
+      ],
+      "asr_variants": [
+        "周鱼"
+      ],
+      "official_title": "铁血都督",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/124.json"
+    },
+    "夏侯惇": {
+      "aliases": [
+        "夏侯",
+        "独眼",
+        "不羁之风"
+      ],
+      "asr_variants": [
+        "夏侯墩",
+        "夏侯敦"
+      ],
+      "official_title": "不羁之风",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/126.json"
+    },
+    "甄姬": {
+      "aliases": [
+        "甄洛",
+        "洛神降临"
+      ],
+      "asr_variants": [
+        "真姬",
+        "真机"
+      ],
+      "official_title": "洛神降临",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/127.json"
+    },
+    "曹操": {
+      "aliases": [
+        "曹老板",
+        "曹孟德",
+        "鲜血枭雄"
+      ],
+      "asr_variants": [],
+      "official_title": "鲜血枭雄",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/128.json"
+    },
+    "典韦": {
+      "aliases": [
+        "疯狗",
+        "狂战士"
+      ],
+      "asr_variants": [],
+      "official_title": "狂战士",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/129.json"
+    },
+    "宫本武藏": {
+      "aliases": [
+        "宫本",
+        "武藏",
+        "剑圣"
+      ],
+      "asr_variants": [
+        "宫本武脏"
+      ],
+      "official_title": "剑圣",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/130.json"
+    },
+    "李白": {
+      "aliases": [
+        "剑仙",
+        "青莲剑仙"
+      ],
+      "asr_variants": [],
+      "official_title": "青莲剑仙",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/131.json"
+    },
+    "马可波罗": {
+      "aliases": [
+        "马可",
+        "马克",
+        "菠萝",
+        "远游之枪"
+      ],
+      "asr_variants": [
+        "马克波罗",
+        "马可波萝"
+      ],
+      "official_title": "远游之枪",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/132.json"
+    },
+    "狄仁杰": {
+      "aliases": [
+        "狄大人",
+        "断案大师"
+      ],
+      "asr_variants": [],
+      "official_title": "断案大师",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/133.json"
+    },
+    "达摩": {
+      "aliases": [
+        "达摩祖师",
+        "拳僧"
+      ],
+      "asr_variants": [
+        "达魔"
+      ],
+      "official_title": "拳僧",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/134.json"
+    },
+    "项羽": {
+      "aliases": [
+        "霸王",
+        "西楚霸王"
+      ],
+      "asr_variants": [
+        "项雨"
+      ],
+      "official_title": "霸王",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/135.json"
+    },
+    "武则天": {
+      "aliases": [
+        "女帝"
+      ],
+      "asr_variants": [
+        "武择天"
+      ],
+      "official_title": "女帝",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/136.json"
+    },
+    "老夫子": {
+      "aliases": [
+        "老头",
+        "夫子",
+        "万古长明"
+      ],
+      "asr_variants": [],
+      "official_title": "万古长明",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/139.json"
+    },
+    "关羽": {
+      "aliases": [
+        "关二爷",
+        "二爷",
+        "关公",
+        "一骑当千"
+      ],
+      "asr_variants": [],
+      "official_title": "一骑当千",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/140.json"
+    },
+    "貂蝉": {
+      "aliases": [
+        "蝉姐",
+        "绝世舞姬"
+      ],
+      "asr_variants": [
+        "刁蝉",
+        "貂禅"
+      ],
+      "official_title": "绝世舞姬",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/141.json"
+    },
+    "安琪拉": {
+      "aliases": [
+        "安吉拉",
+        "暗夜萝莉"
+      ],
+      "asr_variants": [
+        "安其拉",
+        "安琪菈"
+      ],
+      "official_title": "暗夜萝莉",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/142.json"
+    },
+    "程咬金": {
+      "aliases": [
+        "程哥",
+        "热烈之斧"
+      ],
+      "asr_variants": [
+        "陈咬金"
+      ],
+      "official_title": "热烈之斧",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/144.json"
+    },
+    "露娜": {
+      "aliases": [
+        "月光女神",
+        "月光之女"
+      ],
+      "asr_variants": [],
+      "official_title": "月光之女",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/146.json"
+    },
+    "姜子牙": {
+      "aliases": [
+        "姜太公",
+        "太公",
+        "老头",
+        "封神者"
+      ],
+      "asr_variants": [],
+      "official_title": "封神者",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/148.json"
+    },
+    "刘邦": {
+      "aliases": [
+        "邦哥",
+        "双面君主"
+      ],
+      "asr_variants": [],
+      "official_title": "双面君主",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/149.json"
+    },
+    "韩信": {
+      "aliases": [
+        "韩跳跳",
+        "国士无双"
+      ],
+      "asr_variants": [
+        "韩姓"
+      ],
+      "official_title": "国士无双",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/150.json"
+    },
+    "王昭君": {
+      "aliases": [
+        "昭君",
+        "冰雪之华"
+      ],
+      "asr_variants": [
+        "王招君",
+        "王昭军"
+      ],
+      "official_title": "冰雪之华",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/152.json"
+    },
+    "兰陵王": {
+      "aliases": [
+        "兰陵",
+        "暗影刀锋"
+      ],
+      "asr_variants": [],
+      "official_title": "暗影刀锋",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/153.json"
+    },
+    "花木兰": {
+      "aliases": [
+        "木兰",
+        "传说之刃"
+      ],
+      "asr_variants": [],
+      "official_title": "传说之刃",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/154.json"
+    },
+    "张良": {
+      "aliases": [
+        "张子房",
+        "言灵之书"
+      ],
+      "asr_variants": [],
+      "official_title": "言灵之书",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/156.json"
+    },
+    "不知火舞": {
+      "aliases": [
+        "火舞",
+        "明媚烈焰"
+      ],
+      "asr_variants": [
+        "不知火武"
+      ],
+      "official_title": "明媚烈焰",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/157.json"
+    },
+    "娜可露露": {
+      "aliases": [
+        "娜可",
+        "露露",
+        "娜娜",
+        "鹰之守护"
+      ],
+      "asr_variants": [
+        "娜可璐璐",
+        "那可露露"
+      ],
+      "official_title": "鹰之守护",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/162.json"
+    },
+    "橘右京": {
+      "aliases": [
+        "橘子",
+        "右京",
+        "神梦一刀"
+      ],
+      "asr_variants": [
+        "桔右京",
+        "橘右经"
+      ],
+      "official_title": "神梦一刀",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/163.json"
+    },
+    "亚瑟": {
+      "aliases": [
+        "大宝剑",
+        "老亚瑟",
+        "圣骑之力"
+      ],
+      "asr_variants": [],
+      "official_title": "圣骑之力",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/166.json"
+    },
+    "牛魔": {
+      "aliases": [
+        "牛头",
+        "老牛",
+        "精英酋长"
+      ],
+      "asr_variants": [],
+      "official_title": "精英酋长",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/168.json"
+    },
+    "后羿": {
+      "aliases": [
+        "鸟人",
+        "半神之弓"
+      ],
+      "asr_variants": [
+        "后裔",
+        "后义"
+      ],
+      "official_title": "半神之弓",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/169.json"
+    },
+    "刘备": {
+      "aliases": [
+        "刘皇叔",
+        "皇叔",
+        "仁德义枪"
+      ],
+      "asr_variants": [],
+      "official_title": "仁德义枪",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/170.json"
+    },
+    "张飞": {
+      "aliases": [
+        "张翼德",
+        "翼德",
+        "禁血狂兽"
+      ],
+      "asr_variants": [],
+      "official_title": "禁血狂兽",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/171.json"
+    },
+    "李元芳": {
+      "aliases": [
+        "元芳",
+        "王都密探"
+      ],
+      "asr_variants": [
+        "李园芳"
+      ],
+      "official_title": "王都密探",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/173.json"
+    },
+    "虞姬": {
+      "aliases": [
+        "虞美人",
+        "森之风灵"
+      ],
+      "asr_variants": [
+        "于姬",
+        "鱼姬"
+      ],
+      "official_title": "森之风灵",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/174.json"
+    },
+    "钟馗": {
+      "aliases": [
+        "钩子",
+        "虚灵城判"
+      ],
+      "asr_variants": [
+        "钟葵"
+      ],
+      "official_title": "虚灵城判",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/175.json"
+    },
+    "杨戬": {
+      "aliases": [
+        "二郎神",
+        "根源之目"
+      ],
+      "asr_variants": [
+        "杨剪",
+        "杨简"
+      ],
+      "official_title": "根源之目",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/178.json"
+    },
+    "雅典娜": {
+      "aliases": [
+        "雅典",
+        "圣域余晖"
+      ],
+      "asr_variants": [],
+      "official_title": "圣域余晖",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/183.json"
+    },
+    "蔡文姬": {
+      "aliases": [
+        "蔡蔡",
+        "奶妈",
+        "天籁弦音"
+      ],
+      "asr_variants": [
+        "蔡文鸡"
+      ],
+      "official_title": "天籁弦音",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/184.json"
+    },
+    "太乙真人": {
+      "aliases": [
+        "太乙",
+        "炼金大师"
+      ],
+      "asr_variants": [
+        "太一真人",
+        "太乙真仁"
+      ],
+      "official_title": "炼金大师",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/186.json"
+    },
+    "哪吒": {
+      "aliases": [
+        "三太子",
+        "桀骜炎枪"
+      ],
+      "asr_variants": [
+        "哪咤",
+        "哪扎",
+        "那扎"
+      ],
+      "official_title": "桀骜炎枪",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/180.json"
+    },
+    "诸葛亮": {
+      "aliases": [
+        "诸葛",
+        "孔明",
+        "绝代智谋"
+      ],
+      "asr_variants": [
+        "诸葛量"
+      ],
+      "official_title": "绝代智谋",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/190.json"
+    },
+    "黄忠": {
+      "aliases": [
+        "黄老爷",
+        "燃魂重炮"
+      ],
+      "asr_variants": [],
+      "official_title": "燃魂重炮",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/192.json"
+    },
+    "大乔": {
+      "aliases": [
+        "乔姐",
+        "沧海之曜"
+      ],
+      "asr_variants": [],
+      "official_title": "沧海之曜",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/191.json"
+    },
+    "东皇太一": {
+      "aliases": [
+        "东皇",
+        "东皇太乙",
+        "噬灭日蚀"
+      ],
+      "asr_variants": [
+        "东皇太衣"
+      ],
+      "official_title": "噬灭日蚀",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/187.json"
+    },
+    "干将莫邪": {
+      "aliases": [
+        "干将",
+        "干将莫耶",
+        "淬命双剑"
+      ],
+      "asr_variants": [
+        "干将莫叶",
+        "干将莫斜"
+      ],
+      "official_title": "淬命双剑",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/182.json"
+    },
+    "鬼谷子": {
+      "aliases": [
+        "鬼谷",
+        "万物有灵"
+      ],
+      "asr_variants": [
+        "鬼古子"
+      ],
+      "official_title": "万物有灵",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/189.json"
+    },
+    "铠": {
+      "aliases": [
+        "铠爹",
+        "凯爹",
+        "破灭刃锋"
+      ],
+      "asr_variants": [
+        "凯"
+      ],
+      "official_title": "破灭刃锋",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/193.json"
+    },
+    "百里守约": {
+      "aliases": [
+        "守约",
+        "百里",
+        "静谧之眼"
+      ],
+      "asr_variants": [
+        "百里守跃"
+      ],
+      "official_title": "静谧之眼",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/196.json"
+    },
+    "百里玄策": {
+      "aliases": [
+        "玄策",
+        "百里",
+        "嚣狂之镰"
+      ],
+      "asr_variants": [
+        "百里玄册",
+        "百里玄测"
+      ],
+      "official_title": "嚣狂之镰",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/195.json"
+    },
+    "苏烈": {
+      "aliases": [
+        "苏大强",
+        "不屈铁壁"
+      ],
+      "asr_variants": [],
+      "official_title": "不屈铁壁",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/194.json"
+    },
+    "梦奇": {
+      "aliases": [
+        "梦胖子",
+        "入梦之灵"
+      ],
+      "asr_variants": [],
+      "official_title": "入梦之灵",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/198.json"
+    },
+    "女娲": {
+      "aliases": [
+        "娲皇",
+        "至高创世"
+      ],
+      "asr_variants": [
+        "女娃"
+      ],
+      "official_title": "至高创世",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/179.json"
+    },
+    "明世隐": {
+      "aliases": [
+        "小明",
+        "灵魂劫卜"
+      ],
+      "asr_variants": [
+        "明世影"
+      ],
+      "official_title": "灵魂劫卜",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/501.json"
+    },
+    "公孙离": {
+      "aliases": [
+        "阿离",
+        "离离",
+        "幻舞玲珑"
+      ],
+      "asr_variants": [
+        "公孙梨",
+        "公孙璃"
+      ],
+      "official_title": "幻舞玲珑",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/199.json"
+    },
+    "杨玉环": {
+      "aliases": [
+        "玉环",
+        "杨贵妃",
+        "霓裳风华"
+      ],
+      "asr_variants": [],
+      "official_title": "霓裳风华",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/176.json"
+    },
+    "裴擒虎": {
+      "aliases": [
+        "老虎",
+        "裴老虎",
+        "六合虎拳"
+      ],
+      "asr_variants": [
+        "裴琴虎",
+        "裴禽虎"
+      ],
+      "official_title": "六合虎拳",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/502.json"
+    },
+    "弈星": {
+      "aliases": [
+        "棋手",
+        "天元之弈"
+      ],
+      "asr_variants": [
+        "亦星",
+        "奕兴",
+        "奕星"
+      ],
+      "official_title": "天元之弈",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/197.json"
+    },
+    "狂铁": {
+      "aliases": [
+        "铁子",
+        "战车意志"
+      ],
+      "asr_variants": [],
+      "official_title": "战车意志",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/503.json"
+    },
+    "米莱狄": {
+      "aliases": [
+        "米莱迪",
+        "筑城者"
+      ],
+      "asr_variants": [
+        "米来狄"
+      ],
+      "official_title": "筑城者",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/504.json"
+    },
+    "元歌": {
+      "aliases": [
+        "傀儡",
+        "无间傀儡"
+      ],
+      "asr_variants": [
+        "元哥"
+      ],
+      "official_title": "无间傀儡",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/125.json"
+    },
+    "孙策": {
+      "aliases": [
+        "船长",
+        "孙伯符",
+        "光明之海"
+      ],
+      "asr_variants": [
+        "孙测"
+      ],
+      "official_title": "光明之海",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/510.json"
+    },
+    "司马懿": {
+      "aliases": [
+        "司马",
+        "寂灭之心"
+      ],
+      "asr_variants": [
+        "司马义",
+        "司马意"
+      ],
+      "official_title": "寂灭之心",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/137.json"
+    },
+    "盾山": {
+      "aliases": [
+        "盾盾",
+        "无尽之盾"
+      ],
+      "asr_variants": [],
+      "official_title": "无尽之盾",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/509.json"
+    },
+    "伽罗": {
+      "aliases": [
+        "长弓",
+        "破魔之箭"
+      ],
+      "asr_variants": [
+        "加罗",
+        "迦罗"
+      ],
+      "official_title": "破魔之箭",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/508.json"
+    },
+    "沈梦溪": {
+      "aliases": [
+        "炸弹猫",
+        "炸弹人",
+        "爆弹怪猫"
+      ],
+      "asr_variants": [
+        "沈梦熙",
+        "沈梦西"
+      ],
+      "official_title": "爆弹怪猫",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/312.json"
+    },
+    "李信": {
+      "aliases": [
+        "光信",
+        "暗信",
+        "谋世之战"
+      ],
+      "asr_variants": [],
+      "official_title": "谋世之战",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/507.json"
+    },
+    "上官婉儿": {
+      "aliases": [
+        "婉儿",
+        "上官",
+        "惊鸿之笔"
+      ],
+      "asr_variants": [
+        "上官宛儿"
+      ],
+      "official_title": "惊鸿之笔",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/513.json"
+    },
+    "嫦娥": {
+      "aliases": [
+        "嫦娥姐姐",
+        "寒月公主"
+      ],
+      "asr_variants": [
+        "常娥"
+      ],
+      "official_title": "寒月公主",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/515.json"
+    },
+    "猪八戒": {
+      "aliases": [
+        "八戒",
+        "猪",
+        "猪哥",
+        "无忧猛士"
+      ],
+      "asr_variants": [],
+      "official_title": "无忧猛士",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/511.json"
+    },
+    "盘古": {
+      "aliases": [
+        "盘古大神",
+        "破晓之神"
+      ],
+      "asr_variants": [],
+      "official_title": "破晓之神",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/529.json"
+    },
+    "瑶": {
+      "aliases": [
+        "瑶妹",
+        "鹿灵守心"
+      ],
+      "asr_variants": [
+        "摇"
+      ],
+      "official_title": "鹿灵守心",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/505.json"
+    },
+    "云中君": {
+      "aliases": [
+        "云中",
+        "鸟人",
+        "流云之翼"
+      ],
+      "asr_variants": [
+        "云中军"
+      ],
+      "official_title": "流云之翼",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/506.json"
+    },
+    "曜": {
+      "aliases": [
+        "东方曜",
+        "星辰之子"
+      ],
+      "asr_variants": [
+        "耀"
+      ],
+      "official_title": "星辰之子",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/522.json"
+    },
+    "马超": {
+      "aliases": [
+        "冷晖之枪"
+      ],
+      "asr_variants": [],
+      "official_title": "冷晖之枪",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/518.json"
+    },
+    "西施": {
+      "aliases": [
+        "西施妹妹",
+        "幻纱之灵"
+      ],
+      "asr_variants": [
+        "西诗"
+      ],
+      "official_title": "幻纱之灵",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/523.json"
+    },
+    "鲁班大师": {
+      "aliases": [
+        "大师",
+        "鲁大",
+        "鲁班",
+        "神匠"
+      ],
+      "asr_variants": [],
+      "official_title": "神匠",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/525.json"
+    },
+    "蒙犽": {
+      "aliases": [
+        "小蒙犽",
+        "烈炮小子"
+      ],
+      "asr_variants": [
+        "蒙涯",
+        "蒙牙",
+        "蒙芽"
+      ],
+      "official_title": "烈炮小子",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/524.json"
+    },
+    "镜": {
+      "aliases": [
+        "东方镜",
+        "破镜之刃"
+      ],
+      "asr_variants": [
+        "静"
+      ],
+      "official_title": "破镜之刃",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/531.json"
+    },
+    "蒙恬": {
+      "aliases": [
+        "蒙大将军",
+        "秩序统将"
+      ],
+      "asr_variants": [
+        "蒙田"
+      ],
+      "official_title": "秩序统将",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/527.json"
+    },
+    "阿古朵": {
+      "aliases": [
+        "阿古",
+        "山林之子"
+      ],
+      "asr_variants": [
+        "阿古多",
+        "阿骨朵"
+      ],
+      "official_title": "山林之子",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/533.json"
+    },
+    "夏洛特": {
+      "aliases": [
+        "夏洛",
+        "玫瑰剑士"
+      ],
+      "asr_variants": [
+        "夏落特"
+      ],
+      "official_title": "玫瑰剑士",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/536.json"
+    },
+    "澜": {
+      "aliases": [
+        "鲨鱼",
+        "鲨之猎刃"
+      ],
+      "asr_variants": [
+        "兰"
+      ],
+      "official_title": "鲨之猎刃",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/528.json"
+    },
+    "司空震": {
+      "aliases": [
+        "雷电法王",
+        "雷神",
+        "雷霆之王"
+      ],
+      "asr_variants": [
+        "司空振"
+      ],
+      "official_title": "雷霆之王",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/537.json"
+    },
+    "艾琳": {
+      "aliases": [
+        "精灵",
+        "精灵之舞"
+      ],
+      "asr_variants": [
+        "爱琳"
+      ],
+      "official_title": "精灵之舞",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/155.json"
+    },
+    "云缨": {
+      "aliases": [
+        "云樱",
+        "燎原之心"
+      ],
+      "asr_variants": [
+        "云英",
+        "云鹰"
+      ],
+      "official_title": "燎原之心",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/538.json"
+    },
+    "金蝉": {
+      "aliases": [
+        "唐僧",
+        "渡世行者"
+      ],
+      "asr_variants": [
+        "金蟾"
+      ],
+      "official_title": "渡世行者",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/540.json"
+    },
+    "暃": {
+      "aliases": [
+        "玉城王子",
+        "玉城之子"
+      ],
+      "asr_variants": [
+        "绯"
+      ],
+      "official_title": "玉城之子",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/542.json"
+    },
+    "桑启": {
+      "aliases": [
+        "桑桑",
+        "萤火之旅"
+      ],
+      "asr_variants": [
+        "桑祈",
+        "桑起"
+      ],
+      "official_title": "萤火之旅",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/534.json"
+    },
+    "戈娅": {
+      "aliases": [
+        "沙舟",
+        "沙海飞舟"
+      ],
+      "asr_variants": [
+        "戈亚",
+        "戈雅"
+      ],
+      "official_title": "沙海飞舟",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/548.json"
+    },
+    "海月": {
+      "aliases": [
+        "海月姐姐",
+        "永夜之心"
+      ],
+      "asr_variants": [],
+      "official_title": "永夜之心",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/521.json"
+    },
+    "赵怀真": {
+      "aliases": [
+        "怀真",
+        "自在之心"
+      ],
+      "asr_variants": [
+        "赵怀贞"
+      ],
+      "official_title": "自在之心",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/544.json"
+    },
+    "莱西奥": {
+      "aliases": [
+        "莱西",
+        "火鹰",
+        "火鹰船长"
+      ],
+      "asr_variants": [
+        "莱希奥",
+        "莱西傲"
+      ],
+      "official_title": "火鹰船长",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/545.json"
+    },
+    "姬小满": {
+      "aliases": [
+        "小满",
+        "武道奇才"
+      ],
+      "asr_variants": [
+        "姬小蛮",
+        "鸡小满"
+      ],
+      "official_title": "武道奇才",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/564.json"
+    },
+    "亚连": {
+      "aliases": [
+        "亚莲",
+        "追忆之刃"
+      ],
+      "asr_variants": [
+        "亚联"
+      ],
+      "official_title": "追忆之刃",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/514.json"
+    },
+    "朵莉亚": {
+      "aliases": [
+        "朵朵",
+        "人鱼",
+        "奶妈",
+        "人鱼之歌"
+      ],
+      "asr_variants": [
+        "多莉亚",
+        "朵丽亚",
+        "朵利亚"
+      ],
+      "official_title": "人鱼之歌",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/159.json"
+    },
+    "海诺": {
+      "aliases": [
+        "命运之引"
+      ],
+      "asr_variants": [],
+      "official_title": "命运之引",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/563.json"
+    },
+    "敖隐": {
+      "aliases": [
+        "小白龙",
+        "凌霄真龙"
+      ],
+      "asr_variants": [
+        "傲隐",
+        "敖瘾",
+        "鳌隐"
+      ],
+      "official_title": "凌霄真龙",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/519.json"
+    },
+    "大司命": {
+      "aliases": [
+        "司命",
+        "肃归之戈"
+      ],
+      "asr_variants": [],
+      "official_title": "肃归之戈",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/517.json"
+    },
+    "元流之子(法师)": {
+      "aliases": [
+        "元流法师",
+        "元法",
+        "法师元流",
+        "元流之子",
+        "元流",
+        "万妙之心"
+      ],
+      "asr_variants": [],
+      "official_title": "万妙之心",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/582.json"
+    },
+    "元流之子(坦克)": {
+      "aliases": [
+        "元流坦克",
+        "元坦",
+        "坦克元流",
+        "元流之子",
+        "元流",
+        "止戈之道"
+      ],
+      "asr_variants": [],
+      "official_title": "止戈之道",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/581.json"
+    },
+    "少司缘": {
+      "aliases": [
+        "司缘",
+        "聆愿之祝"
+      ],
+      "asr_variants": [
+        "少司源",
+        "少思缘"
+      ],
+      "official_title": "聆愿之祝",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/577.json"
+    },
+    "影": {
+      "aliases": [
+        "影姐",
+        "黯羽东君"
+      ],
+      "asr_variants": [],
+      "official_title": "黯羽东君",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/558.json"
+    },
+    "苍": {
+      "aliases": [
+        "苍狼",
+        "苍狼末裔"
+      ],
+      "asr_variants": [
+        "仓"
+      ],
+      "official_title": "苍狼末裔",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/177.json"
+    },
+    "空空儿": {
+      "aliases": [
+        "空空",
+        "笑面诡手"
+      ],
+      "asr_variants": [
+        "空空耳"
+      ],
+      "official_title": "笑面诡手",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/550.json"
+    },
+    "元流之子(射手)": {
+      "aliases": [
+        "元流射手",
+        "元射",
+        "射手元流",
+        "元流之子",
+        "元流",
+        "沉舟之志"
+      ],
+      "asr_variants": [],
+      "official_title": "沉舟之志",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/584.json"
+    },
+    "孙权": {
+      "aliases": [
+        "仲谋",
+        "定旌之谋"
+      ],
+      "asr_variants": [],
+      "official_title": "定旌之谋",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/151.json"
+    },
+    "蚩奼": {
+      "aliases": [
+        "五兵之主"
+      ],
+      "asr_variants": [
+        "吃姹",
+        "蚩姹"
+      ],
+      "official_title": "五兵之主",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/172.json"
+    },
+    "元流之子(辅助)": {
+      "aliases": [
+        "元流辅助",
+        "元辅",
+        "辅助元流",
+        "元流之子",
+        "元流",
+        "守望之诺"
+      ],
+      "asr_variants": [],
+      "official_title": "守望之诺",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/585.json"
+    },
+    "大禹": {
+      "aliases": [
+        "禹",
+        "鼎镇山河"
+      ],
+      "asr_variants": [],
+      "official_title": "鼎镇山河",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/188.json"
+    },
+    "元流之子(刺客)": {
+      "aliases": [
+        "元流刺客",
+        "元刺",
+        "刺客元流",
+        "元流之子",
+        "元流",
+        "破局之识"
+      ],
+      "asr_variants": [],
+      "official_title": "破局之识",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/583.json"
+    },
+    "卢雅那": {
+      "aliases": [
+        "蛇焰使者"
+      ],
+      "asr_variants": [
+        "卢亚那",
+        "卢雅娜"
+      ],
+      "official_title": "蛇焰使者",
+      "official_title_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/547.json"
+    }
+  }
+}

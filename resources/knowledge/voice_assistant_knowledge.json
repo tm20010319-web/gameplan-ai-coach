@@ -1,0 +1,3575 @@
+{
+  "schema_version": 1,
+  "assistant_name": "小象助手",
+  "game": "王者荣耀",
+  "game_mode": "正式服 5v5 排位/娱乐局",
+  "generated_at": "2026-09-23T11:38:39.806540+00:00",
+  "source": {
+    "hero_catalog": "resources/knowledge/skill_catalog.json",
+    "summoner_catalog": "resources/knowledge/summoner_skills.json",
+    "hero_source_url": "https://pvp.qq.com/web201605/js/herolist.json",
+    "hero_detail_source": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/{hero_id}.json",
+    "catalog_fetched_at": "2026-09-23T11:38:39.733617+00:00",
+    "version_note": "官网公开资料未标注正式服版本；本文件继承原始资料的采集时间，正式发布前应按当前版本抽样复核。"
+  },
+  "voice_defaults": {
+    "wake_word": "小象助手",
+    "ultimate_default_level": 1,
+    "unknown_cooldown_policy": "record_without_countdown",
+    "event_time_policy": "voice_recorded_at"
+  },
+  "summoner_skills": {
+    "闪现": {
+      "cooldown_s": 120.0,
+      "description": "120秒CD：向指定方向位移一段距离",
+      "source_url": "https://pvp.qq.com/web201605/js/summoner.json",
+      "version_note": "默认按召唤师技能基础冷却计时；未输入额外冷却影响因素。"
+    }
+  },
+  "heroes": [
+    {
+      "id": 105,
+      "name": "廉颇",
+      "aliases": [
+        "廉颇"
+      ],
+      "ultimate": {
+        "skill_id": "10530",
+        "name": "天崩地裂",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "廉颇跳向指定区域连续锤击地面三次。 第一次：造成220/330/440(+50%额外攻击力)物理伤害和15/22.5/30%减速，对锤击中心区域额外造成60%额外物理攻击物理伤害。 第二次：造成440(+10%额外生命值)物理伤害和30/45/60%减速，对锤击中心区域额外造成90%额外物理攻击物理伤害。 第三次：造成660(+150%额外物理攻击)物理伤害和1秒击飞并对英雄造成目标10%敌敌方英雄最大生命的撞击伤害(对非英雄单位造成10%自身最大生命的撞击伤害)，对锤击中心区域额外造成150%额外物理攻击物理伤害。 技能释放期间可以使用【爆裂冲撞】。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/105.json"
+    },
+    {
+      "id": 106,
+      "name": "小乔",
+      "aliases": [
+        "小乔"
+      ],
+      "ultimate": {
+        "skill_id": "10630",
+        "name": "星华缭乱",
+        "cooldown_by_level_s": [
+          35.0,
+          31.5,
+          28.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 35.0,
+        "cooldown_min_s": 28.0,
+        "cooldown_max_s": 35.0,
+        "cooldown_text": "35/31.5/28",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "小乔召唤流星并不断向附近的敌人坠落，召唤持续6秒，每颗流星会造成400/500/600（+100％法术加成）点法术伤害，每个敌人最多承受4次攻击，当多颗流星命中同一目标时，从第二颗流星开始将只造成50％伤害。释放期间持续获得被动加速效果。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/106.json"
+    },
+    {
+      "id": 107,
+      "name": "赵云",
+      "aliases": [
+        "赵云"
+      ],
+      "ultimate": {
+        "skill_id": "10730",
+        "name": "天翔之龙",
+        "cooldown_by_level_s": [
+          18.0,
+          16.5,
+          15.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 18.0,
+        "cooldown_min_s": 15.0,
+        "cooldown_max_s": 18.0,
+        "cooldown_text": "18/16.5/15",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "赵云跃向空中发动雷霆一击，对范围内的敌人造成480/720/960(+145%额外物理攻击)物理伤害并为敌人附加感电效果：后续5秒内技能命中对感电目标额外造成30/45/60(+10%额外法术攻击)法术伤害，并对范围中心的敌人造成1秒击飞。如果没有命中敌方英雄，则返还50%的冷却时间。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/107.json"
+    },
+    {
+      "id": 108,
+      "name": "墨子",
+      "aliases": [
+        "墨子"
+      ],
+      "ultimate": {
+        "skill_id": "10830",
+        "name": "墨守成规",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "墨子驾驶机关人展开高能屏障，对触碰到屏障的敌人每0.5秒造成200/250/300（+45%法术加成）点法术伤害并将其晕眩在原地，屏障最多持续3.3秒"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/108.json"
+    },
+    {
+      "id": 109,
+      "name": "妲己",
+      "aliases": [
+        "妲己"
+      ],
+      "ultimate": {
+        "skill_id": "10930",
+        "name": "女王崇拜",
+        "cooldown_by_level_s": [
+          15.0,
+          13.5,
+          12.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 15.0,
+        "cooldown_min_s": 12.0,
+        "cooldown_max_s": 15.0,
+        "cooldown_text": "15/13.5/12",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "妲己放出5团狐火，狐火随机攻击范围内的敌人，每团狐火造成325/405/485(+75%法术攻击)法术伤害。当多团狐火命中同一个目标时，后续狐火开始只造成50%伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/109.json"
+    },
+    {
+      "id": 110,
+      "name": "嬴政",
+      "aliases": [
+        "嬴政"
+      ],
+      "ultimate": {
+        "skill_id": "11030",
+        "name": "至尊王权",
+        "cooldown_by_level_s": [
+          35.0,
+          31.5,
+          28.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 35.0,
+        "cooldown_min_s": 28.0,
+        "cooldown_max_s": 35.0,
+        "cooldown_text": "35/31.5/28",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "嬴政展示王者权力，号令90只飞剑持续向前冲击，持续5秒。每只飞剑能造成54/81/108(+10%法术攻击)法术伤害。 号令过程中嬴政增加20%移速，期间可以使用其他技能。再次点击可以提前关闭施法。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/110.json"
+    },
+    {
+      "id": 111,
+      "name": "孙尚香",
+      "aliases": [
+        "孙尚香"
+      ],
+      "ultimate": {
+        "skill_id": "11130",
+        "name": "究极弩炮",
+        "cooldown_by_level_s": [
+          25.0,
+          20.0,
+          15.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 15.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/20/15",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "孙尚香蓄力向指定方向发射一枚弩炮，弩炮在触碰敌人或者飞行到最远距离后将发生爆炸，对第一名触碰的敌人造成800/1260/1680（+250%物理加成）点物理伤害，对爆破范围内的敌人造成75%伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/111.json"
+    },
+    {
+      "id": 112,
+      "name": "鲁班七号",
+      "aliases": [
+        "鲁班七号"
+      ],
+      "ultimate": {
+        "skill_id": "11230",
+        "name": "空中支援",
+        "cooldown_by_level_s": [
+          35.0,
+          27.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 35.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 35.0,
+        "cooldown_text": "35/27.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "鲁班召唤河豚飞艇向指定方向进行空中支援，每秒对范围内随机一个敌人投掷炸弹，造成520/780/1040(+150%物理攻击)物理伤害。 命中的敌人受到25/37.5/50%减速，持续1秒。河豚飞艇支援时会照亮区域内的视野，支援持续14秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/112.json"
+    },
+    {
+      "id": 113,
+      "name": "庄周",
+      "aliases": [
+        "庄周"
+      ],
+      "ultimate": {
+        "skill_id": "11330",
+        "name": "天人合一",
+        "cooldown_by_level_s": [
+          60.0,
+          55.0,
+          50.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 60.0,
+        "cooldown_min_s": 50.0,
+        "cooldown_max_s": 60.0,
+        "cooldown_text": "60/55/50",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "庄周幻化梦域保护队友和自身，解除范围内队友所受的控制效果并使他们免控和获得500/750/1000(+12%额外生命值)护盾，持续1.5秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/113.json"
+    },
+    {
+      "id": 114,
+      "name": "刘禅",
+      "aliases": [
+        "刘禅"
+      ],
+      "ultimate": {
+        "skill_id": "11430",
+        "name": "暴走熊猫",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "刘禅操纵机关熊猫展开双臂持续旋转攻击，每0.5秒对敌人造成380/570/760(+110%额外物理攻击)物理伤害，持续3秒。旋转期间每秒会对敌人造成15/22.5/30%减速，持续0.5秒。 旋转期间可以使用其他技能。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/114.json"
+    },
+    {
+      "id": 115,
+      "name": "高渐离",
+      "aliases": [
+        "高渐离"
+      ],
+      "ultimate": {
+        "skill_id": "11530",
+        "name": "魔音贯耳",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "高渐离激情演奏，持续5秒，每0.5秒弹奏一下，造成200/300/400(+20%法术攻击)法术伤害。演奏开始时高渐离逐渐增加50%移速，3秒内随时间衰减。演奏持续期间附近有敌方英雄获得10%减伤，此外每多一名敌方英雄，额外提供5%减伤。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/115.json"
+    },
+    {
+      "id": 116,
+      "name": "阿轲",
+      "aliases": [
+        "阿轲"
+      ],
+      "ultimate": {
+        "skill_id": "11630",
+        "name": "幻舞",
+        "cooldown_by_level_s": [
+          20.0,
+          18.0,
+          16.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 20.0,
+        "cooldown_min_s": 16.0,
+        "cooldown_max_s": 20.0,
+        "cooldown_text": "20/18/16",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "阿轲短暂准备后进入隐身状态，隐身时增加40%移速，每0.5秒回复150/225/300(+25%额外物理攻击)(+5%额外生命值)点生命，持续3秒。 阿轲发起攻击时会解除隐身状态，并在3秒内增加自身120/140/160点攻击力，同时每当对敌人造成伤害时会增加30%移速，持续1秒。 被动：击杀英雄或者助攻时刷新所有技能冷却时间。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/116.json"
+    },
+    {
+      "id": 117,
+      "name": "钟无艳",
+      "aliases": [
+        "钟无艳"
+      ],
+      "ultimate": {
+        "skill_id": "11730",
+        "name": "飓风之锤",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "钟无艳抢起大锤持续旋转并增加自身10/15/20％移速，持续3.2秒，每0.4秒造成300/450/600(+100%额外物理攻击)物理伤害 同时钟无艳获得5%移速和80/120/160(+3%额外生命值)护盾(每0,.4秒1次，最多4层)，期间每次命中目标减少【狂飙突进】4%冷却时间 对外圈的敌人额外造成50%伤害"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/117.json"
+    },
+    {
+      "id": 118,
+      "name": "孙膑",
+      "aliases": [
+        "孙膑"
+      ],
+      "ultimate": {
+        "skill_id": "11830",
+        "name": "时光流逝",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "孙膑投掷一枚强化炸弹， 命中敌人或飞行到最大距离后展开力场，对范围内敌人造成500/625/750( +45%法术攻击)法术伤害和90%减速，同时强制打断敌人技能并造成1秒沉默。 5秒后力场爆炸，再次对范围内敌人造成1500/1875/2250(+135%法术攻击)法术伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/118.json"
+    },
+    {
+      "id": 119,
+      "name": "扁鹊",
+      "aliases": [
+        "扁鹊"
+      ],
+      "ultimate": {
+        "skill_id": "11930",
+        "name": "生命主宰",
+        "cooldown_by_level_s": [
+          20.0,
+          18.0,
+          16.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 20.0,
+        "cooldown_min_s": 16.0,
+        "cooldown_max_s": 20.0,
+        "cooldown_text": "20/18/16",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "扁鹊引爆附近所有印记，对敌人造成200/300/400(+40%法术攻击)法术伤害，并斩杀生命值低于引爆伤害和毒药印记总伤害的敌人，同时为友方英雄回复70/105/140(+20%法术攻击)治疗(每层印记增加50%效果) 扁鹊自身额外回复400/600/800(+30%法术攻击)(+5%额外生命值)点生命。 毒药印记的斩杀伤害对史诗级野怪不生效"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/119.json"
+    },
+    {
+      "id": 167,
+      "name": "孙悟空",
+      "aliases": [
+        "孙悟空"
+      ],
+      "ultimate": {
+        "skill_id": "16730",
+        "name": "如意金箍",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "孙悟空将金箍棒直插入地，对范围内敌人造成250/375/500(+80%物理攻击)物理伤害并将其击飞1秒。 范围内的敌人获得3层印记，孙悟空的普攻命中带有印记的敌人将消耗1层印记并额外造成200/300/400(65%额外物理攻击)物理伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/167.json"
+    },
+    {
+      "id": 549,
+      "name": "心魔六耳",
+      "aliases": [
+        "心魔六耳"
+      ],
+      "ultimate": {
+        "skill_id": "54930",
+        "name": "十方俱焚",
+        "cooldown_by_level_s": [
+          45.0,
+          40.5,
+          36.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 36.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45(-4.5/Lv)",
+        "cooldown_kind": "level_formula",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "心魔六耳化出身外化身，自身进入无法选中状态连续对随机敌人进行四连击，每次造成物理伤害；随后向移动指令方向蓄势冲刺，造成物理伤害(视为普攻行为)，并消耗能量强化最后一击的效果： 消耗30能量：伤害提升25%并造成击退(无控制效果) 消耗60能量：伤害提升50%并造成击退和击飞(持续0.5秒) 蓄势阶段可被控制效果或其他技能打断，返还30%冷却"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/549.json"
+    },
+    {
+      "id": 120,
+      "name": "白起",
+      "aliases": [
+        "白起"
+      ],
+      "ultimate": {
+        "skill_id": "32030",
+        "name": "傲慢嘲讽",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "白起立即充满暗影之力，向指定位置跳跃，造成90/135/180(+23％额外物理攻击)法术伤害、嘲讽(持续1秒)附近敌人并造成10%敌方英雄最大生命的撞击伤害(对非英雄单位造成10%自身最大生命的撞击伤害) 白起每1000点额外生命会额外增加0.2秒，最多持续2.5秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/120.json"
+    },
+    {
+      "id": 121,
+      "name": "芈月",
+      "aliases": [
+        "芈月"
+      ],
+      "ultimate": {
+        "skill_id": "12130",
+        "name": "暗影之月",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "芈月遁入暗影净化所有负面效果并对周围敌人造成350/525/700(+70％法术攻击)法术伤害，随后获得无法选中和70移速加成(持续2秒)，结束时再次造成等量伤害并在命中时召唤暗影仆从"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/121.json"
+    },
+    {
+      "id": 123,
+      "name": "吕布",
+      "aliases": [
+        "吕布"
+      ],
+      "ultimate": {
+        "skill_id": "12330",
+        "name": "魔神降世",
+        "cooldown_by_level_s": [
+          50.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 50.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50",
+        "cooldown_kind": "fixed",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "吕布从天而降，圈定杀戮场展开杀戮，对范围内的敌人造成1秒击飞。落地后吕布奋力挥斩方天画戟，造成680/1020/1360(+230%额外物理攻击)物理伤害。附魔状态下，【魔神降世】每命中一个敌方英雄回复150/225/300(+2.5%额外生命值)生命。 吕布在杀戮场内获得150/225/300点物理和法术防御。触碰场地边缘的敌人会受到190/285/380(+75％额外物理攻击)物理伤害和30/45/60%减速，持续2秒，若为英雄则还会为吕布额外回复130/195/260(+2.5%额外生命值)生命。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/123.json"
+    },
+    {
+      "id": 124,
+      "name": "周瑜",
+      "aliases": [
+        "周瑜"
+      ],
+      "ultimate": {
+        "skill_id": "12430",
+        "name": "烽火赤壁",
+        "cooldown_by_level_s": [
+          10.0,
+          9.0,
+          8.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 10.0,
+        "cooldown_min_s": 8.0,
+        "cooldown_max_s": 10.0,
+        "cooldown_text": "10/9/8",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "周瑜向指定范围方向召唤一片火焰，造成200/300/400（+40%法术加成）点法术伤害，火焰掠过火区会激起一道火风，火风会造成额外200/300/400（+40%法术加成）点法术伤害并将敌人晕眩1秒"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/124.json"
+    },
+    {
+      "id": 126,
+      "name": "夏侯惇",
+      "aliases": [
+        "夏侯惇"
+      ],
+      "ultimate": {
+        "skill_id": "12630",
+        "name": "不羁之刃",
+        "cooldown_by_level_s": [
+          15.0,
+          13.5,
+          12.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 15.0,
+        "cooldown_min_s": 12.0,
+        "cooldown_max_s": 15.0,
+        "cooldown_text": "15/13.5/12",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "夏侯惇扔出链刃到最远距离或击中敌人造成范围内(370/555/740+100%额外物理攻击)物理伤害，对首个敌人造成晕眩(持续0.75秒)并对英雄造成目标7.5%最大生命值的撞击伤害，对非英雄造成自身7.5%最大生命值的撞击伤害 然后将自己拉向链刃或使用二段收回链刃: 拉向链刃:拉向链刃位置，期间获得霸体并造成范围内(370/555/740+100%额外物理攻击)物理伤害，同 时造成击飞(持续0.5秒)并对英雄造成目标5%最大生命值的撞击伤害，对非英雄造成自身5%最大生命值的撞击伤害 收回链刃:快速点击二段收回链刃，链刃将范围内敌人拉回并造成相同范围物理伤害和击飞效果 拉向链刃时可控制轮盘方向选择以直线或弧线位移"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/126.json"
+    },
+    {
+      "id": 127,
+      "name": "甄姬",
+      "aliases": [
+        "甄姬"
+      ],
+      "ultimate": {
+        "skill_id": "12730",
+        "name": "洛神降临",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "甄姬释放水之精魄不断向前推进并击退非英雄单位，当命中敌方英雄或达到最远距离时将形成水域，第一个直接被命中的英雄受到300/450/600(+65%法术攻击)法术伤害。 水之精魄形成的水域持续5秒，每秒对触碰的敌人造成150/225/300(+32.5%法术攻击)法术伤害。 每次伤害均会减少25/37.5/50%移速，持续1.5秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/127.json"
+    },
+    {
+      "id": 128,
+      "name": "曹操",
+      "aliases": [
+        "曹操"
+      ],
+      "ultimate": {
+        "skill_id": "12830",
+        "name": "浴血枭雄",
+        "cooldown_by_level_s": [
+          35.0,
+          31.5,
+          28.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 35.0,
+        "cooldown_min_s": 28.0,
+        "cooldown_max_s": 35.0,
+        "cooldown_text": "35/31.5/28",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "曹操以鲜血意志解除控制并造成230/345/460(+75%额外物理攻击)物理伤害，同时获得450/675/900(+7%额外生命值)最大生命(附近每个敌方英雄提升20%)和10/15/20%韧性(持续8秒) 持续期间【争霸】的 强化普攻和【纵横天下】均能额外挥出一道剑气(50%伤害)并持续获得强化普攻次数"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/128.json"
+    },
+    {
+      "id": 129,
+      "name": "典韦",
+      "aliases": [
+        "典韦"
+      ],
+      "ultimate": {
+        "skill_id": "12930",
+        "name": "嗜血",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "典韦对锁定目标发起跳斩，震起对方(无控制效果)，每命中1个敌方英雄增加1层激怒效果，并造成320/480/640(+90%额外物理攻击)真实伤害并减少其30/45/60%移速，持续3秒。 同时典韦强化自身，对敌人造成的所有伤害附带目标2.5%最大生命的真实伤害，持续5秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/129.json"
+    },
+    {
+      "id": 130,
+      "name": "宫本武藏",
+      "aliases": [
+        "宫本武藏"
+      ],
+      "ultimate": {
+        "skill_id": "13030",
+        "name": "一决生死",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "宫本武藏选择并锁定一名敌方英雄，向目标所在区域突进，对范围内的目标造成400/600/800(+130%额外物理攻击)物理伤害和1秒击飞，随后目标被宫本指明为一决生死的对象，持续5秒，期间对象所有恢复效果都会延迟到一决生死后生效。 宫本武藏在突进期间处于霸体状态，并减少50%所受伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/130.json"
+    },
+    {
+      "id": 131,
+      "name": "李白",
+      "aliases": [
+        "李白"
+      ],
+      "ultimate": {
+        "skill_id": "13130",
+        "name": "青莲剑歌",
+        "cooldown_by_level_s": [
+          12.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 12.0,
+        "cooldown_min_s": 12.0,
+        "cooldown_max_s": 12.0,
+        "cooldown_text": "12",
+        "cooldown_kind": "fixed",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "李白化身为剑气飞速穿梭斩击5次，每次斩击造成210/265/320(+60%额外物理攻击)物理伤害。 当同时攻击多个敌方英雄时，每增加一位敌方英雄将衰减15%的伤害，最低衰减至初始伤害的70%。 李白释放技能期间不可被选中并解除所有控制效果。 【青莲剑歌】需要由【侠客行】解除限制后方可释放，使用后立即进入限制状态。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/131.json"
+    },
+    {
+      "id": 132,
+      "name": "马可波罗",
+      "aliases": [
+        "马可波罗"
+      ],
+      "ultimate": {
+        "skill_id": "13230",
+        "name": "狂热弹幕",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "马可波罗闪烁出现在指定位置并向周围持续发射弹幕，造成130/195/260(+25%物理攻击)物理伤害。 技能持续期间马可波罗会释放12次弹幕，攻速会提升弹幕施放速度。 每3轮弹幕视为1次普攻行为。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/132.json"
+    },
+    {
+      "id": 133,
+      "name": "狄仁杰",
+      "aliases": [
+        "狄仁杰"
+      ],
+      "ultimate": {
+        "skill_id": "13330",
+        "name": "王朝密令",
+        "cooldown_by_level_s": [
+          24.0,
+          20.0,
+          16.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 24.0,
+        "cooldown_min_s": 16.0,
+        "cooldown_max_s": 24.0,
+        "cooldown_text": "24/20/16",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "狄仁杰掷出一道金色密令，对命中的第一个敌方英雄造成300/375/450(+60%法术攻击)(+120%额外物理攻击)物理伤害和300/375/450(+60%法术攻击)(+120%额外物理攻击)法术伤害，并将其晕眩1秒，同时会减少目标50%物理和法术防御，命中后会获得目标视野，持续5秒。期间友军向该目标移动时会增加10%移速。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/133.json"
+    },
+    {
+      "id": 134,
+      "name": "达摩",
+      "aliases": [
+        "达摩"
+      ],
+      "ultimate": {
+        "skill_id": "13430",
+        "name": "真言·普渡",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "达摩向前挥出超强一拳，对范围内敌人造成200/300/400(+100%额外物理攻击)物理伤害和击退。 如果被击退的敌人碰撞到墙体将会再次受到200/300/400(+100%额外物理攻击)物理伤害并晕眩1秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/134.json"
+    },
+    {
+      "id": 135,
+      "name": "项羽",
+      "aliases": [
+        "项羽"
+      ],
+      "ultimate": {
+        "skill_id": "13530",
+        "name": "霸王斩",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "项羽破釜沉舟，技能释放期间霸体并获得不屈意志。蓄力后斩出一道刀气，对路径上的敌人造成900/1350/1800(+200%额外物理攻击)物理伤害，对被枪刃命中的敌人会造成额外50％伤害并将其晕眩0.75秒。项羽生命值越低造成的伤害越高，最多造成额外50%伤害，造成伤害的20%转化为生命。 不屈：项羽免疫死亡，生命最低降至1点。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/135.json"
+    },
+    {
+      "id": 136,
+      "name": "武则天",
+      "aliases": [
+        "武则天"
+      ],
+      "ultimate": {
+        "skill_id": "13630",
+        "name": "生杀予夺",
+        "cooldown_by_level_s": [
+          80.0,
+          70.0,
+          60.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 80.0,
+        "cooldown_min_s": 60.0,
+        "cooldown_max_s": 80.0,
+        "cooldown_text": "80/70/60",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "武则天以女帝权威施行制裁，在所有敌方英雄脚下召唤法阵并引爆，对范围内敌人造成750/925/1100（+75％法术加成）点法术伤害并晕眩1秒，同时获取敌方视野，持续3秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/136.json"
+    },
+    {
+      "id": 139,
+      "name": "老夫子",
+      "aliases": [
+        "老夫子"
+      ],
+      "ultimate": {
+        "skill_id": "13930",
+        "name": "圣人之威",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "老夫子向指定方向冲锋造成600/900/1200(+200%额外物理攻击)物理伤害，并且会将第一个撞到的敌方英雄捆在明灯上，令其无法离开明灯的范围，持续5秒。 期间将减少20%该英雄造成的伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/139.json"
+    },
+    {
+      "id": 140,
+      "name": "关羽",
+      "aliases": [
+        "关羽"
+      ],
+      "ultimate": {
+        "skill_id": "14030",
+        "name": "刀锋铁骑",
+        "cooldown_by_level_s": [
+          52.0,
+          47.0,
+          42.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 52.0,
+        "cooldown_min_s": 42.0,
+        "cooldown_max_s": 52.0,
+        "cooldown_text": "52/47/42",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "关羽降低75%的冲锋准备距离(持续10秒) 冲锋姿态：关羽召唤铁骑向前方突击造成620/930/1240(+200%物理攻击)物理伤害和击退，同时降低75%的冲锋准备距离(持续10秒)"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/140.json"
+    },
+    {
+      "id": 141,
+      "name": "貂蝉",
+      "aliases": [
+        "貂蝉"
+      ],
+      "ultimate": {
+        "skill_id": "14130",
+        "name": "绽·风华",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "貂蝉结成一个生成及消失都会造成210/245/280(+50%法术攻击)法术伤害的法阵，当貂蝉处于法阵范围内，【落·红雨】和【缘·心结】会获得额外的冷却缩减。 再次点击可以提前关闭法阵。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/141.json"
+    },
+    {
+      "id": 142,
+      "name": "安琪拉",
+      "aliases": [
+        "安琪拉"
+      ],
+      "ultimate": {
+        "skill_id": "14230",
+        "name": "炽热光辉",
+        "cooldown_by_level_s": [
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 20.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 20.0,
+        "cooldown_text": "20",
+        "cooldown_kind": "fixed",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "安琪拉释放炽热光辉，持续3秒，每次对触碰的敌人造成150/190/230(+21%法术攻击)法术伤害，最多12次，并获得850/1300/1750(+88%法术攻击)点护盾，护盾存在期间免控。 施法0.5秒后再次释放该技能可以取消引导。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/142.json"
+    },
+    {
+      "id": 144,
+      "name": "程咬金",
+      "aliases": [
+        "程咬金"
+      ],
+      "ultimate": {
+        "skill_id": "14430",
+        "name": "正义潜能",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "程咬金进发正义热情，每秒回复540/810/1080(+10%额外生命值)生命，同时增加30%移速，持续6秒。 再次点击可以提前关闭技能。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/144.json"
+    },
+    {
+      "id": 146,
+      "name": "露娜",
+      "aliases": [
+        "露娜"
+      ],
+      "ultimate": {
+        "skill_id": "14630",
+        "name": "新月突击",
+        "cooldown_by_level_s": [
+          15.0,
+          13.5,
+          12.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 15.0,
+        "cooldown_min_s": 12.0,
+        "cooldown_max_s": 15.0,
+        "cooldown_text": "15/13.5/12",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "露娜向指定方向发起突击，对路径上敌人造成350/525/700（+60%法术加成）点法术伤害；如果露娜命中了被标记的敌人，将会刷新新月突击的冷却时间"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/146.json"
+    },
+    {
+      "id": 148,
+      "name": "姜子牙",
+      "aliases": [
+        "姜子牙"
+      ],
+      "ultimate": {
+        "skill_id": "14830",
+        "name": "天人法则",
+        "cooldown_by_level_s": [
+          12.0,
+          11.0,
+          10.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 12.0,
+        "cooldown_min_s": 10.0,
+        "cooldown_max_s": 12.0,
+        "cooldown_text": "12/11/10",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "姜子牙朝指定方向聚集天地力量，向前方发射三道冲击波，前两道冲击波每道造成120/180/240(+20%法术攻击)法术伤害，最后一道造成560/840/1120(+80%法术攻击)法术伤害。 姜子牙达到15级恢复封神之力后，【天人法则】有20%的概率可以进入【天人形态】，移动释放冲击波(每次升级还会再提升20%进入天人形态的概率)。 蓄力最多持续2秒，移动或使用三技能第二段会立刻释放冲击波，蓄力时间会影响冲击波的攻击距离，最远可达1800距离。冲击波可对路径上的建筑造成10%伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/148.json"
+    },
+    {
+      "id": 149,
+      "name": "刘邦",
+      "aliases": [
+        "刘邦"
+      ],
+      "ultimate": {
+        "skill_id": "14930",
+        "name": "统御战场",
+        "cooldown_by_level_s": [
+          60.0,
+          55.0,
+          50.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 60.0,
+        "cooldown_min_s": 50.0,
+        "cooldown_max_s": 60.0,
+        "cooldown_text": "60/55/50",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "刘邦选定一名队友并开始原地吟唱，2.2秒后传送至其位置，同时为该队友提供480/720/960(+12%额外生命值)~960/1440/1920(+24%额外生命值)护盾。 落地后刘邦为自己和周围友军恢复300/450/600(+8%额外生命值)生命，自身增加30%移速，【双重恐吓】变为蓄力满效果持续10秒。 吟唱0.4秒后再次施放可立即传送：移除队友护盾并对周围造成200/300/400(+40%法术攻击)~400/600/800(+80%法术攻击)法术伤害，但不再造成生命恢复效果。 吟唱越久，护盾和立即传送造成的法术伤害效果越强。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/149.json"
+    },
+    {
+      "id": 150,
+      "name": "韩信",
+      "aliases": [
+        "韩信"
+      ],
+      "ultimate": {
+        "skill_id": "15030",
+        "name": "国士无双",
+        "cooldown_by_level_s": [
+          30.0,
+          27.0,
+          24.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 30.0,
+        "cooldown_min_s": 24.0,
+        "cooldown_max_s": 30.0,
+        "cooldown_text": "30/27/24",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "韩信朝指定方向乱舞四次长枪，对命中的敌人每次造成250/300/350(+85％物理加成）点物理伤害；最后一次攻击会将范围内的敌人击飞0.5秒；乱舞期间韩信处于霸体状态并获得30%伤害减免"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/150.json"
+    },
+    {
+      "id": 152,
+      "name": "王昭君",
+      "aliases": [
+        "王昭君"
+      ],
+      "ultimate": {
+        "skill_id": "15230",
+        "name": "凛冬已至",
+        "cooldown_by_level_s": [
+          35.0,
+          31.5,
+          28.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 35.0,
+        "cooldown_min_s": 28.0,
+        "cooldown_max_s": 35.0,
+        "cooldown_text": "35/31.5/28",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "王昭君召唤暴风雪对范围内敌人每次打击造成200/300/400(+35%法术攻击)法术伤害与冰冷效果，持续5秒。 召唤暴风雪时会刷新寒冰护盾。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/152.json"
+    },
+    {
+      "id": 153,
+      "name": "兰陵王",
+      "aliases": [
+        "兰陵王"
+      ],
+      "ultimate": {
+        "skill_id": "15330",
+        "name": "秘技·暗袭",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "立即解除隐身，向指定方向冲锋并对路径上敌人造成700/1050/1400(+250%额外物理加成)点物理伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/153.json"
+    },
+    {
+      "id": 154,
+      "name": "花木兰",
+      "aliases": [
+        "花木兰"
+      ],
+      "ultimate": {
+        "skill_id": "15430",
+        "name": "绽放刀锋",
+        "cooldown_by_level_s": [
+          6.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 6.0,
+        "cooldown_min_s": 6.0,
+        "cooldown_max_s": 6.0,
+        "cooldown_text": "6",
+        "cooldown_kind": "fixed",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "花木兰拔出重剑横扫对附近的敌人造成200/280/360(+110%物理攻击)物理伤害，同时获得90物理攻击力(持续5秒) 拔出重剑后切换为重剑技能"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/154.json"
+    },
+    {
+      "id": 156,
+      "name": "张良",
+      "aliases": [
+        "张良"
+      ],
+      "ultimate": {
+        "skill_id": "15630",
+        "name": "言灵·操纵",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "张良以言灵之术抓住一名敌方英雄，持续2.2秒，期间每0.5秒造成100/150/200(+18%法术攻击)法术伤害，并持续压制对方。 技能完整释放后，还会在目标身下生成一个法术区域，对踏进其中的敌人造成240/300/360(+30%法术攻击)法术伤害和0.75秒晕眩。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/156.json"
+    },
+    {
+      "id": 157,
+      "name": "不知火舞",
+      "aliases": [
+        "不知火舞"
+      ],
+      "ultimate": {
+        "skill_id": "15730",
+        "name": "必杀·忍蜂",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "不知火舞向前冲刺，对命中的目标造成800/1000/1200(+110%法术攻击)法术伤害和击退。每命中一名目标回复25点能量，被命中的目标会减少20/25/30%物理攻击力，持续2.5秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/157.json"
+    },
+    {
+      "id": 162,
+      "name": "娜可露露",
+      "aliases": [
+        "娜可露露"
+      ],
+      "ultimate": {
+        "skill_id": "16230",
+        "name": "飞鹰急袭",
+        "cooldown_by_level_s": [
+          15.0,
+          13.5,
+          12.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 15.0,
+        "cooldown_min_s": 12.0,
+        "cooldown_max_s": 15.0,
+        "cooldown_text": "15/13.5/12",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "娜可露露召唤玛玛哈哈立即增加50%移速，持续6秒，该效果会持续衰减，飞行状态下娜可露露可以无视地形一次。 再次释放【飞鹰急袭】，娜可露露将发起进攻，对敌人造成600/900/1200(+190%额外物理攻击)物理伤害并减少25/37.5/50%移速，持续3秒。 受到冲击的敌人将减少30%伤害输出，持续3秒。 被动：娜可露露处于非战斗状态4秒后会召唤玛玛哈哈伴随飞行，增加娜可露露10%移动速度，重新进入战斗状态会失去加速效果。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/162.json"
+    },
+    {
+      "id": 163,
+      "name": "橘右京",
+      "aliases": [
+        "橘右京"
+      ],
+      "ultimate": {
+        "skill_id": "16330",
+        "name": "细雪",
+        "cooldown_by_level_s": [
+          12.5,
+          11.25,
+          10.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 12.5,
+        "cooldown_min_s": 10.0,
+        "cooldown_max_s": 12.5,
+        "cooldown_text": "12.5/11.25/10",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "橘右京连续拔刀四次，每次命中造成130/180/230(+55%物理攻击)物理伤害，每次命中敌方英雄时，回复300/450/600(+4.5%额外生命值)点生命(命中非英雄单位效果减半)。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/163.json"
+    },
+    {
+      "id": 166,
+      "name": "亚瑟",
+      "aliases": [
+        "亚瑟"
+      ],
+      "ultimate": {
+        "skill_id": "16630",
+        "name": "圣剑裁决",
+        "cooldown_by_level_s": [
+          42.0,
+          35.0,
+          28.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 42.0,
+        "cooldown_min_s": 28.0,
+        "cooldown_max_s": 42.0,
+        "cooldown_text": "42/35/28",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "亚瑟举起圣剑跃向敌方英雄，造成其16/20/24%最大生命的法术伤害并会将范围内的敌人击飞0.5秒。同时召唤圣印对范围内敌人造成每秒85/105/125点法术伤害，持续5秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/166.json"
+    },
+    {
+      "id": 168,
+      "name": "牛魔",
+      "aliases": [
+        "牛魔"
+      ],
+      "ultimate": {
+        "skill_id": "16830",
+        "name": "山崩地裂",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "牛魔召回巨斧(若有)并短暂蓄力后劈开大地对范围内敌人造成(250/375/500+80%额外物理攻击)物理伤害和击飞(持续1秒)并对英雄造成目标10%最大生命值的撞击伤害，对非英雄造成自身10%最大生命值的撞击伤害 被撕裂的大地持续灼烧范围中的敌人造成(90/135/180+30%额外物理攻击)物理伤害(0.5秒1次，持续5秒)和30%减速(持续1秒)"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/168.json"
+    },
+    {
+      "id": 169,
+      "name": "后羿",
+      "aliases": [
+        "后羿"
+      ],
+      "ultimate": {
+        "skill_id": "16930",
+        "name": "灼日之矢",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "后羿倾泻火焰能量射出火焰箭，倾泻后提升5秒10%/15%/20%移动速度，击中敌方英雄时会将其晕眩并引发爆炸对范围内的敌人造成800/1200/1600(+150%物理攻击)物理伤害。 被火焰箭直接命中的敌方英雄将会根据火焰箭的飞行距离晕眩0.75~3.5秒。被火焰箭爆炸溅射到的目标将受到30/45/60%减速，持续1秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/169.json"
+    },
+    {
+      "id": 170,
+      "name": "刘备",
+      "aliases": [
+        "刘备"
+      ],
+      "ultimate": {
+        "skill_id": "17030",
+        "name": "以德服人",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "刘备解除自身控制并获得免控(持续3秒)和1000/1500/2000(+15%额外生命)点护盾(持续6秒)，同时进入精准射击状态：普攻和二连射最外侧额外附带两颗弹丸((散布更集中)，每颗额外造成50/75/100(+16%额外物理攻击)物理伤害 对敌方单位的伤害40%转化为护盾值，上限为初始值的100%"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/170.json"
+    },
+    {
+      "id": 171,
+      "name": "张飞",
+      "aliases": [
+        "张飞"
+      ],
+      "ultimate": {
+        "skill_id": "17130",
+        "name": "狂兽血性",
+        "cooldown_by_level_s": [
+          30.0,
+          27.0,
+          24.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 30.0,
+        "cooldown_min_s": 24.0,
+        "cooldown_max_s": 30.0,
+        "cooldown_text": "30/27/24",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "张飞怒吼形成狂风通路，获得1700/2550/3400(+35%生命值)护盾(持续15秒)，怒吼期间获得霸体和无敌(持续1.25秒) 狂风会对敌人造成600/900/1200(+150%物理攻击)物理伤害和击退，狂风末端的敌人被眩晕(持续1.5秒)。张飞在狂风中会增加50%移速。 魔种真身状态下张飞普攻将会额外造成220/330/440(+65%物理攻击)伤害 魔种真身状态结束时，会自动触发【画地为牢】技能效果。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/171.json"
+    },
+    {
+      "id": 173,
+      "name": "李元芳",
+      "aliases": [
+        "李元芳"
+      ],
+      "ultimate": {
+        "skill_id": "17330",
+        "name": "无间刃风",
+        "cooldown_by_level_s": [
+          30.0,
+          27.0,
+          24.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 30.0,
+        "cooldown_min_s": 24.0,
+        "cooldown_max_s": 30.0,
+        "cooldown_text": "30/27/24",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "元芳扔出飞轮卷起利刃风暴对目标造成320/480/640(+100%物理攻击)物理伤害，持续5.4秒，对范围内的敌人每0.5秒造成140/210/280(+40%物理攻击)物理伤害并减少25/37.5/50%移速。 内圈会受到双倍的刃伤，刃伤也可叠加暗印层数。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/173.json"
+    },
+    {
+      "id": 174,
+      "name": "虞姬",
+      "aliases": [
+        "虞姬"
+      ],
+      "ultimate": {
+        "skill_id": "17430",
+        "name": "阵前舞",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "虞姬冲向目标将其晕眩0.5秒并减少90%移速，持续2秒，然后向后跳跃，并对目标射出2支弩矢，每支弩矢造成340/510/680(+100%额外物理攻击)物理伤害，后跳结束后虞姬获得20/30/40%攻速加成，持续4秒。 当攻速达到一定阈值时，虞姬【阵前舞】得到强化。 【阵前舞】：当攻速达到0/40/80/120/160/200%时，射出1/2/3/4/5/6支弩矢，后续弩矢重复命中将衰减40%伤害，最低衰减至20%。 虞姬在跳跃过程中免疫控制。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/174.json"
+    },
+    {
+      "id": 175,
+      "name": "钟馗",
+      "aliases": [
+        "钟馗"
+      ],
+      "ultimate": {
+        "skill_id": "17530",
+        "name": "轮回吞噬",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "钟馗张开虚空身躯，对敌人发动最多16次吞噬效果，共造成1920/2400/2880(+288%法术攻击)法术伤害，对附带轮回吞噬印记的目标还会造成持续晕眩。 钟馗每次吞噬时获得46/69/92(+1%额外生命值)点护盾。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/175.json"
+    },
+    {
+      "id": 178,
+      "name": "杨戬",
+      "aliases": [
+        "杨戬"
+      ],
+      "ultimate": {
+        "skill_id": "17830",
+        "name": "根源之目",
+        "cooldown_by_level_s": [
+          35.0,
+          31.5,
+          28.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 35.0,
+        "cooldown_min_s": 28.0,
+        "cooldown_max_s": 35.0,
+        "cooldown_text": "35/31.5/28",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "杨戬利用天眼释放3次激光对路径上的敌人造成340/510/680(+110%额外物理攻击)物理伤害，并回复自身300/450/600(+4.5%额外生命)生命回复，(非英雄单位减半) 多道激光同时命中时后续激光仅造成30%的伤害和50%的回复"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/178.json"
+    },
+    {
+      "id": 183,
+      "name": "雅典娜",
+      "aliases": [
+        "雅典娜"
+      ],
+      "ultimate": {
+        "skill_id": "18330",
+        "name": "敬畏圣盾",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "雅典娜举起圣盾获得1200/1800/2400(+16%额外生命值)护盾(期间免控)，1.5秒后，使用圣盾反击，对范围内敌人造成450/675/900(+150%额外物理攻击)法术伤害，举盾期间每受到一次敌方英雄攻击，圣盾反击伤害增加10%，施法时间减少10%(最多叠加5层)"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/183.json"
+    },
+    {
+      "id": 184,
+      "name": "蔡文姬",
+      "aliases": [
+        "蔡文姬"
+      ],
+      "ultimate": {
+        "skill_id": "18430",
+        "name": "忘忧曲",
+        "cooldown_by_level_s": [
+          60.0,
+          55.0,
+          50.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 60.0,
+        "cooldown_min_s": 50.0,
+        "cooldown_max_s": 60.0,
+        "cooldown_text": "60/55/50",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "蔡文姬释放琴音每0.5秒为范围内血量最低的友方英雄回复90/135/180(+45%法术攻击)点生命，持续5秒，同时为其增加200/300/400(+30%法术攻击)点物理和法术防御。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/184.json"
+    },
+    {
+      "id": 186,
+      "name": "太乙真人",
+      "aliases": [
+        "太乙真人"
+      ],
+      "ultimate": {
+        "skill_id": "18630",
+        "name": "大变活人",
+        "cooldown_by_level_s": [
+          70.0,
+          65.0,
+          60.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 70.0,
+        "cooldown_min_s": 60.0,
+        "cooldown_max_s": 70.0,
+        "cooldown_text": "70/65/60",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "太乙真人召唤替身傀儡，替身傀儡会保护太乙真人和附近血量最低的一名队友，持续3秒；若在傀儡保护下死亡，2秒后将在原地复活，同时将获得1600/2350/3100（+200％法术加成）点生命；该技能可以在被控制时释放，未复活任一友方时返还30%冷却，使用时增加范围显示。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/186.json"
+    },
+    {
+      "id": 180,
+      "name": "哪吒",
+      "aliases": [
+        "哪吒"
+      ],
+      "ultimate": {
+        "skill_id": "18030",
+        "name": "乾坤·天降",
+        "cooldown_by_level_s": [
+          50.0,
+          46.67,
+          43.44,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/46.67/43.44/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "哪吒选择一名敌方英雄飞行至目标位置造成450/600/750/900(+160%额外物理攻击)物理伤害并将其击退飞行结束后哪吒获得10%/13.33%/16.67%/20%减伤并增加20%韧性(持续4秒) 视飞行距离进入50%~100%冷却，飞至目标时若目标处于不可选中状态，则等待目标不可选中消失后立刻击退，至多最多等待0.5秒 飞行施法距离(2400//1800/3200/3600)随技能等级成长"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/180.json"
+    },
+    {
+      "id": 190,
+      "name": "诸葛亮",
+      "aliases": [
+        "诸葛亮"
+      ],
+      "ultimate": {
+        "skill_id": "19030",
+        "name": "元气弹",
+        "cooldown_by_level_s": [
+          35.0,
+          30.0,
+          25.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 35.0,
+        "cooldown_min_s": 25.0,
+        "cooldown_max_s": 35.0,
+        "cooldown_text": "35/30/25",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "短暂蓄力后对锁定目标发出元气弹造成450/630/810（+55%法术攻击）法术伤害，目标每损失1%最大生命就会增加2%伤害。元气弹命中敌人可触发1次谋略刻印，如果击败敌人则立即发动【策谋之刻】，并减少80%冷却。如果命中英雄前其已经死亡，则减少80%冷却。元气弹飞行过程中碰撞到敌方非英雄目标，将会触发同等伤害并将其击飞0.5秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/190.json"
+    },
+    {
+      "id": 192,
+      "name": "黄忠",
+      "aliases": [
+        "黄忠"
+      ],
+      "ultimate": {
+        "skill_id": "19230",
+        "name": "重装炮台",
+        "cooldown_by_level_s": [
+          15.0,
+          13.5,
+          12.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 15.0,
+        "cooldown_min_s": 12.0,
+        "cooldown_max_s": 15.0,
+        "cooldown_text": "15/13.5/12",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "黄忠位移一段距离并部署炮台(不可移动)，同时增加200/300/400点物理和法术防御(持续15秒) 每次普攻对中心范围内的敌人额外造成300/450/600物理伤害(对边缘敌人伤害衰减40%，攻击防御塔伤害衰减50%) 6/7/8次普攻后自动退出炮台形态 黄忠进入炮台形态时刷新【追击潜能】的冷却时间"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/192.json"
+    },
+    {
+      "id": 191,
+      "name": "大乔",
+      "aliases": [
+        "大乔"
+      ],
+      "ultimate": {
+        "skill_id": "19140",
+        "name": "漩涡之门",
+        "cooldown_by_level_s": [
+          80.0,
+          72.0,
+          64.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 80.0,
+        "cooldown_min_s": 64.0,
+        "cooldown_max_s": 80.0,
+        "cooldown_text": "80/72/64",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "大乔在指定位置召唤法阵，对范围内敌人造成500/750/1000(+90%法术攻击)法术伤害，法阵存在的8秒内，队友可点击漩涡之门传送至法阵位置(至多5人)，法阵内大乔和友方英雄获得350/525/700(+50%法术攻击)护盾。自身额外获得7%额外生命值护盾。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/191.json"
+    },
+    {
+      "id": 187,
+      "name": "东皇太一",
+      "aliases": [
+        "东皇太一"
+      ],
+      "ultimate": {
+        "skill_id": "18730",
+        "name": "堕神契约",
+        "cooldown_by_level_s": [
+          60.0,
+          55.0,
+          50.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 60.0,
+        "cooldown_min_s": 50.0,
+        "cooldown_max_s": 60.0,
+        "cooldown_text": "60/55/50",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "压制敌方目标2秒，期间被压制目标和自身无法进行任何操作并承受等量伤害。 释放时直接获得三个黑暗能量体，并在压制期间提升25%旋转速度(每50点法术攻击额外提升5%旋转速度，最高提升至100%)。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/187.json"
+    },
+    {
+      "id": 182,
+      "name": "干将莫邪",
+      "aliases": [
+        "干将莫邪"
+      ],
+      "ultimate": {
+        "skill_id": "18240",
+        "name": "剑来",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "立刻提供飞剑技能两次使用次数，并唤出更多的剑来强化下次飞剑技能。 被动：增加15%视野范围，并增加一次【雌雄双剑】使用上限，每一股飞剑命中敌人减少【剑来】1秒冷却时间。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/182.json"
+    },
+    {
+      "id": 189,
+      "name": "鬼谷子",
+      "aliases": [
+        "鬼谷子"
+      ],
+      "ultimate": {
+        "skill_id": "18930",
+        "name": "先知·雾隐",
+        "cooldown_by_level_s": [
+          35.0,
+          30.0,
+          25.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 35.0,
+        "cooldown_min_s": 25.0,
+        "cooldown_max_s": 35.0,
+        "cooldown_text": "35/30/25",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "命令玄微子包裹自身和1500范围内的队友，1秒后进入伪装状态，期间鬼谷子和队友将增加30%移速，持续4秒，同时获取距离自身最近的敌方英雄视野。 伪装状态下，如果使用普攻、技能或对敌方造成负面效果时会立即解除伪装状态。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/189.json"
+    },
+    {
+      "id": 193,
+      "name": "铠",
+      "aliases": [
+        "铠"
+      ],
+      "ultimate": {
+        "skill_id": "19330",
+        "name": "不灭魔躯",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "召唤魔铠，1秒后对附近造成250/375/500(+25%额外物理攻击)法术伤害，同时会强化自身100/150/200点攻击力、500/750/1000点最大生命值、50点移速、55/82.5/110点伤害格挡，每0.5秒对附近的敌人造成50/75/100(+16%额外物理攻击)法术伤害(0.5秒1次，持续8秒)。 再次点击可以提前关闭技能。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/193.json"
+    },
+    {
+      "id": 196,
+      "name": "百里守约",
+      "aliases": [
+        "百里守约"
+      ],
+      "ultimate": {
+        "skill_id": "19630",
+        "name": "逃脱",
+        "cooldown_by_level_s": [
+          1.5
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 1.5,
+        "cooldown_min_s": 1.5,
+        "cooldown_max_s": 1.5,
+        "cooldown_text": "1.5",
+        "cooldown_kind": "fixed",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "向后跳跃并向指定方向射击，造成700/1050/1400(+160%物理攻击)物理伤害并减少其15/22.5/30%移速，持续2秒，落地增加45/67.5/90移速，持续2秒，与狂风之息共用子弹数量，释放消耗1颗。 普攻或技能攻击会立即失去加速效果。 被动：提升30普攻射程。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/196.json"
+    },
+    {
+      "id": 195,
+      "name": "百里玄策",
+      "aliases": [
+        "百里玄策"
+      ],
+      "ultimate": {
+        "skill_id": "19530",
+        "name": "瞬镰闪",
+        "cooldown_by_level_s": [
+          2.0,
+          1.75,
+          1.5
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 2.0,
+        "cooldown_min_s": 1.5,
+        "cooldown_max_s": 2.0,
+        "cooldown_text": "2/1.75/1.5",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "玄策突进到【梦魇钩锁】命中的目标身后，对路径上的敌人造成360/540/720(+200%额外物理攻击)物理伤害，远距离时则顺着钩镰向前移动一段距离。 没有【梦魇钩锁】命中的目标时，玄策突进至目标身前，将【梦魇钩锁】套在目标身上，对目标造成90/135/180(+50%额外物理攻击)物理伤害。 玄策在位移期间减少50%所受到的伤害。 被动：玄策击杀或者助攻获得持续5秒的30%移速(随时间衰减)和25%攻速加成，该效果最大叠加3层。 每6/5.5/5秒可准备1次【瞬镰闪】，最多可储备3次【瞬镰闪】。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/195.json"
+    },
+    {
+      "id": 194,
+      "name": "苏烈",
+      "aliases": [
+        "苏烈"
+      ],
+      "ultimate": {
+        "skill_id": "19430",
+        "name": "豪烈万军",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "苏烈蓄力猛击地面，对敌人造成450/675/900/(+110%物理攻击)~900/1350/1800(+220%物理攻击)物理伤害和1秒击飞。敌人落地会再产生震荡，对附近其他敌人额外造成80%伤害，非英雄单位伤害减半。 被动：苏烈与大地共鸣，释放技能或强化普攻时，对附近的敌人造成65/97.5/130(+16%物理攻击)法术伤害，持续3秒。 蓄力时获得逐渐提升的加速效果，最大提升20%移速。蓄力时间会影响技能的伤害和范围。取消蓄力或被打断时将会返还70%技能冷却。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/194.json"
+    },
+    {
+      "id": 198,
+      "name": "梦奇",
+      "aliases": [
+        "梦奇"
+      ],
+      "ultimate": {
+        "skill_id": "19830",
+        "name": "梦境环游",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "梦奇进行一-次梦境环游， 期间持续获得质量，对路径上的敌人造成150/225/300(+30%物理攻击)(+30%法术攻击)法术伤害。开始环游时获得短暂霸体，再次使用该技能可以立即停止环游，环游停止时对周围敌人造成150(+30%物理攻击)(+30%法术攻击)法术伤害和0.75秒击飞。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/198.json"
+    },
+    {
+      "id": 179,
+      "name": "女娲",
+      "aliases": [
+        "女娲"
+      ],
+      "ultimate": {
+        "skill_id": "17940",
+        "name": "神晖：诛灭",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "女娲释放纯净能量对路径上的敌人造成600/900/1200(+115%法术攻击)法术伤害"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/179.json"
+    },
+    {
+      "id": 501,
+      "name": "明世隐",
+      "aliases": [
+        "明世隐"
+      ],
+      "ultimate": {
+        "skill_id": "50130",
+        "name": "泰卦·长生",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "明世隐短暂吟唱后，对法器连接的敌人造成真实伤害，对队友造成回复效果。 如果法器连接了一个目标，明世隐消耗自身600/900/1200(+125%法术攻击)生命对法器连接的敌人造成等量真实伤害，或对法器连接的队友回复等量生命。 如果法器连接了两个目标，明世隐从敌人身上抽取600/900/1200(+125%法术攻击)生命注入队友。 在吟唱期间法器连接的目标全部死亡将返还70%冷却时间。明世隐消耗的生命会在5秒内缓慢恢复。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/501.json"
+    },
+    {
+      "id": 199,
+      "name": "公孙离",
+      "aliases": [
+        "公孙离"
+      ],
+      "ultimate": {
+        "skill_id": "19930",
+        "name": "孤鹜断霞",
+        "cooldown_by_level_s": [
+          25.0,
+          20.0,
+          15.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 15.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/20/15",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "阿离击退前方的敌人，造成400/600/900（+90%物理加成）点法术伤害，并将纸伞向指定方向掷出（如果纸伞在阿离手中）。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/199.json"
+    },
+    {
+      "id": 176,
+      "name": "杨玉环",
+      "aliases": [
+        "杨玉环"
+      ],
+      "ultimate": {
+        "skill_id": "17630",
+        "name": "长恨歌",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "杨玉环跃向空中演奏(期间无法被选中并解除所有控制效果)，演奏后治疗自身750/1125/1500(+100%法术攻击)(+5%最大生命)点生命，对500范围内的友方单位造成50%治疗效果，并对范围内敌人造成500/750/1000(+75%法术攻击)法术伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/176.json"
+    },
+    {
+      "id": 502,
+      "name": "裴擒虎",
+      "aliases": [
+        "裴擒虎"
+      ],
+      "ultimate": {
+        "skill_id": "50230",
+        "name": "虎啸风生",
+        "cooldown_by_level_s": [
+          5.4,
+          4.8,
+          4.2
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 5.4,
+        "cooldown_min_s": 4.2,
+        "cooldown_max_s": 5.4,
+        "cooldown_text": "5.4/4.8/4.2",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "切换到虎形态，1秒内增加25点移速(1秒)并强化下两次普攻，持续5秒。第一击扑向目标造成20/110/200/290(+100%物理攻击)物理伤害和1秒90%减速。5秒内使用第二击会对面前的敌人造成20/110/200/290(+100%物理攻击)法术伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/502.json"
+    },
+    {
+      "id": 197,
+      "name": "弈星",
+      "aliases": [
+        "弈星"
+      ],
+      "ultimate": {
+        "skill_id": "19730",
+        "name": "万变之局",
+        "cooldown_by_level_s": [
+          60.0,
+          55.0,
+          50.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 60.0,
+        "cooldown_min_s": 50.0,
+        "cooldown_max_s": 60.0,
+        "cooldown_text": "60/55/50",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "弈星以自身位置为棋盘一角，画出一个虚空棋盘，1.5秒后棋盘完全成型，对范围内敌人击飞0.5秒。棋盘持续4秒，在此期间棋盘内的敌人无法离开棋盘，棋盘持续对敌方英雄叠加3次去气印记，同时会暴露视野。如果成功困住敌方英雄，弈星存储一次【飞攻】。 棋盘面积越小，冷却越短，最多缩减25%，棋盘成型期间，弈星获得30%~70%衰减移速。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/197.json"
+    },
+    {
+      "id": 503,
+      "name": "狂铁",
+      "aliases": [
+        "狂铁"
+      ],
+      "ultimate": {
+        "skill_id": "50330",
+        "name": "力场压制",
+        "cooldown_by_level_s": [
+          15.0,
+          13.5,
+          12.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 15.0,
+        "cooldown_min_s": 12.0,
+        "cooldown_max_s": 15.0,
+        "cooldown_text": "15/13.5/12",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "将武器砸向地面，造成380/570/760(+130%额外物理攻击)物理伤害和30/45/60%减速(持续1.5秒)。同时获得900/1350/1800(+14%额外生命值)点护盾(持续5秒)。 充能强化：造成570/855/1140(+195%额外物理攻击)物理伤害，同时获得1350/2025/2700(+21额外生命值)护盾(持续5秒)并生成一道电弧造成200(+65%额外物理攻击)物理伤害和25%/37.5%/50%减速(赋予狂铁等量加速) 电弧的范围会随技能等级成长"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/503.json"
+    },
+    {
+      "id": 504,
+      "name": "米莱狄",
+      "aliases": [
+        "米莱狄"
+      ],
+      "ultimate": {
+        "skill_id": "50430",
+        "name": "浩劫磁场",
+        "cooldown_by_level_s": [
+          30.0,
+          27.0,
+          24.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 30.0,
+        "cooldown_min_s": 24.0,
+        "cooldown_max_s": 30.0,
+        "cooldown_text": "30/27/24",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "朝指定目标发出一颗信号装置，标记3秒并眩晕敌人0.75秒，每0.5秒造成80/120/160(+4%法术攻击)法术伤害并减少15/22.5/30%移速，标记时间结束时爆炸对目标造成标记期间对其造成总伤害的25/37.5/50%法术伤害。 大招开启时，范围内的友方机械仆从增加100%攻速和100%移速并立即冲向目标进行攻击。 目标被标记期间死亡会立即召唤三个仆从。 信号装置可对建筑释放但眩晕无效。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/504.json"
+    },
+    {
+      "id": 125,
+      "name": "元歌",
+      "aliases": [
+        "元歌"
+      ],
+      "ultimate": {
+        "skill_id": "12540",
+        "name": "秘术·散",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "元歌立即消失清除控制效果，并在短暂延迟后出现在范围内的另一位置。 不能解除傀儡损坏带来的眩晕效果。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/125.json"
+    },
+    {
+      "id": 510,
+      "name": "孙策",
+      "aliases": [
+        "孙策"
+      ],
+      "ultimate": {
+        "skill_id": "51030",
+        "name": "长帆破浪",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "孙策掌舵行船，在12秒内驾船冲锋，航行速度逐渐提升，行船期间持续霸体。当船撞到墙体、建筑物、远古生物、敌方英雄和航行时间结束时船都会停止前进并爆炸，造成300/450/600(+120%物理攻击)物理伤害和击飞，击飞时间1~1.5秒(与已航行时间成正比)。 航行过程中可弃船朝选定方向跳跃，释放后船继续航行固定距离。驾船期间附近一个队友可以通过点击按键上船，队友在上船期间受到控制和使用位移技能以及孙策下船时队友也会一起下船。 船爆炸瞬间若命中敌人会获得5层不屈效果。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/510.json"
+    },
+    {
+      "id": 137,
+      "name": "司马懿",
+      "aliases": [
+        "司马懿"
+      ],
+      "ultimate": {
+        "skill_id": "13730",
+        "name": "死神降临",
+        "cooldown_by_level_s": [
+          30.0,
+          327.0,
+          24.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 30.0,
+        "cooldown_min_s": 24.0,
+        "cooldown_max_s": 327.0,
+        "cooldown_text": "30/327/24",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "司马懿向后撤步进行短暂蓄力后向指定地点冲击，造成500/750/1000(+100%法术攻击)法术伤害，对冲击路径触碰的敌人造成50%伤害。 施法被打断返还90%冷却时间"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/137.json"
+    },
+    {
+      "id": 509,
+      "name": "盾山",
+      "aliases": [
+        "盾山"
+      ],
+      "ultimate": {
+        "skill_id": "50930",
+        "name": "天地化盾",
+        "cooldown_by_level_s": [
+          40.0,
+          36.0,
+          32.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 32.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/36/32",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "盾山张开巨盾砸向地面获得短暂的霸体，对范围内的敌人造成170/225/340(+55%额外AD)物理伤害和击退以及25%/37.5%/50%减速(持续1秒)，对英雄造成目标5%生命值撞击伤害，对非英雄造成自身5%生命值撞击伤害，随后巨盾向前移动击飞(持续0.5秒)触碰的敌人造成等量伤害并击落飞行物"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/509.json"
+    },
+    {
+      "id": 508,
+      "name": "伽罗",
+      "aliases": [
+        "伽罗"
+      ],
+      "ultimate": {
+        "skill_id": "50830",
+        "name": "纯净之域",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "张开法阵持续8秒，在法阵范围内时提升自身30%暴击率和20%移速，法阵在张开和关闭的瞬间会对范围内敌军造成380/570/760(+85%物理攻击)法术伤害，关闭时会对自身产生持续3秒的30%暴击率和20%移速增加效果。处于法阵外关闭时只会获得一半的暴击率和移速加成效果。 被动：暴击会对目标造成30%减速持续0.5秒，如果1秒内再次触发此效果，减速比例会提升为50%。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/508.json"
+    },
+    {
+      "id": 312,
+      "name": "沈梦溪",
+      "aliases": [
+        "沈梦溪"
+      ],
+      "ultimate": {
+        "skill_id": "31230",
+        "name": "综合爆款",
+        "cooldown_by_level_s": [
+          30.0,
+          27.0,
+          24.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 30.0,
+        "cooldown_min_s": 24.0,
+        "cooldown_max_s": 30.0,
+        "cooldown_text": "30/27/24",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "投掷一枚子母弹对敌人造成400/600/800(+80%法术攻击)法术伤害，同时分裂出3枚猫咪炸蛋朝四周散落，造成200/300/400(+40%法术攻击)法术伤害"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/312.json"
+    },
+    {
+      "id": 507,
+      "name": "李信",
+      "aliases": [
+        "李信"
+      ],
+      "ultimate": {
+        "skill_id": "50730",
+        "name": "力量觉醒·光",
+        "cooldown_by_level_s": [
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 30.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 30.0,
+        "cooldown_text": "30",
+        "cooldown_kind": "fixed",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "李信学习大招的瞬间解放魔道家族的力量，改变战斗形态至统御；暗影爆发：李信释放力量，短暂延迟后以释放点为中心对范围内敌人造成600/900/1200（+120%物理加成）点物理伤害和0.75秒击飞；光翼连斩：李信积蓄力量，结束后向指定方向斩出三道剑气，对路径上敌人造成150/200/250（+75%物理加成），最大为450/600/750（+225%物理加成）点物理伤害，当多道剑气命中同个目标时，从第二道剑气开始将只造成30%的伤害；蓄力1秒后伤害达到上限，蓄力打断会返还40%的冷却时间。在释放剑气时仍会有免控效果。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/507.json"
+    },
+    {
+      "id": 513,
+      "name": "上官婉儿",
+      "aliases": [
+        "上官婉儿"
+      ],
+      "ultimate": {
+        "skill_id": "51330",
+        "name": "章草·横鳞",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "上官婉儿与笔墨共舞对一条路径上的敌人造成230/345/460(+35%法术攻击)法术伤害。如果在冲刺过程中命中了敌人或其它主动技能的笔势，则可在3秒内再次通过移动指令发出冲刺。如果完成3-5次冲刺，会跳跃至高空(期间不可被选中并解除所有控制效果)，不断朝附近敌人发出攻击造成460/690/920(+70%法术攻击)法术伤害(完成3次冲刺累计4次攻击，4次冲刺累计7次攻击，5次冲刺累计10次攻击，对同一单位伤害衰减到25%)。 至多可冲刺5次，停止期间可以攻击和施法，中断时根据释放次数返还20%到80%冷却。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/513.json"
+    },
+    {
+      "id": 515,
+      "name": "嫦娥",
+      "aliases": [
+        "嫦娥"
+      ],
+      "ultimate": {
+        "skill_id": "51530",
+        "name": "月芒",
+        "cooldown_by_level_s": [
+          12.5,
+          11.25,
+          10.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 12.5,
+        "cooldown_min_s": 10.0,
+        "cooldown_max_s": 12.5,
+        "cooldown_text": "12.5/11.25/10",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "嫦娥随机向周围持续倾泻法力弹幕，对命中的敌人造成70(+9%法术攻击)法术伤害，倾泻法力期间自身增加30%移速。 法力值足够时会产生额外子弹，每颗子弹消耗50点法力，造成等额伤害并回复80(+1.2%额外生命值)生命。 3秒内持续按压释放，取消按压后会在0.5秒内继续发射子弹，期间可以使用技能和强化普攻。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/515.json"
+    },
+    {
+      "id": 511,
+      "name": "猪八戒",
+      "aliases": [
+        "猪八戒"
+      ],
+      "ultimate": {
+        "skill_id": "51130",
+        "name": "圈养时刻",
+        "cooldown_by_level_s": [
+          36.0,
+          32.0,
+          28.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 36.0,
+        "cooldown_min_s": 28.0,
+        "cooldown_max_s": 36.0,
+        "cooldown_text": "36/32/28",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "筑起一堵最多存在4秒的高墙，高墙能够阻拦英雄单位，筑起瞬间对身前敌人造成350/525/700(+120%额外物理攻击)物理伤害。施法时猪八戒霸体。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/511.json"
+    },
+    {
+      "id": 529,
+      "name": "盘古",
+      "aliases": [
+        "盘古"
+      ],
+      "ultimate": {
+        "skill_id": "52930",
+        "name": "开天辟地",
+        "cooldown_by_level_s": [
+          60.0,
+          55.0,
+          50.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 60.0,
+        "cooldown_min_s": 50.0,
+        "cooldown_max_s": 60.0,
+        "cooldown_text": "60/55/50",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "盘古跃到空中，使用盘古斧劈出5道裂隙，每道造成400/600/800(+140%额外物理攻击)物理伤害，并造成缴械和90%减速并标记敌人，持续2秒，减速效果持续衰减。裂隙重复命中相同单位时只造成25%伤害。 释放技能后，盘古立即进入能量臂状态。技能释放过程获得霸体效果。 1技能跃起期间使用3技能可以立即劈出裂隙。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/529.json"
+    },
+    {
+      "id": 505,
+      "name": "瑶",
+      "aliases": [
+        "瑶"
+      ],
+      "ultimate": {
+        "skill_id": "50530",
+        "name": "独立兮山之上",
+        "cooldown_by_level_s": [
+          15.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 15.0,
+        "cooldown_min_s": 15.0,
+        "cooldown_max_s": 15.0,
+        "cooldown_text": "15",
+        "cooldown_kind": "fixed",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "瑶附身到友方英雄，赋予附身目标1000/1500/2000(+60%法术攻击)(+8%目标额外生命值)点真实护盾，附身状态会使得技能增强并且立即减少30%的冷却。 附身状态：盾破会被击落下来进入冷却，主动脱离附灵目标会返还50%冷却。 鹿灵状态：白鹿·静扩大减速范围。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/505.json"
+    },
+    {
+      "id": 506,
+      "name": "云中君",
+      "aliases": [
+        "云中君"
+      ],
+      "ultimate": {
+        "skill_id": "50630",
+        "name": "猋远举兮云中",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "云中君获得短暂的30/45/60%免伤，加速卷起圈内目标英雄飞入高空，解除控制效果，期间无法选中并可以移动，落下后造成360/540/720(+120%额外物理攻击)物理伤害和0.5秒击飞。 每有一层撕裂效果，落地伤害增加10%，被卷起敌人在空中只会受到来自云中君的伤害，高空移速受云中君等级影响。若飞起瞬间圈内没有敌人，云中君只会自身飞入高空，落地造成一次相同伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/506.json"
+    },
+    {
+      "id": 522,
+      "name": "曜",
+      "aliases": [
+        "曜"
+      ],
+      "ultimate": {
+        "skill_id": "52230",
+        "name": "归尘",
+        "cooldown_by_level_s": [
+          15.0,
+          12.5,
+          10.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 15.0,
+        "cooldown_min_s": 10.0,
+        "cooldown_max_s": 15.0,
+        "cooldown_text": "15/12.5/10",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "回到2秒前的位置(无法移动超过650距离)，清除星削，并对路径与终点的敌人造成420/630/840(+140%额外物理攻击)法术伤害。 被动：曜所受伤害的25%/37.5%/50%将会转化为星削在2秒内结算。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/522.json"
+    },
+    {
+      "id": 518,
+      "name": "马超",
+      "aliases": [
+        "马超"
+      ],
+      "ultimate": {
+        "skill_id": "51830",
+        "name": "万刃归鞘",
+        "cooldown_by_level_s": [
+          0.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 0.0,
+        "cooldown_min_s": 0.0,
+        "cooldown_max_s": 0.0,
+        "cooldown_text": "0",
+        "cooldown_kind": "no_fixed",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "马超召唤一把距离自己最近的冷晖枪飞回，造成100~400(+63%额外物理攻击)物理伤害和已损4.5%生命值物理伤害。 每15/13.5/12秒可准备1次【万刃归鞘】，每次升级大招增加一次使用上限，最多4次。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/518.json"
+    },
+    {
+      "id": 523,
+      "name": "西施",
+      "aliases": [
+        "西施"
+      ],
+      "ultimate": {
+        "skill_id": "52330",
+        "name": "心无旁骛",
+        "cooldown_by_level_s": [
+          35.0,
+          30.0,
+          25.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 35.0,
+        "cooldown_min_s": 25.0,
+        "cooldown_max_s": 35.0,
+        "cooldown_text": "35/30/25",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "西施强化自身，获得视野提升，持续8秒，并刷新【幻纱之灵】的冷却。强化期间【纱缚之印】命中后可以连续控制敌人移动两次，同时【幻纱之灵】的冷却减半。大招开启时西施增加50%移速，持续0.5秒。 再次点击可以提前关闭技能。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/523.json"
+    },
+    {
+      "id": 525,
+      "name": "鲁班大师",
+      "aliases": [
+        "鲁班大师"
+      ],
+      "ultimate": {
+        "skill_id": "52530",
+        "name": "强力收纳",
+        "cooldown_by_level_s": [
+          12.5,
+          12.0,
+          11.5,
+          11.0,
+          10.5,
+          10.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 12.5,
+        "cooldown_min_s": 10.0,
+        "cooldown_max_s": 12.5,
+        "cooldown_text": "12.5/12/11.5/11/10.5/10",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": true,
+        "cooldown_note": "官网大招冷却字段列出超过4档数值，疑似与普通技能错位；保留原值，暂不用于倒计时。",
+        "description": "鲁班大师向前方扇形区域发射机械臂连接区域内的敌人(最多6个，优先英雄)，每条机械臂造成130/195/260(+22%法术攻击)法术伤害(多次命中衰减至25%)，距离过远时连接会提前断开造成等量伤害并将目标向自身方向牵引一小段距离连接 1.25秒后鲁班大师将连接的敌人牵引至身边并造成晕眩(持续1秒)，每条机械臂造成300/450/600(+50%法术攻击)法术伤害(多次命中衰减至25%)"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/525.json"
+    },
+    {
+      "id": 524,
+      "name": "蒙犽",
+      "aliases": [
+        "蒙犽"
+      ],
+      "ultimate": {
+        "skill_id": "52430",
+        "name": "飞弹援袭",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "蒙犽普攻和技能命中时获得炽怒，满炽怒时使用普攻或狂轰火线会消耗所有能量，获得100点爆发加速(持续1.5秒)，加速期间每0.25秒回复80~160+1.2%生命并向附近目标发射5枚飞弹，造成100~200+32%物理伤害，命中同一目标后续伤害衰减至25% 蒙犽每次普通攻击会减少狂轰火线2.5%冷却时间"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/524.json"
+    },
+    {
+      "id": 531,
+      "name": "镜",
+      "aliases": [
+        "镜"
+      ],
+      "ultimate": {
+        "skill_id": "53130",
+        "name": "见影",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "朝前飞出并将路径上的敌人拉到镜像空间中心定身1秒，到达最远距离后张开镜像空间，本体和镜像会从镜面两侧飞出，期间再次使用后本体与镜像冲向彼此的位置，每飞行0.05秒回复10/15/20(+4%物理攻击)点生命。交换后会有1.5秒的禁用时间，如果对敌人造成伤害会立刻重新解锁。镜像空间存在10秒，镜在其中减免10/15/20%受到伤害，提前离开镜像空间会使之销毁。 镜像场成形后，在场的边缘会生成8个镜子碎片，期间本体或镜像对敌人造成伤害时，最近的碎片会飞向敌人并造成2%已损生命的物理伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/531.json"
+    },
+    {
+      "id": 527,
+      "name": "蒙恬",
+      "aliases": [
+        "蒙恬"
+      ],
+      "ultimate": {
+        "skill_id": "52730",
+        "name": "玄雍众将",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "召唤4名玄雍士兵跟随自身作战，持续20秒，士兵从选择的方向冲向蒙恬并对路径上的敌人造成125/195/265(+100%物理攻击)物理伤害和1秒减速(根据蒙恬的兵势值百分比实时决定，最高90%)并增加大量兵势。士兵和蒙恬一起攻击和释放技能。 士兵拥有自己的属性(受蒙恬各项属性加成)。再次释放该技能会指挥士兵进行阵型切换，切换方圆阵时蒙恬军可以额外减少20%来自正面的伤害。 防御姿态：玄雍士兵会和蒙恬一同进入防御姿态。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/527.json"
+    },
+    {
+      "id": 533,
+      "name": "阿古朵",
+      "aliases": [
+        "阿古朵"
+      ],
+      "ultimate": {
+        "skill_id": "53330",
+        "name": "峡谷总动员",
+        "cooldown_by_level_s": [
+          40.0,
+          36.0,
+          32.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 32.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/36/32",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "骑乘状态：阿古朵驱使球球离开阿古朵跳起砸击指定地点造成460/690/920(+150%额外物理攻击)物理伤害和晕眩(2/3秒)然后球球独自作战（继承阿古朵50%的属性增益和100%法球效果，攻击间隔随技能等级降低） 分离状态：球球阵亡会进入恢复状态满血后再次投入战斗 球球存活时可提前召回 施法速度受15%攻速影响"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/533.json"
+    },
+    {
+      "id": 536,
+      "name": "夏洛特",
+      "aliases": [
+        "夏洛特"
+      ],
+      "ultimate": {
+        "skill_id": "53630",
+        "name": "破空光剑",
+        "cooldown_by_level_s": [
+          18.0,
+          15.5,
+          13.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 18.0,
+        "cooldown_min_s": 13.0,
+        "cooldown_max_s": 18.0,
+        "cooldown_text": "18/15.5/13",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "起手技：原地画出七道剑痕，每道剑痕造成300/450/600(+75%物理攻击)物理伤害和25/37.5/50%减速，持续1秒，从第二道剑痕开始将只造成30%伤害，技能释放期间处于霸体状态，并获得免伤被动。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/536.json"
+    },
+    {
+      "id": 528,
+      "name": "澜",
+      "aliases": [
+        "澜"
+      ],
+      "ultimate": {
+        "skill_id": "52830",
+        "name": "处决",
+        "cooldown_by_level_s": [
+          40.0,
+          35.0,
+          30.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 30.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/35/30",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "澜将匕首扔出并对路径上敌人造成90%减速效果，持续0.5秒，短暂延迟后将向匕首位置突袭，并打断目标施法将路径上的敌人拖到终点进行处决，造成520/780/1040(+180%额外物理攻击)物理伤害。 下潜状态下释放【处决】不会投掷匕首，直接触发后续效果，并减少【破浪】50%的冷却。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/528.json"
+    },
+    {
+      "id": 537,
+      "name": "司空震",
+      "aliases": [
+        "司空震"
+      ],
+      "ultimate": {
+        "skill_id": "53730",
+        "name": "雷霆万钧",
+        "cooldown_by_level_s": [
+          60.0,
+          54.0,
+          48.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 60.0,
+        "cooldown_min_s": 48.0,
+        "cooldown_max_s": 60.0,
+        "cooldown_text": "60/54/48",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "司空震升入空中，化身为雷霆之王。 变身过程持续1.5秒，期间获得霸体，增加30%移动速度，无视地形阻挡，并让五个雷鼓依次随机轰击附近敌人（优先英雄）。每次雷击造成100/150/200(+22%法术攻击)法术伤害，并使司空震获得1点天雷之力和160/240/320(+2.5%额外生命值)点护盾，持续2秒。落地时对附近敌人造成200/300/400(+45%法术伤害)法术伤害。 变身持续8秒，期间普攻改为获得2点天雷之力，远程普攻会产生雷电链，在多个敌人间弹射，造成50%物理伤害。强化普攻的范围增加。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/537.json"
+    },
+    {
+      "id": 155,
+      "name": "艾琳",
+      "aliases": [
+        "艾琳"
+      ],
+      "ultimate": {
+        "skill_id": "15530",
+        "name": "月桂之舞·盛放",
+        "cooldown_by_level_s": [
+          20.0,
+          17.5,
+          15.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 20.0,
+        "cooldown_min_s": 15.0,
+        "cooldown_max_s": 20.0,
+        "cooldown_text": "20/17.5/15",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "艾琳能量满后会叠加一层月桂印记。当月桂印记达到6层时【月桂之舞·盛放】解锁，印记叠加上限为12/15/18层。 技能开启时，艾琳增加10/15/20%移速，不断消耗印记发出月桂飞叶，对范围内血量最低的目标造成72/108/114(+37.5%物理攻击)(+27%法术攻击)法术伤害，并减少【旋舞·轻语】0.2秒的冷却时间。 再次点击可以提前关闭技能，每3枚飞叶视为1次普攻行为。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/155.json"
+    },
+    {
+      "id": 538,
+      "name": "云缨",
+      "aliases": [
+        "云缨"
+      ],
+      "ultimate": {
+        "skill_id": "53830",
+        "name": "逐星",
+        "cooldown_by_level_s": [
+          40.0,
+          37.5,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/37.5/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "云缨引燃“掠火”枪尖，向前方区域来回突击，每段都对敌人造成70/140/210(+55%物理攻击)物理伤害和击飞。在突击至最远处时会连续刺击4次，每次造成35/70/105(+27%物理攻击)物理伤害。技能释放期间处于霸体状态并减少10/40/70%受到的伤害。 激活技能二段【啸日】，挥动“掠火”向前横扫并留下火径，持续3秒。横扫造成70/140/210(+55%物理攻击)物理伤害，火径每0.2秒造成30(+10%物理攻击)法术伤害。【逐星】释放期间，可以使用技能第二段横扫四周，打断后续突进造成60(+35%物理攻击)的物理伤害并留下圆形火径，持续3秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/538.json"
+    },
+    {
+      "id": 540,
+      "name": "金蝉",
+      "aliases": [
+        "金蝉"
+      ],
+      "ultimate": {
+        "skill_id": "54030",
+        "name": "轮回之印",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "将轮回之印击出，对敌方造成400/600/800(+76%法术攻击)法术伤害和击退(距离随法术攻击增加，至多在1000法术攻击时翻倍)，并使除自身以外友方(至多4人)获得锦襕宝衣效果抵挡一次硬控，持续5秒。 如果紧箍标记的敌人被击退到紧箍或地形边缘，则会反弹并额外造成200/300/400(+38%法术攻击)法术伤害。 紧箍内目标总是会被击退最大距离。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/540.json"
+    },
+    {
+      "id": 542,
+      "name": "暃",
+      "aliases": [
+        "暃"
+      ],
+      "ultimate": {
+        "skill_id": "54230",
+        "name": "凝玉之印",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "暃挥动玉刃横扫造成270/405/540(+80%额外物理攻击)物理伤害并标记所有目标(墙上可使用带位移的凝玉之印)并激活【凝玉之击】 【凝玉之击】：暃驭刀驱动标记碎裂，对每个目标造成四次无视不可选中的160/240/320(+50%额外物理攻击)物理伤害(若目标降至1/8生命值以下，则必被玉化击碎)"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/542.json"
+    },
+    {
+      "id": 534,
+      "name": "桑启",
+      "aliases": [
+        "桑启"
+      ],
+      "ultimate": {
+        "skill_id": "53430",
+        "name": "萤火微光",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "桑启在指定位置召唤【光之草丛】，6秒内可以释放，飞至被召唤的草丛并获得1层【萤火之力】。 【光之草丛】：光之草丛被召唤出来1秒后，每隔1秒将向周围最多5名英雄发射萤火虫，每颗萤火虫造成100(+20%法术攻击)(+3%额外生命)法术伤害或治疗友方英雄50(+10%法术攻击)(+1.5%额外生命)点生命。敌方单位进入光之草丛会暴露视野。光之草丛在快消失时不产生萤火虫。光之草丛持续9/12/15秒。光之草丛消失后，将转化为普通草丛留存30秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/534.json"
+    },
+    {
+      "id": 548,
+      "name": "戈娅",
+      "aliases": [
+        "戈娅"
+      ],
+      "ultimate": {
+        "skill_id": "54830",
+        "name": "黑砂爆弹",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "戈娅瞄准一个区域上空发射爆炸箭矢，获得爆发加速并快速准备强化普攻，短暂延迟后落下造成360/540/720(+80%物理攻击)物理伤害和15/22.5/30%减速。 随后该区域成为沙暴区域，将敌人牵引至沙暴中心，持续5秒，沙暴区域对其中的敌人造成15/22.5/30%减速，强化普攻击中沙暴中的敌人会引起爆炸，对沙暴范围内敌人造成8%已损生命值伤害。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/548.json"
+    },
+    {
+      "id": 521,
+      "name": "海月",
+      "aliases": [
+        "海月"
+      ],
+      "ultimate": {
+        "skill_id": "52130",
+        "name": "幻海映月",
+        "cooldown_by_level_s": [
+          75.0,
+          72.5,
+          70.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 75.0,
+        "cooldown_min_s": 70.0,
+        "cooldown_max_s": 75.0,
+        "cooldown_text": "75/72.5/70",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "海月链接一个英雄， 期间获得30%/45%/60%伤害减免，1.5秒后海月与目标一同进入水月幻境获得470/705/940(+7%额外生命)护盾。在幻境中海月获得60%冷却加快(双方超过一定距离则链接断开，并返还【幻海映月】75%冷却时间) 海月在幻境中再次释放【幻海映月】可朝指定方向位移(命中幻境边缘从另一侧穿出)"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/521.json"
+    },
+    {
+      "id": 544,
+      "name": "赵怀真",
+      "aliases": [
+        "赵怀真"
+      ],
+      "ultimate": {
+        "skill_id": "54430",
+        "name": "阴阳逆转",
+        "cooldown_by_level_s": [
+          55.0,
+          50.0,
+          45.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 55.0,
+        "cooldown_min_s": 45.0,
+        "cooldown_max_s": 55.0,
+        "cooldown_text": "55/50/45",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "怀真打出云手并持续霸体，在身边形成气旋保护自身并对周围敌人造成200/300/400(+60%额外物理攻击)物理伤害。气旋为怀真吸收即将到来40%伤害，每10点攻击力提升0.5%的吸收比例，并吸纳来袭的飞行物，吸收伤害总量上限为1500/2500/3500。之后将吸收的伤害凝聚成气并向选定敌人发出，命中英雄后造成范围800/1200/1600(+200%额外物理攻击)物理伤害(享受50%吸收伤害加成)。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/544.json"
+    },
+    {
+      "id": 545,
+      "name": "莱西奥",
+      "aliases": [
+        "莱西奥"
+      ],
+      "ultimate": {
+        "skill_id": "54530",
+        "name": "日落海烟花秀",
+        "cooldown_by_level_s": [
+          50.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 50.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50",
+        "cooldown_kind": "fixed",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "莱西奥跃向高空获得短暂霸体，锁定一名敌方英雄并向其发射5发飞弹，每发飞弹对爆炸范围内的目标造成360/540/720(+100%物理攻击)(+6%目标已损生命)物理伤害。同一目标重复被飞弹命中时，后续飞弹伤害衰减至25%，至多一名敌方英雄可为被锁定目标分摊一枚飞弹。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/545.json"
+    },
+    {
+      "id": 564,
+      "name": "姬小满",
+      "aliases": [
+        "姬小满"
+      ],
+      "ultimate": {
+        "skill_id": "56430",
+        "name": "稍微认真一点",
+        "cooldown_by_level_s": [
+          60.0,
+          54.0,
+          48.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 60.0,
+        "cooldown_min_s": 48.0,
+        "cooldown_max_s": 60.0,
+        "cooldown_text": "60/54/48",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "小满认真起来，对附近的敌人造成320/480/640(+100%额外物理攻击)物理伤害。 进入认真状态后，小满立即回复一格拳劲和腿劲，并将力劲储存上限提升为3格，期间小满获得15%加速并减少50%所受到的减速效果，该状态持续10秒。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/564.json"
+    },
+    {
+      "id": 514,
+      "name": "亚连",
+      "aliases": [
+        "亚连"
+      ],
+      "ultimate": {
+        "skill_id": "51430",
+        "name": "落日斩",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "亚连选定目标英雄跃向天空，不可选中，持续1.5秒，期间可以移动，随后猛击大地对敌方英雄造成270/405/540(+70%物理攻击)物理伤害和法术伤害，越靠近亚连受到的伤害越高，最多提高100%。每命中一个敌方英雄，亚连都会获得印记层数和怒气。 亚连会基于选取目标阵营来造成相应的效果，下落时为友方目标/自身增加640/960/1280(+8%额外生命值)护盾，每额外命中一个敌方英雄护盾值提高1/3。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/514.json"
+    },
+    {
+      "id": 159,
+      "name": "朵莉亚",
+      "aliases": [
+        "朵莉亚"
+      ],
+      "ultimate": {
+        "skill_id": "15930",
+        "name": "天籁",
+        "cooldown_by_level_s": [],
+        "default_level": 1,
+        "default_cooldown_s": null,
+        "cooldown_min_s": null,
+        "cooldown_max_s": null,
+        "cooldown_text": "10/9/8(+120%目标技能当前冷却)",
+        "cooldown_kind": "dynamic",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "朵莉亚短暂吟唱后，刷新范围内一名友军当前冷却时间最长的技能，由自己承担10/9/8(+120%当前技能冷却)的冷却时间。 若队友技能被刷新后没有使用，【天籁】的冷却恢复速度可加快20/30/40%。队友在刷新技能后5秒内使用该技能不消耗能量，且该技能造成的击败收益会和朵莉亚平分。 优先为契约队友刷新技能，其次为无契约队友，若附近没有队友，则刷新自己的技能。技能刷新失败时会返还大部分【天籁】的冷却时间。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/159.json"
+    },
+    {
+      "id": 563,
+      "name": "海诺",
+      "aliases": [
+        "海诺"
+      ],
+      "ultimate": {
+        "skill_id": "56330",
+        "name": "命运回溯",
+        "cooldown_by_level_s": [
+          80.0,
+          75.0,
+          70.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 80.0,
+        "cooldown_min_s": 70.0,
+        "cooldown_max_s": 80.0,
+        "cooldown_text": "80/75/70",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "海诺会在上一次远程状态最后的时间点留下记录。海诺展开领域，获得15/22.5/30%减伤，并回复400/600/800(+6%额外生命)点生命，期间处于霸体且不可移动的状态。1.5秒延迟后领域造成300/450/600(+100%法术攻击)法术伤害，自身回溯至记录点。若领域内有己方防御塔，则将其回溯至5秒前状态。 血量越低回复越高，最多获得2倍回复。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/563.json"
+    },
+    {
+      "id": 519,
+      "name": "敖隐",
+      "aliases": [
+        "敖隐"
+      ],
+      "ultimate": {
+        "skill_id": "51930",
+        "name": "穷乎玄间",
+        "cooldown_by_level_s": [
+          80.0,
+          75.0,
+          70.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 80.0,
+        "cooldown_min_s": 70.0,
+        "cooldown_max_s": 80.0,
+        "cooldown_text": "80/75/70",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "敖隐显露白龙真身冲上云霄，期间无法攻击、无视地形且不可选中，最多持续4.5秒(可提前结束)，随后向前俯冲(过程中不可选中)，对路径上的敌人造成400/600/800(+80%额外物理攻击)物理伤害和15/22.5/30%减速，并在落点处对敌人再次造成同等伤害和惧龙效果，持续1秒。 随后敖隐显露真龙雪剑，提升20/30/40%攻速和25点射程，持续10秒。期间敖隐使用真龙雪剑攻击，此时双剑指会对附近至多两个额外目标攻击。 受到惧龙效果的目标会不由自主的远离敖隐。敖隐飞行期间可以任意调整剑指的元素龙魂。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/519.json"
+    },
+    {
+      "id": 517,
+      "name": "大司命",
+      "aliases": [
+        "大司命"
+      ],
+      "ultimate": {
+        "skill_id": "51732",
+        "name": "魂归忘忧",
+        "cooldown_by_level_s": [
+          40.0,
+          36.0,
+          32.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 32.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40/36/32",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "大司命神巫之力全开，从天而临，对附近敌人造成380/570/760(+150%额外物理攻击)物理伤害和0.5秒击退。若命中敌方英雄可回复750/1125/1500(+12%额外生命值)生命，同时，大司命会凝聚出同样的灵体帮助作战，持续8秒。 落地后大司命进入神巫状态，持续8秒，若普攻的目标生命低于10%(野怪为750~1500，随英雄等级成长)，则大司命会将其直接斩杀。 每命中一个敌方英雄，回复效果增加50%，最多增加100%。灵体继承大司命30%的物理攻击，只会普攻，但拥有更高的移速和攻速。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/517.json"
+    },
+    {
+      "id": 582,
+      "name": "元流之子(法师)",
+      "aliases": [
+        "元流之子(法师)"
+      ],
+      "ultimate": {
+        "skill_id": "58230",
+        "name": "万妙之法",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "元流之子向前方引导“流”造成250/375/5000(+50%法术攻击)法术伤害和25%/37.5%/50%减速(持续0.75秒)并形成光束吸附周围所有敌人造成共计600/900/1200(+5120%法术攻击)法术伤害(每0.2秒1次) 可消耗5层“流”使用额外的【万妙之法】，持续期间可同时释放其它技能"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/582.json"
+    },
+    {
+      "id": 581,
+      "name": "元流之子(坦克)",
+      "aliases": [
+        "元流之子(坦克)"
+      ],
+      "ultimate": {
+        "skill_id": "58190",
+        "name": "倾注一击",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25/22.5/20",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "元流之子向指定位置跃击，造成400/600/800(+70%额外物理攻击)(+8%额外生命值)物理伤害和0.75秒击退，跃击的中心会额外造成50%伤害。 可消耗5层“流”释放技能，使本次技能不进入冷却。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/581.json"
+    },
+    {
+      "id": 577,
+      "name": "少司缘",
+      "aliases": [
+        "少司缘"
+      ],
+      "ultimate": {
+        "skill_id": "57730",
+        "name": "因缘际会",
+        "cooldown_by_level_s": [
+          45.0,
+          40.0,
+          35.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 45.0,
+        "cooldown_min_s": 35.0,
+        "cooldown_max_s": 45.0,
+        "cooldown_text": "45/40/35",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "少司缘指挥成群的缘崽向前拥簇飞行，对沿途友方英雄施加\"良缘\"和250/375/500(+40%法术攻击)生命回复，对沿途敌人施加\"冤缘\"和300/450/600(+50%法术攻击)法术伤害。 如果友方已拥有\"良缘\"，则刷新时间并触发额外150/225/300(+25%法术攻击)生命回复并提升30%移速2秒； 如果敌人已拥有\"冤缘\"，则刷新时间并触发额外200/300/400(+30%法术攻击)法术伤害并定身1秒。 被动：少司缘每通过技能获得1额外金币，【因缘际会】造成的基础生命回复和法术伤害增加1点。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/577.json"
+    },
+    {
+      "id": 558,
+      "name": "影",
+      "aliases": [
+        "影"
+      ],
+      "ultimate": {
+        "skill_id": "55830",
+        "name": "最后的狂舞",
+        "cooldown_by_level_s": [
+          55.0,
+          50.0,
+          45.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 55.0,
+        "cooldown_min_s": 45.0,
+        "cooldown_max_s": 55.0,
+        "cooldown_text": "55/50/45",
+        "cooldown_kind": "per_level",
+        "special_mechanic": true,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "影重燃东君的辉煌荣光，对附近敌人造成400/600/800(+140%额外物理攻击)物理伤害，暂时获得50/75/100%生命和150/225/300移速(持续衰减)和不屈(持续4秒)，回复延迟至状态结束后结算。 若影在三技能非冷却时阵亡，则会缓缓复活(获得主动开启时50%的生命)并对附近敌人造成400/600/800(+140%额外物理攻击)物理伤害，并使三技能进入冷却。 若临时生命被全部消耗，则会提前结束不屈状态。"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/558.json"
+    },
+    {
+      "id": 177,
+      "name": "苍",
+      "aliases": [
+        "苍"
+      ],
+      "ultimate": {
+        "skill_id": "17730",
+        "name": "领袖姿态",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50/45/40",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "苍展现领袖姿态，消耗全部【狼魂陷阱】并激活周围所有陷阱，向指定方向召唤(2+二技能数量)只狼魂冲锋 苍自身获得骑射能力(可移动普攻)和20%~40%攻速(持续8秒)，技能持续期间，苍视所有地形为草丛获得被动强化普攻并积累潜伏值，潜伏值满进行一次跳跃并获取一次被动强化普攻 苍每次普攻会指引当前无目标的狼魂协同攻击"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/177.json"
+    },
+    {
+      "id": 550,
+      "name": "空空儿",
+      "aliases": [
+        "空空儿"
+      ],
+      "ultimate": {
+        "skill_id": "55030",
+        "name": "三洞藏仙",
+        "cooldown_by_level_s": [
+          55.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 55.0,
+        "cooldown_min_s": 55.0,
+        "cooldown_max_s": 55.0,
+        "cooldown_text": "55",
+        "cooldown_kind": "fixed",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "空空儿操纵手偶快速旋转造成600/900/1200(+150额外物理攻击)物理伤害和击退，随后对范围内敌人每0.45秒造成100/150/200(+25%额外物理攻击)物理伤害并将外围敌人向自身牵引 【三洞藏仙】开启时自动施放【瞒天】和【过海】并呈三角位置释放分身并旋转，持续期间提升能量积攒速度并可以与每个分身换位最多一次"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/550.json"
+    },
+    {
+      "id": 584,
+      "name": "元流之子(射手)",
+      "aliases": [
+        "元流之子(射手)"
+      ],
+      "ultimate": {
+        "skill_id": "58430",
+        "name": "万箭齐发",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25(-2.5/Lv)",
+        "cooldown_kind": "level_formula",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "元流之子朝指定区域发射7轮轻型弩箭(25%攻速增加1轮弩箭，最多7轮)对指定范围(锁定范围内目标)造成50/75/100(+24%物理攻击)物理伤害(触发暴击,每3支弩箭视为1次普攻行为)同时获得20/30/40移速提升(再次使用获得浮空) 可消耗5层“流”使用额外的【万箭齐发】"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/584.json"
+    },
+    {
+      "id": 151,
+      "name": "孙权",
+      "aliases": [
+        "孙权"
+      ],
+      "ultimate": {
+        "skill_id": "15130",
+        "name": "麾旌破阵",
+        "cooldown_by_level_s": [
+          2.0,
+          1.8,
+          1.6
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 2.0,
+        "cooldown_min_s": 1.6,
+        "cooldown_max_s": 2.0,
+        "cooldown_text": "2(-0.2/Lv)",
+        "cooldown_kind": "level_formula",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "孙权执旗持续追击敌人(期间可调整位置)并猛烈挥舞军旗对前方区域造成4次130/195/260(+72%Ad)物理伤害(视为普攻行为)，最后一次挥舞造成200/300/400(+100Ad)W物理伤害并向后撤退进入【破阵】状态"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/151.json"
+    },
+    {
+      "id": 172,
+      "name": "蚩奼",
+      "aliases": [
+        "蚩奼"
+      ],
+      "ultimate": {
+        "skill_id": "17230",
+        "name": "兵主再临",
+        "cooldown_by_level_s": [
+          40.0,
+          36.0,
+          32.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 40.0,
+        "cooldown_min_s": 32.0,
+        "cooldown_max_s": 40.0,
+        "cooldown_text": "40(-4/Lv)",
+        "cooldown_kind": "level_formula",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "蚩奼五兵齐开， 立刻获得爆发移速(随技能等级成长80%/90%/100%，持续2秒)和35%/52.5%/70%攻速并突破战意效果上限(持续6秒)，期间蚩奼驱使五兵攻击敌人，每次普攻行为额外造成40/60/80(+13%额外物理攻击)物理伤害 技能期间蚩奼普攻移动施法，进入超杀状态后可维持该形态"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/172.json"
+    },
+    {
+      "id": 585,
+      "name": "元流之子(辅助)",
+      "aliases": [
+        "元流之子(辅助)"
+      ],
+      "ultimate": {
+        "skill_id": "58520",
+        "name": "余音绕梁",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25(-2.5/Lv)",
+        "cooldown_kind": "level_formula",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "元流之子获得90/135/180移速加成同时向指定方向持续释放8个音浪，命中时为自身提供60/90/120(+9%额外生命值)回复 命中敌方:造成84/126/168(+13%法术攻击)法术伤害 命中友方:提供60/90/120(+9%法术伤害)回复 命中墙体:弹射产生新的音浪(最多3次，造成75%伤害) 可消耗5层“流”使用额外的【余音绕梁 】"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/585.json"
+    },
+    {
+      "id": 188,
+      "name": "大禹",
+      "aliases": [
+        "大禹"
+      ],
+      "ultimate": {
+        "skill_id": "18803",
+        "name": "乾坤以同",
+        "cooldown_by_level_s": [
+          60.0,
+          54.0,
+          48.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 60.0,
+        "cooldown_min_s": 48.0,
+        "cooldown_max_s": 60.0,
+        "cooldown_text": "60/54/48",
+        "cooldown_kind": "per_level",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "大禹召唤乾鼎(落地后存在8秒)砸向目标区域造成击飞(持续1秒)和500/750/1000(+1.45额外Ad)物理伤害(中心区域额外造成0.25秒击退和50%伤害) 二段：大禹自身传送至乾鼎并获得爆发加速(2.5秒内衰减)，同时引发【震荡波】造成100/150/200(+0.3额外Ad)物理伤害和15%/22.5%/30%减速(持续1秒)，传送期间获得霸体"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/188.json"
+    },
+    {
+      "id": 583,
+      "name": "元流之子(刺客)",
+      "aliases": [
+        "元流之子(刺客)"
+      ],
+      "ultimate": {
+        "skill_id": "58330",
+        "name": "断生双狩",
+        "cooldown_by_level_s": [
+          25.0,
+          22.5,
+          20.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 25.0,
+        "cooldown_min_s": 20.0,
+        "cooldown_max_s": 25.0,
+        "cooldown_text": "25(-2.5/Lv)",
+        "cooldown_kind": "level_formula",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "元流之子展开双爪向指定位置突进并获得霸体，对掠过路径上的敌人造成200/300/400(+65%ad)物理伤害，在终点额外造成300/450/600(+100%ad)物理伤害并击退敌人 可消耗5层“流”使用额外的【断生双狩】"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/583.json"
+    },
+    {
+      "id": 547,
+      "name": "卢雅那",
+      "aliases": [
+        "卢雅那"
+      ],
+      "ultimate": {
+        "skill_id": "54735",
+        "name": "焚火灼目",
+        "cooldown_by_level_s": [
+          50.0,
+          45.0,
+          40.0
+        ],
+        "default_level": 1,
+        "default_cooldown_s": 50.0,
+        "cooldown_min_s": 40.0,
+        "cooldown_max_s": 50.0,
+        "cooldown_text": "50(-5/Lv)",
+        "cooldown_kind": "level_formula",
+        "special_mechanic": false,
+        "cooldown_review_required": false,
+        "cooldown_note": "",
+        "description": "卢雅那向指定方向施放火蛇，对沿途敌人造成法术伤害和致盲(持续2秒) 卢雅那立刻获得1枚环刃并强化自身持续6秒)，强化期间环刃切割或受到攻击会获得能量，每次满能量时对附近一个随机敌人降下火雨，火雨对范围内的敌人造成法术伤害和击飞(持续0.5秒) 敌人被致盲时，普通攻击无法造成伤害，施放技能产生的飞行物会随机偏移命中沿途目标"
+      },
+      "source_url": "https://pvp.qq.com/zlkdatasys/zsbd_herolist/547.json"
+    }
+  ]
+}

@@ -146,6 +146,33 @@ def parse_mobile_skills(page):
     return skills
 
 
+def strategy_reference(data):
+    """Keep official editorial advice distinct from verified live-patch facts."""
+    fields = {key: plain(data.get(key)) for key in (
+        'usetips', 'resisttips', 'wartips', 'road', 'add_skill1', 'add_skill_exp1',
+        'fuwenid_exp', 'mingwentip1', 'mingwentip2', 'changetime',
+    )}
+    builds = []
+    for index in (1, 2):
+        ids = str(data.get(f'build{index}') or '').split('|')
+        if any(ids) or data.get(f'build_tip{index}'):
+            builds.append({'item_ids': [int(value) for value in ids if value.isdigit()],
+                           'note': plain(data.get(f'build_tip{index}'))})
+    return {
+        'source_url': DETAIL_URL.format(hero_id=int(data['ename'])),
+        'source_kind': 'official_editorial_reference', 'current_patch_verified': False,
+        'review_required': True,
+        'review_note': '官网攻略未提供完整版本信息，可能与技能正文或当前版本不一致；仅作条件参考，出装不代表本局最优顺序。',
+        'usage': fields['usetips'], 'counterplay': fields['resisttips'],
+        'teamfight': fields['wartips'], 'suggested_lane': fields['road'],
+        'skill_order': fields['add_skill1'], 'skill_order_note': fields['add_skill_exp1'],
+        'runes_note': fields['fuwenid_exp'] or fields['mingwentip1'],
+        'source_change_date': fields['changetime'], 'builds': builds,
+        'missing': [label for key, label in [('usetips','使用技巧'),('resisttips','对线反制'),('wartips','团战')] if not fields[key]]
+                   + ([] if builds else ['出装']),
+    }
+
+
 def hero_entry(hero, source_dir=None):
     structured_url = DETAIL_URL.format(hero_id=int(hero['ename']))
     if source_dir is not None:
@@ -161,6 +188,7 @@ def hero_entry(hero, source_dir=None):
             raise ValueError('Official hero identity mismatch')
         return {"hero": hero['cname'], "id": int(hero['ename']), "source_url": structured_url,
                 "source_kind": "official_structured", "skills": parse_official_skills(data),
+                "strategy_reference": strategy_reference(data),
                 "title": data.get('title', ''), "roles": [int(data[k]) for k in ('hero_type', 'hero_type2') if data.get(k)],
                 "status": "official_reference", "fetched_at": datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).isoformat() if source_dir else datetime.now(timezone.utc).isoformat()}
     url = f"https://pvp.qq.com/web201605/herodetail/{int(hero['ename'])}.shtml"

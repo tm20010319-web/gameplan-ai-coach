@@ -48,9 +48,9 @@ test("backfilled release counts down, turns ready, and alerts once", () => {
     h.advance(21000);
     assert.equal(h.w.document.querySelector(".timer-soon b").textContent, "4 秒");
     h.advance(5000);
-    assert.equal(h.w.document.querySelector(".timer-ready b").textContent, "预计可用");
+    assert.equal(h.w.document.querySelector(".timer-ready b").textContent, "王昭君大招预计可用");
     assert.equal(h.messages.length, 1);
-    assert.match(h.messages[0].message, /敌方 王昭君.*预计可用/);
+    assert.equal(h.messages[0].message, "王昭君大招预计可用");
     h.advance(10000);
     assert.equal(h.messages.length, 1);
     assert.equal(h.w.byId("skill-ready-alert").hidden, false);

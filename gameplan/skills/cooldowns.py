@@ -15,6 +15,9 @@ def snapshot(match_id, memory):
 
 
 def retire(memory, timer_ids, reason):
+    for event in memory.get("voice_events", []):
+        if event.get("timer_id") in timer_ids:
+            event["status"] = reason
     for item in memory.get("skill_timer_history", []):
         if item["id"] in timer_ids:
             item["ended_reason"] = reason
@@ -22,32 +25,54 @@ def retire(memory, timer_ids, reason):
     memory["skill_timer_revision"] = memory.get("skill_timer_revision", 0) + 1
 
 
-def register(memory, req, catalog):
+def _timer_key(item):
+    """Return the identity used to replace one hero/skill timer."""
+    return (
+        item.get("side", "enemy"),
+        item.get("hero"),
+        item.get("skill_kind", "hero"),
+        item.get("slot"),
+        item.get("skill"),
+    )
+
+
+def register(memory, req, catalog, *, skill_kind="hero", skill_name=None, source="manual", metadata=None):
     hero = next((entry for entry in catalog["heroes"] if entry["hero"] == req.hero), None)
     if not hero:
         raise ValueError("请选择已收录的英雄")
-    skill = next((entry for entry in hero["skills"] if entry["slot"] == req.slot), None)
-    if skill and skill["passive"]:
-        raise ValueError("被动技能不能登记施放倒计时")
-    if hero["skills"] and not skill:
-        raise ValueError("该英雄没有此技能槽位")
+    if skill_kind == "summoner":
+        if not skill_name:
+            raise ValueError("召唤师技能名称不能为空")
+        skill = None
+        display_name = skill_name
+    else:
+        skill = next((entry for entry in hero["skills"] if entry["slot"] == req.slot), None)
+        if skill and skill["passive"]:
+            raise ValueError("被动技能不能登记施放倒计时")
+        if hero["skills"] and not skill:
+            raise ValueError("该英雄没有此技能槽位")
+        display_name = skill["name"] if skill else f"{req.slot} 技能"
     # Heroes without official data can still use a manually confirmed slot and duration.
     timers = memory.get("skill_timers", [])
-    replaced = {item["id"] for item in timers if (item["side"], item["hero"], item["slot"]) == (req.side, req.hero, req.slot)}
+    identity = (req.side, req.hero, skill_kind, req.slot, display_name)
+    replaced = {item["id"] for item in timers if _timer_key(item) == identity}
     if len(timers) - len(replaced) >= 40:
         raise ValueError("最多同时记录 40 个技能，请先移除不需要的计时")
     now = time.time()
     cast_epoch = now - req.elapsed_s if req.mode == "cast" else None
     item = {
         "id": uuid4().hex, "side": req.side, "hero": req.hero, "slot": req.slot,
-        "skill": skill["name"] if skill else f"{req.slot} 技能",
-        "mode": req.mode, "seconds": req.seconds, "source": "manual",
+        "skill": display_name,
+        "skill_kind": skill_kind,
+        "mode": req.mode, "seconds": req.seconds, "source": source,
         "recorded_epoch": now, "cast_epoch": cast_epoch,
         "cast_game_time_s": req.game_time_s,
         "ready_epoch": (cast_epoch if cast_epoch is not None else now) + req.seconds,
         "ready_game_time_s": req.game_time_s + req.seconds if req.game_time_s is not None else None,
         "special_mechanic": bool(skill and skill.get("special_mechanic")),
     }
+    if metadata:
+        item.update(metadata)
     retire(memory, replaced, "superseded")
     memory["skill_timers"].append(item)
     memory["skill_timer_history"] = (memory.get("skill_timer_history", []) + [dict(item)])[-100:]
