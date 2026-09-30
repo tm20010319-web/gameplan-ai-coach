@@ -5,6 +5,13 @@ import json
 from gameplan.paths import ROOT
 
 CATALOG_PATH = ROOT / "resources/knowledge/lol_catalog.json"
+SUMMONERS_PATH = ROOT / "resources/knowledge/lol_summoner_spells.json"
+
+
+def summoner_spell(spell_id):
+    data = json.loads(SUMMONERS_PATH.read_text(encoding="utf-8"))
+    spell = data["spells"].get(spell_id)
+    return {**spell, "version": data["version"], "source_url": data["source_url"], "note": data["note"]} if spell else None
 
 
 @lru_cache(maxsize=1)

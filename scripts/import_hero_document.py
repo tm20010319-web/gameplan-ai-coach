@@ -11,6 +11,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def import_document(path, hero, lane, root=ROOT):
+    import os
+    if os.getenv('GAMEPLAN_REDIS_URL'):
+        import sys
+        sys.path.insert(0, str(ROOT))
+        from gameplan.persistence.redis_import_document import import_document as redis_import
+        return redis_import(path, hero, lane, root)
     raw = Path(path).read_bytes()
     content = raw.decode('utf-8-sig')
     digest = hashlib.sha256(raw).hexdigest()
@@ -55,4 +61,6 @@ if __name__ == '__main__':
     parser.add_argument('--hero', required=True)
     parser.add_argument('--lane', default='unknown')
     args = parser.parse_args()
+    from dotenv import load_dotenv
+    load_dotenv(ROOT / '.env')
     print(json.dumps(import_document(args.path, args.hero, args.lane), ensure_ascii=True))

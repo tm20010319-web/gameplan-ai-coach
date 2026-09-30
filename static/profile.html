@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>玩家档案 · GAMEPLAN</title><link rel="icon" href="/static/monitor.ico"><link rel="stylesheet" href="/static/profile.css"><script src="/static/profile.js" defer></script></head>
+<body><header><a href="/monitor?monitor=off">GAMEPLAN · 游戏助教</a><a href="/chat">小象助手</a></header><main>
+<div class="title"><div><small>PLAYER PROFILE</small><h1>玩家长期档案</h1><p id="profile-identity">正在读取账号…</p></div><button id="profile-refresh" type="button">刷新档案</button></div>
+<p id="profile-status" role="status" aria-live="polite"></p>
+<section class="controls"><label id="profile-player-label" hidden>查看玩家<select id="profile-player"></select></label><label>画像范围<select id="profile-scope"><option value="all">全部</option><option value="global">通用偏好与目标</option><option value="hok">王者荣耀</option><option value="lol">英雄联盟</option></select></label><span id="profile-version"></span></section>
+<div id="profile-facts" class="facts"></div>
+<section class="panel"><h2>每局更新记录</h2><div id="profile-jobs"></div></section>
+<details class="panel" id="profile-history"><summary>查看画像变化历史</summary><div id="profile-versions"></div><button id="profile-more" type="button" hidden>加载更早记录</button></details>
+<p class="note">画像来自你与小象助手的对话和已保存的复盘。单局表现先作为待验证观察；你可以在聊天中说明新的偏好或纠正旧判断，下一次局后更新时重新核对。</p>
+</main></body></html>

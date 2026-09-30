@@ -36,6 +36,12 @@ app = FastAPI(title="王者荣耀 AI 助教", version="2.0.0")
 app.mount("/static", StaticFiles(directory=ROOT / "static"), name="static")
 from gameplan.web.lol_routes import router as lol_router
 app.include_router(lol_router)
+from gameplan.web.chat_routes import routes as chat_routes
+app.include_router(chat_routes(monitor_require_local))
+from gameplan.web.review_routes import routes as review_routes
+app.include_router(review_routes(monitor_require_local))
+from gameplan.web.account_routes import install as install_accounts
+install_accounts(app, monitor_require_local)
 app.include_router(picture_routes(monitor_require_local))
 connections = defaultdict(set)
 locks = defaultdict(asyncio.Lock)
@@ -62,14 +68,20 @@ def share_base(request):
     return f"{request.url.scheme}://{host}" + (f":{request.url.port}" if request.url.port else "")
 
 
+def connection_identity(match_id):
+    from gameplan.persistence.database import redis_enabled, owner
+    return (owner(), match_id) if redis_enabled() else match_id
+
+
 async def publish(match_id, kind, data):
     payload = {"type": kind, "data": data}
-    clients = list(connections.get(match_id, set()))
+    identity = connection_identity(match_id)
+    clients = list(connections.get(identity, set()))
     if clients:
         results = await asyncio.gather(*(client.send_json(payload) for client in clients), return_exceptions=True)
         for client, result in zip(clients, results):
             if isinstance(result, Exception):
-                connections[match_id].discard(client)
+                connections[identity].discard(client)
 
 
 @app.get("/")
@@ -229,6 +241,10 @@ async def websocket(websocket: WebSocket, match_id: str):
     if not re.fullmatch(r"[a-zA-Z0-9_-]{1,64}", match_id):
         await websocket.close(code=1008)
         return
+    from gameplan.persistence import database
+    if database.redis_enabled():
+        from gameplan.web.redis_websocket import serve
+        return await serve(websocket, match_id, app, connections, get_match)
     await websocket.accept()
     connections[match_id].add(websocket)
     try:
@@ -334,8 +350,12 @@ async def observation(match_id: str, advice_id: str, req: ObservationRequest):
 
 
 @app.post("/api/vision/{kind}")
-async def vision_analyze(kind: str, req: VisionRequest):
+async def vision_analyze(kind: str, req: VisionRequest, request: Request):
     if kind == "observe":
+        if req.auto_review and req.input_kind == "live":
+            monitor_require_local(request)
+            from gameplan.monitoring.review_runtime import observe as review_observe
+            return await review_observe(req, monitor_observe)
         return await monitor_observe(req)
     if kind not in ("bp", "analyze", "result", "crop", "observe"):
         raise HTTPException(404, "不支持的识别阶段")

@@ -1,0 +1,9 @@
+{
+  "game": "lol",
+  "version": "16.19.1",
+  "source_url": "https://ddragon.leagueoflegends.com/cdn/16.19.1/data/zh_CN/summoner.json",
+  "note": "召唤师峡谷基础冷却；未计召唤师技能急速、符文、装备及特殊模式修正。",
+  "spells": {
+    "SummonerFlash": {"name": "闪现", "cooldown_s": 300}
+  }
+}

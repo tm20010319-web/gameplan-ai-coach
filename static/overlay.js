@@ -8,6 +8,8 @@
     const content = document.createElement('div');
     content.className = 'overlay-content';
     content.append(document.querySelector('.enemy-selection'), document.querySelector('.enemy-subtitle-panel'));
+    const review = document.querySelector('.review-panel');
+    if (review) content.append(review);
     main.append(content);
     const reference = document.getElementById('enemy-reference');
     const referenceDetails = document.createElement('details');

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>小象助手 · 知识问答</title><link rel="stylesheet" href="/static/chat.css"><script src="/static/chat.js" defer></script></head>
+<body>
+<header class="site-header"><a href="/monitor?monitor=off">GAMEPLAN <span>游戏助教</span></a><nav aria-label="知识库"><a href="/static/knowledge.html">王者荣耀</a><a href="/knowledge/lol">英雄联盟</a></nav></header>
+<main class="chat-shell">
+  <header class="chat-header"><div><p class="eyebrow">先查资料，再给答案</p><h1>小象助手</h1><p id="chat-context">自动识别游戏与英雄</p></div><button id="chat-new" type="button">新对话</button></header>
+  <section id="chat-timers" aria-label="技能倒计时" hidden><div class="timer-heading"><strong>技能倒计时</strong><button id="chat-clear-timers" type="button">清空计时</button></div><p class="timer-note">王者荣耀 / 英雄联盟 · 默认一级技能与基础闪现冷却，未计冷却缩减、急速和刷新；新对话单独计时。</p><div id="chat-timer-cards"></div><p id="chat-timer-alert" role="status" aria-live="polite"></p></section>
+  <section id="chat-messages" role="log" aria-label="聊天记录" aria-live="polite" aria-relevant="additions text"></section>
+  <div class="examples" id="chat-examples" aria-label="试着问"><button type="button" data-question="剑魔怎么打？">剑魔怎么打？</button><button type="button" data-question="小明大招用了">小明大招用了</button><button type="button" data-question="小明没大招，诸葛亮也没大">多个英雄一起计时</button></div>
+  <form id="chat-form"><label class="sr-only" for="chat-input">输入问题或计时指令</label><textarea id="chat-input" rows="2" maxlength="1000" placeholder="问英雄、技能、打法…或说“小明大招用了”开始计时" required></textarea><button id="chat-send" type="submit">发送</button></form>
+  <div class="chat-feedback"><p id="chat-status" role="status">正在恢复对话…</p><button id="chat-retry" type="button" hidden>重试</button></div>
+  <details class="privacy"><summary>资料来源与对话保存</summary><p>优先查询两个本地知识库，回答会标注依据。只有资料不足时，才向已配置的外部模型发送本次问题、最近最多四轮对话及相关资料，补充结果不经过联网核验。对话保存在本机，每个对话保留最近二十轮。新对话不沿用原英雄上下文。</p></details>
+</main>
+</body></html>

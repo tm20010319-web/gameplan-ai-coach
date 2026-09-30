@@ -1,7 +1,7 @@
 "use strict";
 const byId = id => document.getElementById(id);
 const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
-const appState = {matchId:crypto.randomUUID(),screenSource:null,stream:null};
+const appState = {matchId:window.gameplanReview?.streamId()||crypto.randomUUID(),screenSource:null,stream:null};
 let toastTimer;
 function toast(message,error=false){clearTimeout(toastTimer);byId("toast").textContent=message;byId("toast").classList.toggle("error",error);byId("toast").hidden=false;toastTimer=setTimeout(()=>byId("toast").hidden=true,6000);}
 async function api(path,payload,signal){
@@ -93,6 +93,7 @@ function action(id,handler){byId(id).addEventListener("click",()=>Promise.resolv
   }
   async function quickPlan(){
     const o=state.latest?.observation,c=context();
+    if(state.latest?.game && state.latest.game!=="hok"){clearPlan();return;}
     if(!o||!["bp","loading","in_game"].includes(o.phase)){clearPlan();return;}
     const allies=o.ally_roster||[],enemies=o.enemy_roster||[];
     if(o.phase!=="bp"&&!c.player){clearPlan();byId("quick-text").textContent=laneAdvice(c.lane !== "unknown" ? c.lane : null,o.phase);byId("quick-plan").hidden=false;return;}
@@ -119,6 +120,7 @@ function action(id,handler){byId(id).addEventListener("click",()=>Promise.resolv
     byId("lane-plan-text").textContent=lane?.advice||"";
   }
   async function render(response,frameImage=null){
+    window.gameplanReview?.observe(response);
     const incomplete=['incomplete_answer','partial'].includes(response.skill_scan?.detector_status);
     state.latest=response;state.expiredFrame=null;if(!incomplete)state.count++;state.errors=0;const o=response.observation;
     byId("frame-count").textContent=`${state.count} 帧`;byId("frame-time").textContent=`最近识别 ${response.elapsed_s} 秒`;
@@ -136,7 +138,10 @@ function action(id,handler){byId(id).addEventListener("click",()=>Promise.resolv
       byId("phase").textContent=phases[o.phase];
       status("等待有效游戏画面 · 保留上次识别结果");
     }
-    else{window.gameplanEnemies?.observe(response,context());void Promise.all([quickPlan(),window.gameplanAdvisor?.observe(response)]).catch(error=>toast(error.message,true));}
+    else if(response.game && response.game!=="hok"){
+      clearPlan();window.gameplanEnemies?.reset();window.gameplanAdvisor?.reset("正在记录个人表现，结束后自动生成复盘。");
+    }
+    else if(response.skill_scan?.detector_status!=="review_only"){window.gameplanEnemies?.observe(response,context());void Promise.all([quickPlan(),window.gameplanAdvisor?.observe(response)]).catch(error=>toast(error.message,true));}
     if(state.latest!==response)return;
     status(incomplete?"本轮技能判断未完成 · 已保留有效结果":"持续观察中");renderEnemyTimers();renderSkills();
   }
@@ -204,7 +209,7 @@ function action(id,handler){byId(id).addEventListener("click",()=>Promise.resolv
       state.latestFrame=null;
       status("正在识别");window.gameplanAdvisor?.reading();
       const recent=skillFrames(frame);
-      const response=await api("/api/vision/observe",{match_id:appState.matchId,image_base64:frame.image_base64,captured_at:frame.captured_at,recent_frames:recent,perspective_side:context().side,input_kind:"live",focus:byId("observe-focus").value,model:byId("vision-model").value},controller.signal);
+      const response=await api("/api/vision/observe",{match_id:appState.matchId,auto_review:!!window.gameplanReview,image_base64:frame.image_base64,captured_at:frame.captured_at,recent_frames:recent,perspective_side:context().side,input_kind:"live",focus:byId("observe-focus").value,model:byId("vision-model").value},controller.signal);
       if(generation===state.generation){
         if(state.panelFrame&&[...recent,frame].some(item=>item.captured_at===state.panelFrame.captured_at))state.panelFrame=null;
         if(["bp","loading","result"].includes(response.observation.phase))state.panelFrame=null;
@@ -248,7 +253,7 @@ function action(id,handler){byId(id).addEventListener("click",()=>Promise.resolv
     let strideBoundary=job.next,lastStrideTime=job.next,uncoveredSeconds=0;
     const panelBuffer=stride?new window.PanelFrameBuffer():null;
     stop("正在读取视频",true);state.videoJob=job;state.active=true;state.errors=0;
-    if(!resume){clearServerMatch();clearBpContext();clearObservation("正在读取新视频");state.count=0;byId("frame-count").textContent="0 帧";appState.matchId=crypto.randomUUID();byId("match-label").textContent="# "+appState.matchId.slice(0,8);}
+    if(!resume){clearServerMatch();clearBpContext();clearObservation("正在读取新视频");state.count=0;byId("frame-count").textContent="0 帧";appState.matchId=crypto.randomUUID();window.gameplanReview?.reset(appState.matchId);byId("match-label").textContent="# "+appState.matchId.slice(0,8);}
     byId("video-status").hidden=false;byId("preview-paused").hidden=true;status(`正在读取视频：${file.name}`);controls();
     const generation=state.generation,controller=new AbortController();state.controller=controller;
     const video=document.createElement("video");video.preload="auto";video.muted=true;video.playsInline=true;
@@ -422,7 +427,7 @@ function action(id,handler){byId(id).addEventListener("click",()=>Promise.resolv
     const job=resume?state.videoJob:{file,mode:byId('video-mode').value,next:0,index:0,epoch:Date.now()/1000,completed:null};
     stop('正在读取视频',true);state.videoJob=job;state.active=true;state.errors=0;
     window.gameplanEnemies?.setPlaybackTime(null);
-    if(!resume){clearServerMatch();clearBpContext();clearObservation('正在读取新视频');state.count=0;byId('frame-count').textContent='0 帧';appState.matchId=crypto.randomUUID();byId('match-label').textContent='# '+appState.matchId.slice(0,8);}
+    if(!resume){clearServerMatch();clearBpContext();clearObservation('正在读取新视频');state.count=0;byId('frame-count').textContent='0 帧';appState.matchId=crypto.randomUUID();window.gameplanReview?.reset(appState.matchId);byId('match-label').textContent='# '+appState.matchId.slice(0,8);}
     const all60=job.mode==='all60',batchSize=all60?6:state.frameLimit;
     const generation=state.generation,controller=new AbortController();state.controller=controller;
     const video=document.createElement('video'),decoder=document.createElement('video');
@@ -602,9 +607,9 @@ function action(id,handler){byId(id).addEventListener("click",()=>Promise.resolv
     else status("视频分析方式已切换，点击继续视频分析");
   });
   action("monitor-start",start);action("monitor-pause",()=>stop(state.videoJob?"已暂停视频分析，当前建议保留":"已暂停监控，当前建议保留",true));action("monitor-stop",()=>stop());action("screen-refresh",refresh);action("monitor-check",()=>checkModel());
-  function clearServerMatch(){void api("/api/monitor/match/reset",{match_id:appState.matchId}).catch(()=>{});}
-  action("monitor-new",()=>{stop("已新建对局，点击开始监控");clearServerMatch();clearBpContext();appState.matchId=crypto.randomUUID();byId("monitor-side").value="auto";byId("match-label").textContent="# "+appState.matchId.slice(0,8);});
-  byId("screen-source").addEventListener("change",()=>{stop("采集窗口已更新");regionControls();clearServerMatch();clearBpContext();appState.matchId=crypto.randomUUID();byId("match-label").textContent="# "+appState.matchId.slice(0,8);localStorage.setItem("gameplan-screen-source",byId("screen-source").value);if(byId("screen-source").value&&byId("monitor-auto").checked)start().catch(error=>toast(error.message,true));});
+  function clearServerMatch(){window.gameplanReview?.close(appState.matchId);void api("/api/monitor/match/reset",{match_id:appState.matchId}).catch(()=>{});}
+  action("monitor-new",()=>{stop("已新建对局，点击开始监控");clearServerMatch();clearBpContext();appState.matchId=crypto.randomUUID();window.gameplanReview?.reset(appState.matchId);byId("monitor-side").value="auto";byId("match-label").textContent="# "+appState.matchId.slice(0,8);});
+  byId("screen-source").addEventListener("change",()=>{stop("采集窗口已更新");regionControls();clearServerMatch();clearBpContext();appState.matchId=crypto.randomUUID();window.gameplanReview?.reset(appState.matchId);byId("match-label").textContent="# "+appState.matchId.slice(0,8);localStorage.setItem("gameplan-screen-source",byId("screen-source").value);if(byId("screen-source").value&&byId("monitor-auto").checked)start().catch(error=>toast(error.message,true));});
   const savedRegion=localStorage.getItem("gameplan-monitor-region");
   if(Object.hasOwn(captureRegions,savedRegion))byId("capture-region").value=savedRegion;
   byId("capture-region").addEventListener("change",()=>{localStorage.setItem("gameplan-monitor-region",byId("capture-region").value);stop("采集区域已更新");if(byId("screen-source").value&&byId("monitor-auto").checked)start().catch(error=>toast(error.message,true));});

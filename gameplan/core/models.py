@@ -160,6 +160,7 @@ class RecentVisionFrame(BaseModel):
 
 
 class VisionRequest(MatchRequest):
+    auto_review: bool = False
     image_base64: str = Field(max_length=MAX_VISION_IMAGE_BASE64)
     model: str | None = Field(default=None, max_length=100)
     roi: ROI | None = None

@@ -1,5 +1,13 @@
 # GAMEPLAN · 电竞室 AI 助教
 
+2026-09-30：已完成 [Redis 8 存储改造与迁移准备](docs/maintenance/redis-migration.md)。覆盖英雄知识、旧工作台、计时、聊天、复盘和玩家档案；已生成 SQLite / PostgreSQL 数据快照并通过隔离测试。等待手动安装 WSL 后完成真实 Redis 导入及重启恢复验证，当前 `.env` 尚未切换。
+
+2026-09-29：新增 [PostgreSQL 玩家长期档案](docs/maintenance/player-profiles.md)。新库统一保存用户、完整聊天、对局复盘和画像历史；局后调用 DeepSeek 更新画像，支持来源查看和失败重试。旧 SQLite 不迁移。本地使用开发账号，正式登录待接入；页面入口为 `/profile`。
+
+2026-09-29：新增[自动个人复盘](docs/maintenance/automatic-match-review.md)。监控中自动区分王者荣耀和英雄联盟端游，采样记录个人关键表现，连续确认结束后调用 DeepSeek，展示最多两条“问题＋下局做法”。支持本机历史复盘与关键画面查看；真实整局识别效果仍待实局验证。
+
+2026-09-28：新增[小象助手文字聊天](http://127.0.0.1:8767/chat)，自动判断王者荣耀/英雄联盟、确认同名英雄、保留连续追问上下文。优先检索本地资料，只有缺失部分调用现有外部模型补充；回答展示知识库依据和模型来源。使用及配置见[聊天助手说明](docs/maintenance/knowledge-chat.md)。
+
 2026-09-28：新增[英雄联盟端游知识库](http://127.0.0.1:8767/knowledge/lol)，收录官方 `16.19.1` 目录全部 173 位英雄，支持英雄、技能、冷却、参考装备和打法搜索及职业筛选。工作台与原知识库均有入口；出装为项目整理的可选装备池，数值、技巧的版本边界与更新方法见[维护说明](docs/maintenance/lol-knowledge.md)。
 
 项目文件按用途查找，请先看 [项目分类导航](docs/README.md)。需求与方案集中在 `docs/requirements/`，历史交接和修复记录集中在 `docs/archive/`。

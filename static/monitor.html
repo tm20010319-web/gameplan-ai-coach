@@ -6,16 +6,19 @@
   <link rel="icon" href="/static/monitor.ico">
   <link rel="stylesheet" href="/static/monitor.css?v=multi-cast-20260921">
   <link rel="stylesheet" href="/static/overlay.css?v=compact-20260923">
+  <link rel="stylesheet" href="/static/reviews.css?v=20260929">
+  <script src="/static/reviews.js?v=20260929" defer></script>
   <script src="/static/video-candidates.js?v=cooldown-chain-20260918" defer></script>
-  <script src="/static/monitor.js?v=scoreboard-refresh-20260921" defer></script>
+  <script src="/static/monitor.js?v=auto-review-20260929" defer></script>
   <script src="/static/enemies.js?v=ready-label-20260923" defer></script>
   <script src="/static/advisor.js?v=knowledge-suspected-20260918-2" defer></script>
-  <script src="/static/overlay.js?v=compact-20260923" defer></script>
+  <script src="/static/overlay.js?v=auto-review-20260929" defer></script>
   <script src="/static/text-cooldowns.js?v=ready-label-20260923" defer></script>
 </head>
 <body>
   <header class="masthead"><div class="identity"><span class="logo">G↗</span><div><small>GAMEPLAN / DESKTOP</small><h1>实时桌面监控</h1></div></div><div class="header-actions"><span id="monitor-status" role="status" class="badge">准备就绪</span></div></header>
   <main>
+    <section class="panel" style="padding:12px;margin-bottom:12px"><details><summary style="cursor:pointer">小象助手 · 聊天问答</summary><iframe src="/chat?embedded=1" title="小象助手知识问答" loading="lazy" style="display:block;width:100%;height:560px;border:0;margin-top:10px"></iframe><a href="/chat" target="_blank" rel="noopener">打开完整聊天窗口</a></details></section>
     <section class="panel text-cooldowns" aria-label="小象助手文字计时">
       <div class="text-cooldown-heading"><h2>小象助手</h2><span>文字计时</span><span id="text-cooldown-count">0 个记录</span></div>
       <form id="text-cooldown-form">
@@ -53,6 +56,14 @@
         </section><details class="readings"><summary>自身技能读数与识别详情</summary><p id="skill-readings" class="muted">英雄优先模式不读取技能倒计时。</p><pre id="observation-json">尚未识别</pre></details></section>
       </div>
       <aside class="advice-column">
+        <section class="panel review-panel" aria-label="个人赛后复盘">
+          <div class="panel-title"><h2>本局复盘</h2><span id="review-game" class="badge">自动识别</span></div>
+          <div class="review-body">
+            <p id="review-live-status" class="review-meta" role="status" aria-live="polite">自动识别王者荣耀 / 英雄联盟，结束后生成简短复盘。</p>
+            <div id="review-current" aria-live="polite"></div><a href="/profile" target="_blank" rel="noopener">查看玩家长期档案 ↗</a>
+            <details id="review-history"><summary>历史复盘</summary><div id="review-history-list"></div><div class="review-pagination"><button id="review-prev" type="button" disabled>上一页</button><span id="review-page"></span><button id="review-next" type="button" disabled>下一页</button><button id="review-refresh" type="button">刷新</button></div></details>
+          </div>
+        </section>
         <section class="panel enemy-selection" aria-label="敌方选人">
           <div class="panel-title"><h2>敌方选人</h2><span id="enemy-count" class="badge">0 / 5</span></div>
           <div class="enemy-selection-body"><p id="enemy-roster-status" class="muted" role="status">敌方尚未显示或未能识别，等待选人画面。</p>
@@ -64,7 +75,7 @@
           </div>
         </section>
         <section class="panel coach-summary"><div class="panel-title"><h2>本地对局建议</h2><span id="coach-source" class="badge">等待画面</span></div><div class="coach-body"><div id="coach-pipeline" class="muted">等待 Ollama 识别游戏画面</div><p id="coach-summary">识别到游戏后，会在这里告诉你需要注意什么、如何争取优势。</p><small id="coach-meta" class="muted"></small><div class="perspective"><label>查看我方<select id="monitor-side"><option value="auto" selected>我的一方</option></select></label><label>建议针对的英雄（可核对）<select id="monitor-hero"><option value="">自动跟随 / 全队配合</option></select></label></div><section id="lane-plan" class="quick" hidden><h2 id="lane-plan-title">分路打法</h2><p id="lane-plan-text"></p><small>按分路提供通用建议，英雄未确认时不指定个人英雄打法。</small></section><div id="quick-plan" class="quick" hidden><small>先记住这点 · 本地机制参考</small><p id="quick-text"></p></div><button id="coach-retry">重新识别当前画面</button><p id="coach-provider" class="muted"></p><details id="coach-detail" hidden><summary>查看本地分析依据</summary><div id="coach-reasoning"></div></details></div></section>
-        <p class="footnote">截图在本机处理。开启漏检诊断时，最近送检画面与判断结果按容量轮换保存在本机。看不清的英雄保留待确认。关闭此窗口会停止本页监控。</p>
+        <p class="footnote">游戏画面在本机识别，复盘采样与关键画面按对局保存在本机；局后将游戏事实交给 DeepSeek 分析。看不清的英雄保留待确认。关闭此窗口会停止本页监控。</p>
       </aside>
     </div>
   </main><div id="toast" role="alert" hidden></div>

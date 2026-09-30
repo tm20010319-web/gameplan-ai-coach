@@ -1,6 +1,10 @@
 param([int]$Port = 8765, [string]$BindAddress = "127.0.0.1", [switch]$Lan)
 $ErrorActionPreference = "Stop"
 Set-Location -LiteralPath $PSScriptRoot
+if ((Test-Path -LiteralPath '.env') -and (Select-String -LiteralPath '.env' -Pattern '^GAMEPLAN_LOCAL_REDIS=[\x22\x27]?1[\x22\x27]?\s*$' -Quiet)) {
+    & (Join-Path $PSScriptRoot 'scripts\start-redis.ps1')
+    if ($LASTEXITCODE -ne 0) { throw 'Local Redis could not be started.' }
+}
 $python = Join-Path $PSScriptRoot ".venv\Scripts\python.exe"
 if (-not (Test-Path -LiteralPath $python)) {
     throw "Please create .venv and install requirements.txt first. See README.md."

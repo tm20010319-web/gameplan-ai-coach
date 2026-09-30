@@ -271,7 +271,7 @@ class Advisor:
         if references:
             result['summary'] = reference_summary(references)
             result['opportunities'] = [f"若{r['when']}，{r['action']}" for r in references]
-            result['understanding'] = '已查询所选英雄的 SQLite 攻略；以下是条件性参考，未确认条件已发生。'
+            result['understanding'] = '已查询所选英雄的攻略；以下是条件性参考，未确认条件已发生。'
             result['knowledge_references'] = references
         # Return the matched local records alongside advice so the UI can show
         # exact skill descriptions without asking the language model to recall them.

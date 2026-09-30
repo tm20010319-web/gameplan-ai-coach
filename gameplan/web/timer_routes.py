@@ -13,6 +13,15 @@ from gameplan.voice import VoiceCooldownAssistant
 from gameplan.voice.cooldown_assistant import REPORT_DELAY_S
 
 
+def timer_storage():
+    from gameplan.persistence.database import enabled
+    if enabled():
+        from gameplan.persistence import timers
+        return timers
+    from gameplan.core import storage
+    return storage
+
+
 def routes(publish=None, catalog=None, match_locks=None):
     router = APIRouter()
     locks = match_locks if match_locks is not None else defaultdict(asyncio.Lock)
@@ -39,7 +48,7 @@ def routes(publish=None, catalog=None, match_locks=None):
 
     @router.get("/api/matches/{match_id}/skill-timers")
     def get_skill_timers(match_id: str):
-        from gameplan.core import storage
+        storage = timer_storage()
         import gameplan.skills.cooldowns as cooldowns
         validate_timer_match(match_id)
         return cooldowns.snapshot(match_id, storage.memory(match_id))
@@ -47,7 +56,7 @@ def routes(publish=None, catalog=None, match_locks=None):
 
     @router.post("/api/matches/{match_id}/skill-timers")
     async def register_skill_timer(match_id: str, req: SkillTimerRequest):
-        from gameplan.core import storage
+        storage = timer_storage()
         import gameplan.skills.cooldowns as cooldowns
         validate_timer_match(match_id)
         async with locks[match_id]:
@@ -82,7 +91,7 @@ def routes(publish=None, catalog=None, match_locks=None):
         return await register_command(match_id, req, source="voice")
 
     async def register_command(match_id, req, *, source):
-        from gameplan.core import storage
+        storage = timer_storage()
         import gameplan.skills.cooldowns as cooldowns
         """Turn one wake-word ASR result into a persisted enemy cooldown event."""
         validate_timer_match(match_id)
@@ -170,7 +179,7 @@ def routes(publish=None, catalog=None, match_locks=None):
 
     @router.post("/api/matches/{match_id}/skill-timers/clear")
     async def clear_skill_timers(match_id: str):
-        from gameplan.core import storage
+        storage = timer_storage()
         import gameplan.skills.cooldowns as cooldowns
         validate_timer_match(match_id)
         async with locks[match_id]:
@@ -185,7 +194,7 @@ def routes(publish=None, catalog=None, match_locks=None):
 
     @router.post("/api/matches/{match_id}/skill-timers/{timer_id}/cancel")
     async def cancel_skill_timer(match_id: str, timer_id: str):
-        from gameplan.core import storage
+        storage = timer_storage()
         import gameplan.skills.cooldowns as cooldowns
         validate_timer_match(match_id)
         async with locks[match_id]:

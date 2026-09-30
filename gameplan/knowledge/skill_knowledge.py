@@ -174,3 +174,7 @@ def coverage():
             "missing_heroes": [h["hero"] for h in records if not h.get("skills")],
             "missing_skill_data": len(records) - with_skills,
             "fetched_at": _catalog().get("fetched_at"), "note": _catalog().get("note", "")}
+
+
+from gameplan.persistence.database import dispatch
+dispatch(globals(), 'gameplan.knowledge.redis_skill_knowledge', 'sync_database get_hero coverage')

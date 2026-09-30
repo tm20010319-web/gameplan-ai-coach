@@ -42,6 +42,14 @@ def require_local(request: Request):
         raise HTTPException(403, "不允许其他网站请求本机屏幕或模型分析。")
 
 
+from gameplan.web.chat_routes import routes as chat_routes
+app.include_router(chat_routes(require_local))
+from gameplan.web.review_routes import routes as review_routes
+app.include_router(review_routes(require_local))
+from gameplan.web.account_routes import install as install_accounts
+install_accounts(app, require_local)
+
+
 @app.get("/")
 @app.get("/monitor")
 def page(mode: str = "picture", embedded: bool = False):
@@ -158,6 +166,9 @@ async def frame(req: ScreenCaptureRequest, request: Request):
 @app.post("/api/vision/observe")
 async def observation(req: VisionRequest, request: Request):
     require_local(request)
+    if req.auto_review and req.input_kind == "live":
+        from gameplan.monitoring.review_runtime import observe as review_observe
+        return await review_observe(req, observe)
     from gameplan.monitoring.skill_diagnostics import begin, active_trace
     trace = begin(req)
     if trace is None:
@@ -182,7 +193,8 @@ async def observation(req: VisionRequest, request: Request):
 @app.post("/api/monitor/match/reset")
 def clear_match(req: MatchRequest, request: Request):
     require_local(request)
-    reset_match(req.match_id)
+    from gameplan.persistence.database import stream_key
+    reset_match(stream_key(req.match_id))
     return {"cleared": True, "match_id": req.match_id}
 
 
@@ -193,7 +205,8 @@ from gameplan.core.models import SummonerCorrectionRequest
 def correct_summoner(req: SummonerCorrectionRequest, request: Request):
     require_local(request)
     from gameplan.monitoring.monitor_runtime import trackers
-    tracker = trackers.get(req.match_id)
+    from gameplan.persistence.database import stream_key
+    tracker = trackers.get(stream_key(req.match_id))
     if tracker is None:
         raise HTTPException(404, "本局记录已清空，请先识别当前阵容")
     try:

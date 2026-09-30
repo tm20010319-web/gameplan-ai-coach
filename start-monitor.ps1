@@ -2,6 +2,15 @@ param([ValidateRange(1024,65535)][int]$Port = 8767, [switch]$NoWindow, [switch]$
 $ErrorActionPreference = 'Stop'
 $monitorRoot = $PSScriptRoot
 $monitorPython = Join-Path $monitorRoot '.venv\Scripts\python.exe'
+$databaseEnvFile = Join-Path $monitorRoot '.env'
+if ((Test-Path -LiteralPath $databaseEnvFile) -and (Select-String -LiteralPath $databaseEnvFile -Pattern '^GAMEPLAN_LOCAL_REDIS=[\x22\x27]?1[\x22\x27]?\s*$' -Quiet)) {
+    & (Join-Path $monitorRoot 'scripts\start-redis.ps1')
+    if ($LASTEXITCODE -ne 0) { throw 'Local Redis could not be started.' }
+}
+if ((Test-Path -LiteralPath $databaseEnvFile) -and (Select-String -LiteralPath $databaseEnvFile -Pattern '^GAMEPLAN_LOCAL_POSTGRES=[\x22\x27]?1[\x22\x27]?\s*$' -Quiet)) {
+    & (Join-Path $monitorRoot 'scripts\start-database.ps1')
+    if ($LASTEXITCODE -ne 0) { throw 'Local PostgreSQL could not be started.' }
+}
 $monitorBase = "http://127.0.0.1:$Port"
 $monitorUrl = "$monitorBase/monitor"
 if ($NoAutoStart) { $monitorUrl += '?monitor=off' }

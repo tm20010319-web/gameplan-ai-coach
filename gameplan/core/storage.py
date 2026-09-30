@@ -11,6 +11,9 @@ DATA.mkdir(parents=True, exist_ok=True)
 
 @contextmanager
 def database():
+    if os.getenv("GAMEPLAN_DATABASE_URL") or os.getenv('GAMEPLAN_REDIS_URL'):
+        from fastapi import HTTPException
+        raise HTTPException(503, "新数据库模式不开放旧版工作台记录接口，请使用监控页、聊天和玩家档案。")
     connection = sqlite3.connect(DATA / "coach.sqlite3", timeout=15)
     connection.row_factory = sqlite3.Row
     try:
@@ -20,8 +23,9 @@ def database():
         connection.close()
 
 
-with database() as connection:
-    connection.executescript("""
+if not (os.getenv("GAMEPLAN_DATABASE_URL") or os.getenv('GAMEPLAN_REDIS_URL')):
+    with database() as connection:
+        connection.executescript("""
         CREATE TABLE IF NOT EXISTS matches (id TEXT PRIMARY KEY, created REAL, memory TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS records (id TEXT PRIMARY KEY, match_id TEXT NOT NULL, created REAL, data TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS audit (id INTEGER PRIMARY KEY, match_id TEXT, created REAL, data TEXT);
@@ -66,3 +70,7 @@ def get_report(report_id):
     with database() as connection:
         row = connection.execute("SELECT data FROM reports WHERE id = ?", (report_id,)).fetchone()
     return json.loads(row["data"]) if row else None
+
+
+from gameplan.persistence.database import dispatch
+dispatch(globals(), 'gameplan.persistence.redis_coach', 'memory save_memory audit save_record records save_report get_report')
