@@ -260,3 +260,6 @@ def bp_page(embedded: bool = False):
 
 from gameplan.web.timer_routes import routes as timer_routes
 app.include_router(timer_routes())
+
+from gameplan.web.king_agent_routes import router as king_agent_router
+app.include_router(king_agent_router)

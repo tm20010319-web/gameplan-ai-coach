@@ -51,6 +51,22 @@ def test_voice_still_requires_wake_word():
         assert client.post(path, json={"text": "小象助手，妲己闪现了"}).status_code == 200
 
 
+@pytest.mark.parametrize('app', [monitor, workbench])
+@pytest.mark.parametrize('text', ['牛魔没大', '牛牛没大', '牛魔王没大招', '老牛没有大招', '对面牛牛刚没大', '牛牛小明都没大'])
+def test_colloquial_names_and_unavailable_reports_persist(app, text):
+    path = f'/api/matches/{uuid4().hex}'
+    with TestClient(app) as client:
+        response = client.post(path+'/text-command', json={'text': text})
+        assert response.status_code == 200, response.text
+        data = response.json()
+        assert data['ok']
+        assert data['timers'][0]['hero'] == '牛魔'
+        assert data['timers'][0]['ready_epoch'] is not None
+        before = client.get(path+'/skill-timers').json()['timers']
+    with TestClient(app) as client:
+        assert client.get(path+'/skill-timers').json()['timers'] == before
+
+
 @pytest.mark.parametrize("app", [monitor, workbench])
 def test_group_aliases_persistence_and_replacement(app):
     match = uuid4().hex

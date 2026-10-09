@@ -103,7 +103,7 @@ def routes(publish=None, catalog=None, match_locks=None):
                     "candidates": resolution["candidates"]}
         commands = resolution["commands"]
         if not commands:
-            raise HTTPException(422, "未识别到有效指令，请输入“妲己放大了”或“后裔小明都放大招了”；请确认每个英雄名称与释放动作。")
+            raise HTTPException(422, "未识别到有效指令，请输入“牛魔没大”“妲己放大了”或“后裔小明都没大”；英雄全名和常用别名均可，有歧义时需选择英雄。")
 
         async with locks[match_id]:
             memory = storage.memory(match_id)

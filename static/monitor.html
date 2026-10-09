@@ -22,7 +22,7 @@
     <section class="panel text-cooldowns" aria-label="小象助手文字计时">
       <div class="text-cooldown-heading"><h2>小象助手</h2><span>文字计时</span><span id="text-cooldown-count">0 个记录</span></div>
       <form id="text-cooldown-form">
-        <input id="text-cooldown-input" aria-label="技能指令" maxlength="160" required placeholder="例如：后裔小明都放大招了">
+        <input id="text-cooldown-input" aria-label="技能指令" maxlength="160" required placeholder="例如：牛魔没大、老牛没大招">
         <button id="text-cooldown-submit" class="primary" type="submit">记录</button>
       </form>
       <p id="text-cooldown-status" role="status" aria-live="polite">正在恢复计时…</p>
@@ -30,7 +30,7 @@
       <div id="text-cooldown-cards"></div>
       <p id="text-cooldown-alert" role="status" aria-live="polite"></p>
       <div class="text-cooldown-footer">
-        <details><summary>使用说明</summary><p><a href="/static/knowledge.html" target="_blank" rel="noopener">打开王者荣耀知识库</a> · <a href="/knowledge/lol" target="_blank" rel="noopener">英雄联盟端游知识库</a></p><p>支持英雄全名、常用别名及多人指令；有歧义时先选择英雄。支持“六耳没大招”报时。大招和闪现按基础冷却减去3秒估算，不需要启动屏幕识别。文字计时使用独立对局，刷新后恢复。</p></details>
+        <details><summary>使用说明</summary><p><a href="/static/knowledge.html" target="_blank" rel="noopener">打开王者荣耀知识库</a> · <a href="/knowledge/lol" target="_blank" rel="noopener">英雄联盟端游知识库</a></p><p>支持当前英雄全名、已收录的常用别名及多人指令；有歧义时先选择英雄。例如“牛魔没大”“牛牛没大招”“后裔小明都没大”“猴子没闪”。“没大／没闪”按刚使用过报时，从记录时开始按基础冷却减去3秒估算，并不读取实际剩余冷却。不需要启动屏幕识别；文字计时使用独立对局，刷新后恢复。</p></details>
         <button id="text-cooldown-clear" type="button">清空</button>
         <button id="text-cooldown-new" type="button">新对局</button>
       </div>

@@ -466,3 +466,6 @@ def report_asset(report_id: str, asset: str):
 def report_page(report_id: str):
     require_report(report_id)
     return FileResponse(ROOT / "static" / "report.html")
+
+from gameplan.web.king_agent_routes import router as king_agent_router
+app.include_router(king_agent_router)

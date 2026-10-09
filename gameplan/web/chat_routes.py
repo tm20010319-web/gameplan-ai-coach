@@ -27,6 +27,28 @@ class Message(BaseModel):
         return value.strip()
 
 
+def process_message(sid, message, received_at):
+    token = None
+    try:
+        job = chat_store.begin(sid, message.request_id, message.revision, message.text)
+        if "cached" in job:
+            return {"session": job["state"], "response": job["cached"]}
+        token, state = job["token"], job["state"]
+        history = [{"question": turn["user"], "answer": turn["response"]["answer"]} for turn in state["turns"][-4:]]
+        if enabled():
+            from gameplan.persistence.profiles import read as read_profile
+            profile = read_profile()
+            result = knowledge_chat.answer(message.text, state["context"], history, received_at=received_at, profile=profile["data"])
+            result["profile_version"] = profile["version"]
+        else:
+            result = knowledge_chat.answer(message.text, state["context"], history, received_at=received_at)
+        updated = chat_store.finish(sid, token, message.request_id, message.text, result)
+        return {"session": updated, "response": updated["turns"][-1]["response"]}
+    finally:
+        if token:
+            chat_store.release(sid, token)
+
+
 def routes(require_local):
     router = APIRouter()
 
@@ -47,32 +69,11 @@ def routes(require_local):
         except KeyError:
             raise HTTPException(404, "对话不存在，请开始新对话。")
 
-    def process(sid, message, received_at):
-        token = None
-        try:
-            job = chat_store.begin(sid, message.request_id, message.revision, message.text)
-            if "cached" in job:
-                return {"session": job["state"], "response": job["cached"]}
-            token, state = job["token"], job["state"]
-            history = [{"question": turn["user"], "answer": turn["response"]["answer"]} for turn in state["turns"][-4:]]
-            if enabled():
-                from gameplan.persistence.profiles import read as read_profile
-                profile = read_profile()
-                result = knowledge_chat.answer(message.text, state["context"], history, received_at=received_at, profile=profile["data"])
-                result["profile_version"] = profile["version"]
-            else:
-                result = knowledge_chat.answer(message.text, state["context"], history, received_at=received_at)
-            updated = chat_store.finish(sid, token, message.request_id, message.text, result)
-            return {"session": updated, "response": updated["turns"][-1]["response"]}
-        finally:
-            if token:
-                chat_store.release(sid, token)
-
     @router.post("/api/chat/sessions/{sid}/messages")
     async def message(sid: str, payload: Message, request: Request):
         private_access(request, require_local)
         try:
-            return await asyncio.to_thread(process, sid, payload, time.time())
+            return await asyncio.to_thread(process_message, sid, payload, time.time())
         except KeyError:
             raise HTTPException(404, "对话不存在，请开始新对话。")
         except chat_store.ChatConflict as exc:

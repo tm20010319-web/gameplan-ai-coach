@@ -13,6 +13,39 @@ def test_alias_catalog_covers_exactly_current_heroes():
     assert len(ALIASES) == 132
 
 
+@pytest.mark.parametrize('hero', sorted(ALIASES))
+def test_every_official_hero_accepts_short_unavailable_report(hero):
+    result = ASSISTANT.resolve_commands(f'小象助手，{hero}没大')
+    assert result['status'] == 'ready'
+    assert [c['hero'] for c in result['commands']] == [hero]
+
+
+@pytest.mark.parametrize('name', ['牛魔', '老牛', '牛牛', '牛魔王'])
+@pytest.mark.parametrize('action', ['没大', '没大了', '没大招', '没有大招', '放大', '开大', '交大了'])
+def test_cow_names_and_colloquial_casts_start_an_ultimate(name, action):
+    result = ASSISTANT.process(f'小象助手，{name}{action}', recorded_at=1000)
+    assert result['ok']
+    assert result['timer']['hero'] == '牛魔'
+    assert result['timer']['skill_kind'] == 'ultimate'
+    assert result['timer']['ready_at'] > 1000
+
+
+@pytest.mark.parametrize('text', ['牛魔没大吗', '牛魔没大？', '牛魔可能没大', '牛魔没放大', '牛魔没有放大',
+    '牛魔没学大', '牛魔不放大', '牛魔没到四级', '不知道牛魔没大', '牛牛没大招吗'])
+def test_short_reports_do_not_turn_uncertainty_or_negation_into_a_timer(text):
+    assert ASSISTANT.resolve_commands('小象助手，'+text)['status'] == 'invalid'
+
+
+@pytest.mark.parametrize('action', ['没闪', '没闪了', '没闪现', '没闪现了', '没有闪现', '闪现没了'])
+def test_flash_unavailability_reports_start_the_same_cooldown(action):
+    assistant = VoiceCooldownAssistant(now=lambda: 1000)
+    result = assistant.process('小象助手，牛牛'+action)
+    assert result['ok']
+    assert result['timer']['hero'] == '牛魔'
+    assert result['timer']['skill_kind'] == 'flash'
+    assert result['timer']['ready_at'] == 1117
+
+
 @pytest.mark.parametrize("hero", sorted(ALIASES))
 def test_every_official_name_remains_unambiguous(hero):
     result = ASSISTANT.resolve_commands(f"小象助手，{hero}放大了")
@@ -20,12 +53,13 @@ def test_every_official_name_remains_unambiguous(hero):
     assert [c["hero"] for c in result["commands"]] == [hero]
 
 
+@pytest.mark.parametrize('action', ['闪现了', '没大'])
 @pytest.mark.parametrize("hero, alias", [
     (hero, alias) for hero, entry in ALIASES.items()
     for alias in entry["aliases"] + entry["asr_variants"]
 ])
-def test_each_curated_alias_resolves_or_offers_its_hero(hero, alias):
-    result = ASSISTANT.resolve_commands(f"小象助手，{alias}闪现了")
+def test_each_curated_alias_resolves_or_offers_its_hero(hero, alias, action):
+    result = ASSISTANT.resolve_commands(f"小象助手，{alias}{action}")
     if result["status"] == "ready":
         assert [c["hero"] for c in result["commands"]] == [hero]
     else:

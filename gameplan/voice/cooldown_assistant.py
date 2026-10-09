@@ -67,6 +67,13 @@ class VoiceCooldownAssistant:
     """
 
     _FLASH_PHRASES = (
+        "没闪",
+        "没闪了",
+        "没闪现",
+        "没闪现了",
+        "没有闪现",
+        "没有闪现了",
+        "闪现没了",
         "交了闪现",
         "交闪了",
         "使用闪现",
@@ -75,8 +82,24 @@ class VoiceCooldownAssistant:
         "闪现了",
     )
     _ULTIMATE_PHRASES = (
+        "没大",
+        "没大了",
         "没大招",
         "没大招了",
+        "没有大",
+        "没有大了",
+        "没有大招",
+        "没有大招了",
+        "大没了",
+        "大招没了",
+        "大招用了",
+        "大招交了",
+        "交大",
+        "交大了",
+        "交了大招",
+        "用了大招",
+        "放大",
+        "开大",
         "放了大招",
         "放大招了",
         "放大招",
@@ -204,7 +227,7 @@ class VoiceCooldownAssistant:
             return [], None
         body = self._clean(raw.split(self.wake_word, 1)[1])
         actions = sorted((*self._FLASH_PHRASES, *self._ULTIMATE_PHRASES, "大招"), key=len, reverse=True)
-        modifier = r"(?:(?:也|又)(?:刚刚|刚才|刚)?|(?:刚刚|刚才|刚)(?:也|又)?)?"
+        modifier = r"(?:(?:也|又)(?:已经|现在|刚刚|刚才|刚)?|(?:已经|现在|刚刚|刚才|刚)(?:也|又)?)?"
         pattern = r"(?:敌方|对面|对方)?(.+?)" + modifier + "(" + "|".join(map(re.escape, actions)) + ")"
         match = re.fullmatch(pattern, body)
         if not match:
